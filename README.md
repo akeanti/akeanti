@@ -2,7 +2,7 @@
   <img src="./src/index.svg" width="100%" height="1100px" draggable="false" />
 </picture>
 <p align="center">
-  <a href="https://github.com/ItsPi3141/alpaca-electron">Alpaca Electron</a> • <a href="https://github.com/ItsPi3141/discord-fake-avatar-decorations">Discord Fake Avatar Decorations</a> • <a href="https://github.com/ItsPi3141/intervoyage">Intervoyage</a>
+  <a href="https://discord.gg/A2rQsnQMvy">Alpaca Electron</a>
 </p>
 <p align="center">
   <picture>
