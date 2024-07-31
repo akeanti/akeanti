@@ -22,8 +22,8 @@ jobs:
           USERNAME: akeanti
       - name: Commit & Push
         run: |
-          git config user.name thuan2172001
-          git config user.email thuan2172001@gmail.com
+          git config user.name akeanti
+          git config user.email king.mi.srv@gmail.com
           git add -A .
           git commit -m "generated"
           git push
