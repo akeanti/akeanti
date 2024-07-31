@@ -34,9 +34,3 @@ W@@@@@@@@@@Q`                                  _0@@@@@@@@@@*
               "Lf8@@@@v              q@@@#Qa?:                 
                   -!v|`              _?v!`                     
 ```
-<p align="center" >
-  <br>
-  <picture>
-    <img src="profile-3d-contrib/profile-customize.svg" draggable="false" />
-  </picture>
-</p>
