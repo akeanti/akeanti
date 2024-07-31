@@ -34,3 +34,5 @@ W@@@@@@@@@@Q`                                  _0@@@@@@@@@@*
               "Lf8@@@@v              q@@@#Qa?:                 
                   -!v|`              _?v!`                     
 ```
+
+![Akeanti's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=Akeanti&bg_color=24292e&color=F0FFFF&line=F0FFFF&point=ffffff&area=true&hide_border=true)
