@@ -2,7 +2,7 @@
   <img src="./src/index.svg" width="100%" height="1100px" draggable="false" />
 </picture>
 <p align="center">
-  <a href="https://discord.gg/A2rQsnQMvy">Alpaca Electron</a>
+  <a href="https://discord.gg/A2rQsnQMvy">My server</a>
 </p>
 <p align="center">
   <picture>
