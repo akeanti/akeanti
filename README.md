@@ -35,4 +35,9 @@ W@@@@@@@@@@Q`                                  _0@@@@@@@@@@*
                   -!v|`              _?v!`                     
 ```
 
-![Akeanti's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=Akeanti&bg_color=24292e&color=F0FFFF&line=F0FFFF&point=ffffff&area=true&hide_border=true)
+<a href="https://github.com/anuraghazra/github-readme-stats">
+  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=akeanti&theme=dark" />
+</a>
+<a href="https://github.com/anuraghazra/convoychat">
+  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=akeanti&layout=donut&langs_count=8&card_width=320&theme=dark" />
+</a>
