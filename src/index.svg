@@ -1,79 +1,196 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 850" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 800 400"
+     width="800"
+     height="400">
+
     <defs>
-        <radialGradient id="spaceBg" cx="50%" cy="50%" r="75%">
-            <stop offset="0%" stop-color="#0c111a" />
-            <stop offset="100%" stop-color="#010409" />
+        <radialGradient id="bg" cx="50%" cy="50%" r="75%">
+            <stop offset="0%" stop-color="#0d1117"/>
+            <stop offset="100%" stop-color="#010409"/>
         </radialGradient>
     </defs>
 
-    <rect width="100%" height="100%" fill="url(#spaceBg)" rx="12" stroke="#30363d" stroke-width="1" />
-    <g fill="#ffffff" opacity="0.6">
-        <circle cx="120" cy="80" r="1.5"/>
-        <circle cx="680" cy="140" r="2.0"/>
-        <circle cx="250" cy="280" r="1.0"/>
-        <circle cx="720" cy="450" r="1.5"/>
-        <circle cx="80"  cy="650" r="2.0"/>
-        <circle cx="550" cy="820" r="1.5"/>
-        <circle cx="400" cy="120" r="1.0"/>
-        <circle cx="150" cy="500" r="1.5"/>
-        <circle cx="600" cy="300" r="2.0"/>
+    <!-- Background -->
+    <rect width="800"
+          height="400"
+          fill="url(#bg)"
+          rx="12"
+          stroke="#30363d"
+          stroke-width="1"/>
+
+    <!-- Cat -->
+    <g transform="translate(40 40)">
+        <circle cx="50" cy="50" r="40" fill="#8b949e"/>
+
+        <polygon points="15,30 30,-10 45,20"
+                 fill="#8b949e"/>
+
+        <polygon points="85,30 70,-10 55,20"
+                 fill="#8b949e"/>
+
+        <circle cx="50" cy="55" r="25" fill="#ffffff"/>
+
+        <circle cx="35" cy="45" r="4" fill="#010409"/>
+        <circle cx="65" cy="45" r="4" fill="#010409"/>
+
+        <polygon points="45,55 55,55 50,62"
+                 fill="#010409"/>
     </g>
 
-    <g transform="translate(400, 130)">
-        <path d="M -90,-20 Q 0,-70 90,-20 L 100,10 L -100,10 Z" fill="#161b22" stroke="#d2a8ff" stroke-width="2"/>
-        <circle cx="0" cy="-45" r="10" fill="#d2a8ff" />
-        <circle cx="0" cy="40" r="45" fill="#8b949e" />
-        <polygon points="-35,5 -45,-25 -10,-10" fill="#8b949e" />
-        <polygon points="35,5 45,-25 10,-10" fill="#8b949e" />
-        <circle cx="0" cy="60" r="22" fill="#ffffff" />
-        <circle cx="-18" cy="30" r="4" fill="#010409" />
-        <circle cx="18" cy="30" r="4" fill="#010409" />
-        <polygon points="-5,50 5,50 0,56" fill="#010409" />
+    <!-- Header -->
+    <text x="150"
+          y="70"
+          fill="#e6edf3"
+          font-family="monospace"
+          font-size="24"
+          font-weight="bold">
+        Akeanti
+    </text>
+
+    <text x="150"
+          y="95"
+          fill="#8b949e"
+          font-family="monospace"
+          font-size="14">
+        CPGE MP | Systems Researcher | OSS Contributor
+    </text>
+
+    <text x="150"
+          y="115"
+          fill="#8b949e"
+          font-family="monospace"
+          font-size="12">
+        Mom once told me I&apos;d be successful. Sorry mom, I became garbage...
+    </text>
+
+    <!-- Divider -->
+    <line x1="40"
+          y1="140"
+          x2="760"
+          y2="140"
+          stroke="#30363d"
+          stroke-width="1"/>
+
+    <!-- Left Terminal -->
+    <text x="40"
+          y="180"
+          fill="#58a6ff"
+          font-family="monospace"
+          font-size="14"
+          font-weight="bold">
+        akeanti@archlinux:~$ cat capabilities.log
+    </text>
+
+    <text x="40"
+          y="210"
+          fill="#3fb950"
+          font-family="monospace"
+          font-size="14">
+        &gt; OS_PREF : Arch Linux, Linux Mint
+    </text>
+
+    <text x="40"
+          y="235"
+          fill="#3fb950"
+          font-family="monospace"
+          font-size="14">
+        &gt; CORE    : C++, Rust, Python, C, SQL, LaTeX
+    </text>
+
+    <text x="40"
+          y="260"
+          fill="#3fb950"
+          font-family="monospace"
+          font-size="14">
+        &gt; DOMAIN  : Kernel Dev, Low-Level Architecture
+    </text>
+
+    <text x="40"
+          y="285"
+          fill="#3fb950"
+          font-family="monospace"
+          font-size="14">
+        &gt; FOCUS   : Mathematics, Cyber Security, OSINT
+    </text>
+
+    <!-- Right Terminal -->
+    <text x="420"
+          y="180"
+          fill="#58a6ff"
+          font-family="monospace"
+          font-size="14"
+          font-weight="bold">
+        akeanti@archlinux:~$ ls -l projects/
+    </text>
+
+    <!-- Project Card 1 -->
+    <g transform="translate(420 200)">
+        <rect width="340"
+              height="70"
+              fill="#161b22"
+              rx="6"
+              stroke="#30363d"
+              stroke-width="1"/>
+
+        <text x="15"
+              y="28"
+              fill="#e6edf3"
+              font-family="monospace"
+              font-size="16"
+              font-weight="bold">
+            FoxIT
+        </text>
+
+        <text x="15"
+              y="48"
+              fill="#8b949e"
+              font-family="monospace"
+              font-size="12">
+            Open-source Discord extension
+        </text>
+
+        <text x="15"
+              y="64"
+              fill="#8b949e"
+              font-family="monospace"
+              font-size="12">
+            Fake Nitro perks implementation
+        </text>
     </g>
 
-    <text x="400" y="250" fill="#e6edf3" font-family="monospace" font-size="28" font-weight="bold" text-anchor="middle" letter-spacing="1">Akeanti</text>
-    <text x="400" y="280" fill="#7d8590" font-family="monospace" font-size="14" text-anchor="middle">Mom once told me I will be a successful man, sry mom, I'm trash...</text>
+    <!-- Project Card 2 -->
+    <g transform="translate(420 285)">
+        <rect width="340"
+              height="70"
+              fill="#161b22"
+              rx="6"
+              stroke="#30363d"
+              stroke-width="1"/>
 
-    <line x1="50" y1="320" x2="750" y2="320" stroke="#30363d" stroke-width="2" />
+        <text x="15"
+              y="28"
+              fill="#e6edf3"
+              font-family="monospace"
+              font-size="16"
+              font-weight="bold">
+            Discord Mathspal
+        </text>
 
-    <text x="50" y="370" fill="#58a6ff" font-family="monospace" font-size="18" font-weight="bold">~/about_me $</text>
-    <text x="50" y="405" fill="#c9d1d9" font-family="monospace" font-size="14">I'm the biggest disappointment you'll ever find. I share some discord bots,</text>
-    <text x="50" y="425" fill="#c9d1d9" font-family="monospace" font-size="14">LaTeX templates, Arduino, and such projects.</text>
-    <text x="50" y="445" fill="#c9d1d9" font-family="monospace" font-size="14">I use arch btw and love anything maths related or linux foss world.</text>
+        <text x="15"
+              y="48"
+              fill="#8b949e"
+              font-family="monospace"
+              font-size="12">
+            Mathematical database repository
+        </text>
 
-    <text x="50" y="500" fill="#58a6ff" font-family="monospace" font-size="18" font-weight="bold">~/skills $</text>
-    <text x="50" y="535" fill="#3fb950" font-family="monospace" font-size="14">&gt; JS, HTML and CSS creator for many webpages</text>
-    <text x="50" y="560" fill="#3fb950" font-family="monospace" font-size="14">&gt; Python for data etc...</text>
-    <text x="50" y="585" fill="#3fb950" font-family="monospace" font-size="14">&gt; Arduino teacher for teens</text>
-    <text x="50" y="610" fill="#3fb950" font-family="monospace" font-size="14">&gt; LaTeX writer for maths problems</text>
-    <text x="50" y="635" fill="#3fb950" font-family="monospace" font-size="14">&gt; Kernel and low level dev</text>
-    <text x="50" y="660" fill="#3fb950" font-family="monospace" font-size="14">&gt; Cyber Sec expert and researcher</text>
-    <text x="50" y="685" fill="#3fb950" font-family="monospace" font-size="14">&gt; visit akeanti.com for more info :c</text>
-
-    <text x="450" y="500" fill="#58a6ff" font-family="monospace" font-size="18" font-weight="bold">~/projects $</text>
-    <text x="450" y="525" fill="#7d8590" font-family="monospace" font-size="12">(Links below due to GitHub SVGs policy)</text>
-
-    <g transform="translate(450, 545)">
-        <rect width="300" height="110" fill="#161b22" rx="8" stroke="#30363d" stroke-width="1" />
-        <g transform="translate(15, 20)">
-            <rect width="40" height="40" rx="8" fill="#21262d" stroke="#e25822" stroke-width="2"/>
-            <polygon points="10,10 30,10 20,30" fill="#e25822"/>
-            <polygon points="10,10 15,20 20,15" fill="#ffffff"/>
-            <polygon points="30,10 25,20 20,15" fill="#ffffff"/>
-        </g>
-        <text x="70" y="40" fill="#e6edf3" font-family="monospace" font-size="16" font-weight="bold">FoxIT</text>
-        <text x="70" y="60" fill="#8b949e" font-family="monospace" font-size="12">The Best discord extention.</text>
-        <text x="70" y="75" fill="#8b949e" font-family="monospace" font-size="12">Open sauce. Fake nitro perks.</text>
+        <text x="15"
+              y="64"
+              fill="#8b949e"
+              font-family="monospace"
+              font-size="12">
+            Handwritten CPGE mathematics archive
+        </text>
     </g>
 
-    <g transform="translate(450, 670)">
-        <rect width="300" height="110" fill="#161b22" rx="8" stroke="#30363d" stroke-width="1" />
-        <g transform="translate(15, 20)">
-            <rect width="40" height="40" rx="8" fill="#21262d" stroke="#2ea043" stroke-width="2"/>
-            <polyline points="28,10 12,10 22,20 12,30 28,30" fill="none" stroke="#2ea043" stroke-width="3" stroke-linejoin="round"/>
-        </g>
-        <text x="70" y="40" fill="#e6edf3" font-family="monospace" font-size="16" font-weight="bold">Discord Mathspal</text>
-        <text x="70" y="60" fill="#8b949e" font-family="monospace" font-size="12">Math database. Handwritten</text>
-        <text x="70" y="75" fill="#8b949e" font-family="monospace" font-size="12">problems. I love maths. :)</text>
-    </g>
 </svg>
