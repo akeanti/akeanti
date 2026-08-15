@@ -1,0 +1,57 @@
+<svg width="100%" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Akeanti banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#13293d"/>
+    </linearGradient>
+    <style>
+      .trace   { stroke:#1793D1; stroke-width:2; fill:none; opacity:0.5; }
+      .traceR  { stroke:#3a4a5c; stroke-width:2; fill:none; opacity:0.6; }
+      .via     { fill:#1793D1; opacity:0.75; }
+      .viaR    { fill:#3a4a5c; opacity:0.8; }
+      .title   { font-family:'JetBrains Mono','Fira Code',monospace; font-weight:700; fill:#f2f7fb; }
+      .subtitle{ font-family:'JetBrains Mono','Fira Code',monospace; fill:#8fb8d6; }
+      .tag     { font-family:'JetBrains Mono',monospace; fill:#d7e6f0; font-weight:600; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="220" rx="14" fill="url(#bg)"/>
+  <rect x="1" y="1" width="898" height="218" rx="13" fill="none" stroke="#1793D1" stroke-opacity="0.25"/>
+
+  <!-- decorative circuit traces -->
+  <path class="traceR" d="M900,80 H780 L760,100 H620"/>
+  <path class="traceR" d="M900,140 H840 L820,120"/>
+  <circle class="viaR" cx="780" cy="80" r="4"/>
+  <circle class="viaR" cx="760" cy="100" r="4"/>
+  <circle class="viaR" cx="840" cy="140" r="4"/>
+  <circle class="viaR" cx="820" cy="120" r="4"/>
+
+  <!-- animated traces -->
+  <path class="trace" d="M0,50 H150 L170,70 H380"/>
+  <path class="trace" d="M0,190 H100 L120,170 H480 L500,150 H900"/>
+  <circle class="via" cx="150" cy="50" r="4"/>
+  <circle class="via" cx="170" cy="70" r="4"/>
+  <circle class="via" cx="380" cy="70" r="4"/>
+  <circle class="via" cx="100" cy="190" r="4"/>
+  <circle class="via" cx="120" cy="170" r="4"/>
+  <circle class="via" cx="480" cy="170" r="4"/>
+  <circle class="via" cx="500" cy="150" r="4"/>
+
+  <!-- current pulses -->
+  <circle r="3.5" fill="#1793D1">
+    <animateMotion dur="3.2s" repeatCount="indefinite" path="M0,50 H150 L170,70 H380"/>
+  </circle>
+  <circle r="3.5" fill="#ffb300">
+    <animateMotion dur="4.4s" repeatCount="indefinite" path="M0,190 H100 L120,170 H480 L500,150 H900"/>
+  </circle>
+
+  <!-- title block -->
+  <text x="60" y="108" class="title" font-size="44">AKEANTI</text>
+  <text x="60" y="136" class="subtitle" font-size="16">Electrical &amp; Energy Engineering | AI for Industrial Systems</text>
+
+  <!-- status indicator -->
+  <circle cx="770" cy="30" r="6" fill="#3ddc84">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <text x="785" y="35" class="tag" font-size="12">OPEN TO WORK</text>
+</svg>
