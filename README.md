@@ -1,104 +1,56 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=700&size=30&pause=1200&color=1793D1&center=true&vCenter=true&width=850&lines=Akeanti;Kernel+%26+Systems+Research;Low-Level+Architecture+%26+Reverse+Engineering;Cybersecurity+%7C+OSINT+%7C+Linux;CPGE+MP+Student" />
+<img src="./banner.svg" width="100%" alt="Akeanti — Electrical &amp; Energy Engineering, AI for Industrial Systems"/>
 
-<br/>
-
-<img src="https://komarev.com/ghpvc/?username=akeanti&style=for-the-badge&color=1793d1" />
-<img src="https://img.shields.io/github/followers/akeanti?style=for-the-badge&color=1793d1&logo=github&label=Followers" />
-<img src="https://img.shields.io/github/stars/akeanti?style=for-the-badge&color=1793d1&logo=github&label=Stars" />
+<sub>[EMAIL](mailto:akeantie@gmail.com) &nbsp;·&nbsp;  [akeanti.xyz](https://akeanti.xyz) &nbsp;·&nbsp; open to internships from </sub>
 
 </div>
 
----
+1st-year Génie Électrique et Énergétique @ **EHTP**, Casablanca, in via the national CNC concours, ex-CPGE MP. I build diagnostics for the physical layer of power systems: motors, electrolyzers, grids, and the models that predict when they'll fail.
 
-<table width="100%">
-<tr>
-<td width="38%" valign="top">
+Watching Morocco's industrial energy build-out closely, OCP's green hydrogen push especially. Preparing for ECC-Entreprises, FENELEC, and Solaire Expo Maroc this cycle.
 
-<img src="https://akeanti.xyz/pics/akeanti%202.png" width="100%" />
-<br/><br/>
-<img src="https://akeanti.xyz/pics/akeanti%205.jpg" width="100%" />
+<div align="center">
 
-</td>
+| 23% | R² 0.992 | CEH | NeurIPS '24 |
+|:--:|:--:|:--:|:--:|
+| WPT efficiency @ 34 kHz, up from 7.4% | fit vs. Yates model (TIPE) | certified ethical hacker | PowerGraph benchmark, `cascade-gnn` |
 
-<td width="62%" valign="top" align="center">
+</div>
 
-<img src="https://akeanti.xyz/pics/akeanti%204.jpg" width="92%" />
+<div align="center">
+<img src="./signal-path.svg" width="100%" alt="Signal path from field data to decision support"/>
+</div>
 
-<br/><br/>
+**Flagship builds**
 
-<img src="https://github-readme-streak-stats.herokuapp.com?user=akeanti&theme=github-dark-blue&hide_border=true&background=00000000&ring=1793d1&fire=58a6ff&currStreakLabel=58a6ff" width="100%" />
+| **cascade-gnn** `flagship` | **PEM Electrolyzer Fault Diagnostics** `competition` |
+|---|---|
+| GNNs predicting cascading grid failures — benchmarked against XGBoost, explained with GNNExplainer, trained on the PowerGraph (NeurIPS 2024) dataset. | Extends motor current signature analysis (MCSA) to catch fault signatures in PEM electrolyzer operation. Built for a student competition entry. |
+| `PyTorch Geometric` `XGBoost` `Streamlit` | `Python` `MCSA` `XGBoost` `SHAP` |
 
+<sub>Also on the bench: an OT/SCADA anomaly-detection dashboard, and the resonant WPT rig behind the 23% figure above.</sub>
 
-</td>
-</tr>
-</table>
+**Toolbox**
+
+<div align="center">
+<img src="./stack.svg" width="100%" alt="Toolbox: power and energy systems, AI and ML, embedded and OT security"/>
+</div>
+
+<sub>EHTP - Génie Électrique et Énergétique (CNC concours, ex-CPGE MP) · CEH certified · BMS, industrial-control security, and renewables coursework in progress (Coursera).</sub>
 
 ---
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=linux,c,cpp,rust,python,bash,ts,react,svelte,docker,cloudflare,git,vim,arduino&theme=dark" />
-<br/><br/>
-<img src="https://img.shields.io/badge/OS-Arch_Linux-0d1117?style=for-the-badge&logo=arch-linux&logoColor=1793D1" />
-<img src="https://img.shields.io/badge/WM-Hyprland-0d1117?style=for-the-badge&logo=wayland&logoColor=58a6ff" />
-<img src="https://img.shields.io/badge/Editor-Neovim-0d1117?style=for-the-badge&logo=neovim&logoColor=57A143" />
-<img src="https://img.shields.io/badge/Shell-Zsh-0d1117?style=for-the-badge&logo=gnu-bash&logoColor=ffffff" />
-<img src="https://img.shields.io/badge/Terminal-Kitty-0d1117?style=for-the-badge&logo=kitty&logoColor=ffffff" />
+<sub>commit activity</sub><br/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/akeanti/akeanti/output/github-contribution-grid-snake-dark.svg"/>
+  <img src="https://raw.githubusercontent.com/akeanti/akeanti/output/github-contribution-grid-snake.svg" alt="contribution snake" width="100%"/>
+</picture>
 
-</div>
+Open to internships (stage/PFA) in electrical &amp; energy engineering, AI for industrial systems, or OT/industrial cybersecurity | remote, hybrid, or on-site, Morocco or abroad.
 
----
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=akeanti&theme=github-compact&hide_border=true&bg_color=00000000&line=1793d1&point=58a6ff&area=true" width="100%" />
-
----
-
-<table width="100%">
-<tr>
-
-<td width="50%" valign="top">
-
-```yaml
-# Profile
-
-Name       : Akeanti
-Role       : Kernel & Systems Research
-Focus      : Low-Level Architecture
-Interests  : Reverse Engineering / OSINT
-Education  : CPGE MP
-Languages  : C / C++ / Rust / Python / TS
-Tools      : Docker / Git / GDB / Neovim
-```
-
-</td>
-
-<td width="50%" valign="top">
-
-```yaml
-# Environment
-
-OS          : Arch Linux
-WM          : Hyprland
-Shell       : Zsh
-Terminal    : Kitty
-Editor      : Neovim
-Theme       : Catppuccin
-Philosophy  : Minimal / Fast / Unix-like
-```
-
-</td>
-
-</tr>
-</table>
-
----
-
-<div align="center">
-
-```text
-"Low-level systems, clean architecture, and controlled complexity."
-```
+<sub>Outside of this: competitive math with Math&amp;Maroc (targeting 2027), and metroidvania games.</sub>
 
 </div>
