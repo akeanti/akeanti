@@ -48,13 +48,6 @@
     <animateMotion dur="5.8s" repeatCount="indefinite" path="M1000,212 H860 L840,232 H660 L640,252"/>
   </circle>
 
-  <!-- status pill -->
-  <rect x="796" y="18" width="148" height="26" rx="13" fill="#0a1420" stroke="#3ddc84" stroke-opacity="0.45"/>
-  <circle cx="815" cy="31" r="5" fill="#3ddc84">
-    <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
-  </circle>
-  <text x="829" y="35" class="tag" font-size="11.5">OPEN TO WORK</text>
-
   <!-- title block -->
   <text x="56" y="112" class="title" font-size="46">AKEANTI</text>
   <text x="56" y="140" class="subtitle" font-size="15.5">Electrical &amp; Energy Engineering · AI for Industrial Systems</text>
