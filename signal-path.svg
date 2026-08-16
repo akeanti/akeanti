@@ -4,10 +4,14 @@
       <stop offset="0%" stop-color="#0d1b2a"/>
       <stop offset="100%" stop-color="#13293d"/>
     </linearGradient>
+    <pattern id="dots2" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#1793D1" opacity="0.10"/>
+    </pattern>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#3a4a5c"/>
     </marker>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap');
       .lbl   { font-family:'JetBrains Mono','Fira Code',monospace; fill:#5c7488; }
       .node  { fill:#13293d; stroke:#1793D1; stroke-opacity:0.45; stroke-width:1.2; }
       .leg   { stroke:#3a4a5c; stroke-width:2; }
@@ -18,68 +22,73 @@
     </style>
   </defs>
 
-  <rect x="0" y="0" width="900" height="150" rx="12" fill="url(#bg2)"/>
+  <rect width="900" height="150" rx="12" fill="url(#bg2)"/>
+  <rect width="900" height="150" rx="12" fill="url(#dots2)"/>
   <rect x="1" y="1" width="898" height="148" rx="11" fill="none" stroke="#1793D1" stroke-opacity="0.2"/>
   <text x="20" y="18" class="lbl" font-size="10" opacity="0.7">signal path // field to decision</text>
 
-  <!-- connectors -->
+  <!-- connectors + pulse sit under the nodes, so the dot disappears at each stage and reappears in the gaps -->
   <line class="conn" x1="160" y1="75" x2="196" y2="75" marker-end="url(#arrow)"/>
   <line class="conn" x1="340" y1="75" x2="376" y2="75" marker-end="url(#arrow)"/>
   <line class="conn" x1="520" y1="75" x2="556" y2="75" marker-end="url(#arrow)"/>
   <line class="conn" x1="700" y1="75" x2="736" y2="75" marker-end="url(#arrow)"/>
 
-  <!-- pulse travelling the whole chain -->
   <circle r="3" fill="#ffb300">
     <animateMotion dur="6s" repeatCount="indefinite" path="M20,75 H880"/>
   </circle>
 
-  <!-- node 1: FIELD -->
+  <!-- 01 FIELD -->
   <g>
     <line class="leg" x1="50" y1="40" x2="50" y2="34"/><line class="leg" x1="130" y1="40" x2="130" y2="34"/>
     <line class="leg" x1="50" y1="110" x2="50" y2="116"/><line class="leg" x1="130" y1="110" x2="130" y2="116"/>
     <rect class="node" x="20" y="40" width="140" height="70" rx="6"/>
-    <text x="30" y="52" class="idx">01</text>
-    <text x="90" y="64" text-anchor="middle" class="ttl">FIELD</text>
-    <text x="90" y="90" text-anchor="middle" class="sub">motors · grids</text>
+    <rect x="26" y="46" width="128" height="3" rx="1.5" fill="#1793D1" opacity="0.85"/>
+    <text x="30" y="58" class="idx">01</text>
+    <text x="90" y="72" text-anchor="middle" class="ttl">FIELD</text>
+    <text x="90" y="97" text-anchor="middle" class="sub">motors · grids</text>
   </g>
 
-  <!-- node 2: SENSE -->
+  <!-- 02 SENSE -->
   <g>
     <line class="leg" x1="230" y1="40" x2="230" y2="34"/><line class="leg" x1="310" y1="40" x2="310" y2="34"/>
     <line class="leg" x1="230" y1="110" x2="230" y2="116"/><line class="leg" x1="310" y1="110" x2="310" y2="116"/>
     <rect class="node" x="200" y="40" width="140" height="70" rx="6"/>
-    <text x="210" y="52" class="idx">02</text>
-    <text x="270" y="64" text-anchor="middle" class="ttl">SENSE</text>
-    <text x="270" y="90" text-anchor="middle" class="sub">ESP32 · ADS1115</text>
+    <rect x="206" y="46" width="128" height="3" rx="1.5" fill="#3ddc84" opacity="0.85"/>
+    <text x="210" y="58" class="idx">02</text>
+    <text x="270" y="72" text-anchor="middle" class="ttl">SENSE</text>
+    <text x="270" y="97" text-anchor="middle" class="sub">ESP32 · ADS1115</text>
   </g>
 
-  <!-- node 3: MODEL -->
+  <!-- 03 MODEL -->
   <g>
     <line class="leg" x1="410" y1="40" x2="410" y2="34"/><line class="leg" x1="490" y1="40" x2="490" y2="34"/>
     <line class="leg" x1="410" y1="110" x2="410" y2="116"/><line class="leg" x1="490" y1="110" x2="490" y2="116"/>
     <rect class="node" x="380" y="40" width="140" height="70" rx="6"/>
-    <text x="390" y="52" class="idx">03</text>
-    <text x="450" y="64" text-anchor="middle" class="ttl">MODEL</text>
-    <text x="450" y="90" text-anchor="middle" class="sub">XGBoost · GNN</text>
+    <rect x="386" y="46" width="128" height="3" rx="1.5" fill="#ffb300" opacity="0.85"/>
+    <text x="390" y="58" class="idx">03</text>
+    <text x="450" y="72" text-anchor="middle" class="ttl">MODEL</text>
+    <text x="450" y="97" text-anchor="middle" class="sub">XGBoost · GNN</text>
   </g>
 
-  <!-- node 4: SHIP -->
+  <!-- 04 SHIP -->
   <g>
     <line class="leg" x1="590" y1="40" x2="590" y2="34"/><line class="leg" x1="670" y1="40" x2="670" y2="34"/>
     <line class="leg" x1="590" y1="110" x2="590" y2="116"/><line class="leg" x1="670" y1="110" x2="670" y2="116"/>
     <rect class="node" x="560" y="40" width="140" height="70" rx="6"/>
-    <text x="570" y="52" class="idx">04</text>
-    <text x="630" y="64" text-anchor="middle" class="ttl">SHIP</text>
-    <text x="630" y="90" text-anchor="middle" class="sub">Streamlit</text>
+    <rect x="566" y="46" width="128" height="3" rx="1.5" fill="#ffb300" opacity="0.85"/>
+    <text x="570" y="58" class="idx">04</text>
+    <text x="630" y="72" text-anchor="middle" class="ttl">SHIP</text>
+    <text x="630" y="97" text-anchor="middle" class="sub">Streamlit</text>
   </g>
 
-  <!-- node 5: DECIDE -->
+  <!-- 05 DECIDE -->
   <g>
     <line class="leg" x1="770" y1="40" x2="770" y2="34"/><line class="leg" x1="850" y1="40" x2="850" y2="34"/>
     <line class="leg" x1="770" y1="110" x2="770" y2="116"/><line class="leg" x1="850" y1="110" x2="850" y2="116"/>
     <rect class="node" x="740" y="40" width="140" height="70" rx="6"/>
-    <text x="750" y="52" class="idx">05</text>
-    <text x="810" y="64" text-anchor="middle" class="ttl">DECIDE</text>
-    <text x="810" y="90" text-anchor="middle" class="sub">early warning</text>
+    <rect x="746" y="46" width="128" height="3" rx="1.5" fill="#1793D1" opacity="0.85"/>
+    <text x="750" y="58" class="idx">05</text>
+    <text x="810" y="72" text-anchor="middle" class="ttl">DECIDE</text>
+    <text x="810" y="97" text-anchor="middle" class="sub">early warning</text>
   </g>
 </svg>
