@@ -1,59 +1,99 @@
-<svg width="100%" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Akeanti — Electrical and Energy Engineering, AI for Industrial Systems">
+<svg width="100%" height="260" viewBox="0 0 1000 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Akeanti — Electrical and Energy Engineering, AI for Industrial Systems">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0d1b2a"/>
-      <stop offset="100%" stop-color="#13293d"/>
+      <stop offset="0%" stop-color="#060b13"/>
+      <stop offset="55%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#142840"/>
     </linearGradient>
-    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
-      <circle cx="1.2" cy="1.2" r="1.2" fill="#1793D1" opacity="0.10"/>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1793D1" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#1793D1" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M26,0 H0 V26" fill="none" stroke="#1793D1" stroke-opacity="0.07" stroke-width="1"/>
     </pattern>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;display=swap');
-      .trace   { stroke:#1793D1; stroke-width:2; fill:none; opacity:0.55; }
-      .traceR  { stroke:#3a4a5c; stroke-width:2; fill:none; opacity:0.65; }
-      .via     { fill:#1793D1; opacity:0.8; }
-      .viaR    { fill:#3a4a5c; opacity:0.85; }
-      .title   { font-family:'JetBrains Mono','Fira Code',monospace; font-weight:700; fill:#f2f7fb; }
-      .subtitle{ font-family:'JetBrains Mono','Fira Code',monospace; fill:#8fb8d6; }
-      .meta    { font-family:'JetBrains Mono','Fira Code',monospace; fill:#5c7488; }
+      .mono    { font-family:'JetBrains Mono','SFMono-Regular','Menlo','Consolas',monospace; }
+      .trace   { stroke:#1793D1; stroke-width:1.6; fill:none; opacity:0.4; }
+      .via     { fill:#1793D1; opacity:0.7; }
+      .title   { font-family:'JetBrains Mono','SFMono-Regular',monospace; font-weight:700; fill:#f2f7fb; letter-spacing:0.5px; }
+      .subtitle{ font-family:'JetBrains Mono','SFMono-Regular',monospace; fill:#8fb8d6; }
+      .meta    { font-family:'JetBrains Mono','SFMono-Regular',monospace; fill:#5c7488; }
       .tag     { font-family:'JetBrains Mono',monospace; fill:#d7e6f0; font-weight:600; }
+      .cap     { font-family:'JetBrains Mono',monospace; fill:#5c7488; }
     </style>
   </defs>
 
-  <rect width="900" height="220" rx="14" fill="url(#bg)"/>
-  <rect width="900" height="220" rx="14" fill="url(#dots)"/>
-  <rect x="1" y="1" width="898" height="218" rx="13" fill="none" stroke="#1793D1" stroke-opacity="0.25"/>
+  <rect width="1000" height="260" rx="16" fill="url(#bg)"/>
+  <rect width="1000" height="260" rx="16" fill="url(#grid)"/>
+  <rect x="1" y="1" width="998" height="258" rx="15" fill="none" stroke="#1793D1" stroke-opacity="0.25"/>
 
-  <!-- background traces, right side -->
-  <path class="traceR" d="M900,64 H800 L780,84 H660 L640,104"/>
-  <path class="traceR" d="M900,168 H820 L800,148 H700"/>
-  <circle class="viaR" cx="800" cy="64" r="4"/><circle class="viaR" cx="780" cy="84" r="4"/>
-  <circle class="viaR" cx="640" cy="104" r="4"/><circle class="viaR" cx="820" cy="168" r="4"/>
-  <circle class="viaR" cx="800" cy="148" r="4"/>
-
-  <!-- animated traces spanning full width -->
-  <path class="trace" d="M0,44 H150 L170,64 H380"/>
-  <path class="trace" d="M0,192 H100 L120,172 H480 L500,152 H900"/>
-  <circle class="via" cx="150" cy="44" r="4"/><circle class="via" cx="170" cy="64" r="4"/><circle class="via" cx="380" cy="64" r="4"/>
-  <circle class="via" cx="100" cy="192" r="4"/><circle class="via" cx="120" cy="172" r="4"/>
-  <circle class="via" cx="480" cy="172" r="4"/><circle class="via" cx="500" cy="152" r="4"/>
-
-  <circle r="3.5" fill="#1793D1">
-    <animateMotion dur="3.2s" repeatCount="indefinite" path="M0,44 H150 L170,64 H380"/>
+  <!-- ambient traces, background -->
+  <path class="trace" d="M0,228 H120 L140,248 H400"/>
+  <path class="trace" d="M1000,212 H860 L840,232 H660 L640,252"/>
+  <circle class="via" cx="120" cy="228" r="3.5"/><circle class="via" cx="140" cy="248" r="3.5"/>
+  <circle class="via" cx="860" cy="212" r="3.5"/><circle class="via" cx="840" cy="232" r="3.5"/><circle class="via" cx="640" cy="252" r="3.5"/>
+  <circle r="3" fill="#ffb300" filter="url(#glow)">
+    <animateMotion dur="4.6s" repeatCount="indefinite" path="M0,228 H120 L140,248 H400"/>
   </circle>
-  <circle r="3.5" fill="#ffb300">
-    <animateMotion dur="4.4s" repeatCount="indefinite" path="M0,192 H100 L120,172 H480 L500,152 H900"/>
+  <circle r="3" fill="#1793D1" filter="url(#glow)">
+    <animateMotion dur="5.8s" repeatCount="indefinite" path="M1000,212 H860 L840,232 H660 L640,252"/>
   </circle>
+
+  <!-- status pill -->
+  <rect x="796" y="18" width="148" height="26" rx="13" fill="#0a1420" stroke="#3ddc84" stroke-opacity="0.45"/>
+  <circle cx="815" cy="31" r="5" fill="#3ddc84">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <text x="829" y="35" class="tag" font-size="11.5">OPEN TO WORK</text>
 
   <!-- title block -->
-  <text x="60" y="102" class="title" font-size="44">AKEANTI</text>
-  <text x="60" y="130" class="subtitle" font-size="15.5">Electrical &amp; Energy Engineering · AI for Industrial Systems</text>
-  <text x="60" y="154" class="meta" font-size="11.5">GEE @ EHTP, Casablanca · CNC concours · ex-CPGE MP</text>
+  <text x="56" y="112" class="title" font-size="46">AKEANTI</text>
+  <text x="56" y="140" class="subtitle" font-size="15.5">Electrical &amp; Energy Engineering · AI for Industrial Systems</text>
+  <text x="56" y="163" class="meta" font-size="11.5">GEE @ EHTP, Casablanca · CNC concours · ex-CPGE MP</text>
 
-  <!-- status indicator -->
-  <rect x="748" y="20" width="132" height="24" rx="12" fill="#101f30" stroke="#3ddc84" stroke-opacity="0.4"/>
-  <circle cx="766" cy="32" r="5" fill="#3ddc84">
-    <animate attributeName="opacity" values="1;0.35;1" dur="1.6s" repeatCount="indefinite"/>
-  </circle>
-  <text x="780" y="36" class="tag" font-size="11.5">OPEN TO WORK</text>
+  <!-- tag chips -->
+  <g class="mono" font-size="10.5" font-weight="600">
+    <rect x="56" y="181" width="150" height="23" rx="11.5" fill="#0a1420" stroke="#1793D1" stroke-opacity="0.4"/>
+    <text x="131" y="196.5" text-anchor="middle" fill="#8fb8d6">GNN · GRID FAULTS</text>
+    <rect x="216" y="181" width="185" height="23" rx="11.5" fill="#0a1420" stroke="#ffb300" stroke-opacity="0.4"/>
+    <text x="308.5" y="196.5" text-anchor="middle" fill="#ffd89a">MCSA · ELECTROLYZERS</text>
+    <rect x="411" y="181" width="150" height="23" rx="11.5" fill="#0a1420" stroke="#3ddc84" stroke-opacity="0.4"/>
+    <text x="486" y="196.5" text-anchor="middle" fill="#9ee8bd">CEH · OT SECURITY</text>
+  </g>
+
+  <!-- signature: oscilloscope, fault signal settling into a clean one -->
+  <circle cx="780" cy="120" r="150" fill="url(#coreGlow)"/>
+  <rect x="620" y="46" width="320" height="148" rx="10" fill="#0e1c2e" stroke="#1793D1" stroke-opacity="0.35"/>
+  <text x="632" y="63" class="cap" font-size="9.5" letter-spacing="0.5px">SIGNAL // FAULT -&gt; STABLE</text>
+  <line x1="632" y1="88" x2="928" y2="88" stroke="#3a4a5c" stroke-opacity="0.35" stroke-width="0.6"/>
+  <line x1="632" y1="120" x2="928" y2="120" stroke="#3a4a5c" stroke-opacity="0.35" stroke-width="0.6"/>
+  <line x1="632" y1="152" x2="928" y2="152" stroke="#3a4a5c" stroke-opacity="0.35" stroke-width="0.6"/>
+
+  <rect x="620" y="46" width="2" height="148" fill="#22d3ee" opacity="0.35" filter="url(#glow)">
+    <animate attributeName="x" values="620;938;620" keyTimes="0;0.5;1" dur="5s" repeatCount="indefinite"/>
+  </rect>
+
+  <path fill="none" stroke="#ff6b5e" stroke-width="2" stroke-linejoin="round" filter="url(#glow)"
+        d="M640,120 L668,150 L696,82 L724,158 L752,76 L780,150 L808,84 L836,156 L864,80 L892,148 L920,120">
+    <animate attributeName="d" dur="5s" repeatCount="indefinite"
+             keyTimes="0;0.35;0.7;1"
+             values="M640,120 L668,150 L696,82 L724,158 L752,76 L780,150 L808,84 L836,156 L864,80 L892,148 L920,120;
+                     M640,120 L668,108.2 L696,100.98 L724,100.98 L752,108.24 L780,120 L808,131.76 L836,139.02 L864,139.02 L892,131.76 L920,120;
+                     M640,120 L668,108.2 L696,100.98 L724,100.98 L752,108.24 L780,120 L808,131.76 L836,139.02 L864,139.02 L892,131.76 L920,120;
+                     M640,120 L668,150 L696,82 L724,158 L752,76 L780,150 L808,84 L836,156 L864,80 L892,148 L920,120"/>
+    <animate attributeName="stroke" dur="5s" repeatCount="indefinite"
+             keyTimes="0;0.35;0.7;1"
+             values="#ff6b5e;#22d3ee;#22d3ee;#ff6b5e"/>
+  </path>
+
+  <text x="928" y="184" text-anchor="end" class="cap" font-size="9" opacity="0.75">early-warning, not guesswork</text>
 </svg>
