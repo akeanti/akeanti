@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./banner.svg" width="100%" alt="Akeanti — Electrical &amp; Energy Engineering, AI for Industrial Systems"/>
+<img src="./banner.svg" width="100%" alt="Akeanti : Electrical &amp; Energy Engineering, AI for Industrial Systems"/>
 
 <sub>[EMAIL](mailto:akeantie@gmail.com) &nbsp;·&nbsp;  [akeanti.xyz](https://akeanti.xyz) &nbsp;·&nbsp; open to internships from </sub>
 
