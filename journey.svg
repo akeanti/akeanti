@@ -1,0 +1,164 @@
+<svg width="100%" height="270" viewBox="0 0 1000 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trajectory: a self-drawing blueprint timeline from CPGE MP through EHTP to current work, marked with instrument icons">
+  <defs>
+    <linearGradient id="bgJ" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060b13"/>
+      <stop offset="100%" stop-color="#142840"/>
+    </linearGradient>
+    <pattern id="gridJ" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M26,0 H0 V26" fill="none" stroke="#1793D1" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+    <filter id="glowJ" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;display=swap');
+      .lbl    { font-family:'JetBrains Mono','SFMono-Regular',monospace; fill:#5c7488; }
+      .ttl    { font-family:'JetBrains Mono','SFMono-Regular',monospace; font-weight:700; fill:#f2f7fb; font-size:11px; }
+      .sub    { font-family:'JetBrains Mono','SFMono-Regular',monospace; fill:#5c7488; font-size:8.5px; }
+      .ico    { fill:none; stroke-width:1.3; stroke-linecap:round; stroke-linejoin:round; }
+      .leader { stroke:#3a4a5c; stroke-width:1; stroke-dasharray:2 3; }
+      .fadeIn { opacity:0; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="270" rx="16" fill="url(#bgJ)"/>
+  <rect width="1000" height="270" rx="16" fill="url(#gridJ)"/>
+  <rect x="1" y="1" width="998" height="268" rx="15" fill="none" stroke="#1793D1" stroke-opacity="0.2"/>
+  <text x="20" y="20" class="lbl" font-size="10" opacity="0.7">trajectory // build log</text>
+  <text x="980" y="20" text-anchor="end" class="lbl" font-size="9" opacity="0.45">scale nts</text>
+
+  <!-- faint ruler baseline, static blueprint texture -->
+  <line x1="50" y1="228" x2="950" y2="228" stroke="#1793D1" stroke-opacity="0.1" stroke-width="1"/>
+  <g stroke="#1793D1" stroke-opacity="0.12" stroke-width="1">
+    <line x1="50" y1="224" x2="50" y2="232"/><line x1="120" y1="225" x2="120" y2="231"/><line x1="190" y1="225" x2="190" y2="231"/>
+    <line x1="260" y1="225" x2="260" y2="231"/><line x1="330" y1="225" x2="330" y2="231"/><line x1="400" y1="225" x2="400" y2="231"/>
+    <line x1="470" y1="225" x2="470" y2="231"/><line x1="540" y1="225" x2="540" y2="231"/><line x1="610" y1="225" x2="610" y2="231"/>
+    <line x1="680" y1="225" x2="680" y2="231"/><line x1="750" y1="225" x2="750" y2="231"/><line x1="820" y1="225" x2="820" y2="231"/>
+    <line x1="890" y1="225" x2="890" y2="231"/><line x1="950" y1="224" x2="950" y2="232"/>
+  </g>
+
+  <!-- main ascending trace: seven checkpoints, drawn once, left to right -->
+  <path d="M70,208 L210,190 L350,172 L490,154 L630,134 L770,112 L910,88"
+        fill="none" stroke="#1793D1" stroke-width="1.8" stroke-opacity="0.65"
+        pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" filter="url(#glowJ)">
+    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="3s" begin="0.2s" fill="freeze"/>
+  </path>
+
+  <!-- ============ 0 : CPGE MP ============ -->
+  <g>
+    <circle cx="70" cy="208" r="3.2" fill="#8fb8d6" opacity="0"><animate attributeName="opacity" from="0" to="0.9" dur="0.25s" begin="0.2s" fill="freeze"/></circle>
+    <line class="leader fadeIn" x1="70" y1="200" x2="70" y2="174" opacity="0"><animate attributeName="opacity" from="0" to="0.6" dur="0.3s" begin="0.3s" fill="freeze"/></line>
+    <g class="fadeIn" transform="translate(61,150)"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="0.35s" fill="freeze"/>
+      <path class="ico" d="M9,2 L3,16" stroke="#8fb8d6"/>
+      <path class="ico" d="M9,2 L15,16" stroke="#8fb8d6"/>
+      <circle cx="9" cy="2" r="1.6" fill="#8fb8d6"/>
+      <circle cx="3" cy="16" r="1.2" fill="#8fb8d6"/><circle cx="15" cy="16" r="1.2" fill="#8fb8d6"/>
+    </g>
+    <g class="fadeIn"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="0.4s" fill="freeze"/>
+      <text x="70" y="224" text-anchor="middle" class="ttl" font-size="9.5">CPGE MP</text>
+      <text x="70" y="236" text-anchor="middle" class="sub">math-intensive prépa</text>
+    </g>
+  </g>
+
+  <!-- ============ 1 : TIPE — WPT ============ -->
+  <g>
+    <circle cx="210" cy="190" r="3.2" fill="#1793D1" opacity="0"><animate attributeName="opacity" from="0" to="0.9" dur="0.25s" begin="0.7s" fill="freeze"/></circle>
+    <line class="leader fadeIn" x1="210" y1="182" x2="210" y2="156" opacity="0"><animate attributeName="opacity" from="0" to="0.6" dur="0.3s" begin="0.8s" fill="freeze"/></line>
+    <g class="fadeIn" transform="translate(201,132)"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="0.85s" fill="freeze"/>
+      <rect class="ico" x="1" y="2" width="16" height="11" rx="1.5" stroke="#1793D1"/>
+      <path class="ico" d="M3,10 L6,10 L7.5,4.5 L9.5,12.5 L11,7 L15,7" stroke="#1793D1"/>
+    </g>
+    <g class="fadeIn"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="0.9s" fill="freeze"/>
+      <text x="210" y="206" text-anchor="middle" class="ttl" font-size="9.5">TIPE · WPT</text>
+      <text x="210" y="218" text-anchor="middle" class="sub">23% eff · R²=.992</text>
+    </g>
+  </g>
+
+  <!-- ============ 2 : CNC -> EHTP ============ -->
+  <g>
+    <circle cx="350" cy="172" r="3.2" fill="#8fb8d6" opacity="0"><animate attributeName="opacity" from="0" to="0.9" dur="0.25s" begin="1.2s" fill="freeze"/></circle>
+    <line class="leader fadeIn" x1="350" y1="164" x2="350" y2="138" opacity="0"><animate attributeName="opacity" from="0" to="0.6" dur="0.3s" begin="1.3s" fill="freeze"/></line>
+    <g class="fadeIn" transform="translate(341,114)"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="1.35s" fill="freeze"/>
+      <path class="ico" d="M2,9 H9" stroke="#8fb8d6"/>
+      <path class="ico" d="M6,5.5 L9,9 L6,12.5" stroke="#8fb8d6"/>
+      <rect class="ico" x="11" y="2" width="5" height="14" stroke="#8fb8d6"/>
+    </g>
+    <g class="fadeIn"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="1.4s" fill="freeze"/>
+      <text x="350" y="188" text-anchor="middle" class="ttl" font-size="9.5">CNC → EHTP</text>
+      <text x="350" y="200" text-anchor="middle" class="sub">GEE, Casablanca</text>
+    </g>
+  </g>
+
+  <!-- ============ 3 : certi :> ============ -->
+  <g>
+    <circle cx="490" cy="154" r="3.2" fill="#3ddc84" opacity="0"><animate attributeName="opacity" from="0" to="0.9" dur="0.25s" begin="1.7s" fill="freeze"/></circle>
+    <line class="leader fadeIn" x1="490" y1="146" x2="490" y2="120" opacity="0"><animate attributeName="opacity" from="0" to="0.6" dur="0.3s" begin="1.8s" fill="freeze"/></line>
+    <g class="fadeIn" transform="translate(482,95)"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="1.85s" fill="freeze"/>
+      <path class="ico" d="M8,1 L15,4 V9 C15,13 12,16 8,17 C4,16 1,13 1,9 V4 Z" stroke="#3ddc84"/>
+      <path class="ico" d="M4.5,9 L7,11.5 L12,5.5" stroke="#3ddc84"/>
+    </g>
+    <g class="fadeIn"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="1.9s" fill="freeze"/>
+      <text x="490" y="170" text-anchor="middle" class="ttl" font-size="9.5">mathworks</text>
+      <text x="490" y="182" text-anchor="middle" class="sub">certified systems design engineer</text>
+    </g>
+  </g>
+
+  <!-- ============ 4 : cascade-gnn ============ -->
+  <g>
+    <circle cx="630" cy="134" r="3.2" fill="#ffb300" opacity="0"><animate attributeName="opacity" from="0" to="0.9" dur="0.25s" begin="2.2s" fill="freeze"/></circle>
+    <line class="leader fadeIn" x1="630" y1="126" x2="630" y2="100" opacity="0"><animate attributeName="opacity" from="0" to="0.6" dur="0.3s" begin="2.3s" fill="freeze"/></line>
+    <g class="fadeIn" transform="translate(621,75)"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="2.35s" fill="freeze"/>
+      <line class="ico" x1="9" y1="9" x2="3" y2="15" stroke="#ffb300"/>
+      <line class="ico" x1="9" y1="9" x2="15" y2="15" stroke="#ffb300"/>
+      <line class="ico" x1="9" y1="9" x2="9" y2="2" stroke="#ffb300"/>
+      <circle cx="9" cy="9" r="1.8" fill="#ffb300"/>
+      <circle cx="9" cy="2" r="1.6" fill="#ffb300"/>
+      <circle cx="3" cy="15" r="1.6" fill="#ff6b5e"/>
+      <circle cx="15" cy="15" r="1.6" fill="#ffb300"/>
+    </g>
+    <g class="fadeIn"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="2.4s" fill="freeze"/>
+      <text x="630" y="150" text-anchor="middle" class="ttl" font-size="9.5">cascade-gnn</text>
+      <text x="630" y="162" text-anchor="middle" class="sub">NeurIPS '24 PowerGraph</text>
+    </g>
+  </g>
+
+  <!-- ============ 5 : PEM electrolyzer dx ============ -->
+  <g>
+    <circle cx="770" cy="112" r="3.2" fill="#1793D1" opacity="0"><animate attributeName="opacity" from="0" to="0.9" dur="0.25s" begin="2.7s" fill="freeze"/></circle>
+    <line class="leader fadeIn" x1="770" y1="104" x2="770" y2="78" opacity="0"><animate attributeName="opacity" from="0" to="0.6" dur="0.3s" begin="2.8s" fill="freeze"/></line>
+    <g class="fadeIn" transform="translate(761,53)"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="2.85s" fill="freeze"/>
+      <rect class="ico" x="2" y="3" width="12" height="3" stroke="#1793D1"/>
+      <rect class="ico" x="2" y="8" width="12" height="3" stroke="#1793D1"/>
+      <rect class="ico" x="2" y="13" width="12" height="3" stroke="#1793D1"/>
+      <path class="ico" d="M16,15 V4 M14,7 L16,4 L18,7" stroke="#1793D1"/>
+    </g>
+    <g class="fadeIn"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="2.9s" fill="freeze"/>
+      <text x="770" y="128" text-anchor="middle" class="ttl" font-size="9.5">PEM dx</text>
+      <text x="770" y="140" text-anchor="middle" class="sub">MCSA · XGBoost</text>
+    </g>
+  </g>
+
+  <!-- ============ 6 : NOW ============ -->
+  <g>
+    <circle cx="910" cy="88" r="3.2" fill="#ffb300" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="3.2s" fill="freeze"/></circle>
+    <circle cx="910" cy="88" r="3.2" fill="none" stroke="#ffb300" stroke-width="1" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.1s" begin="3.45s" fill="freeze"/>
+      <animate attributeName="r" values="3.2;13;3.2" dur="2.4s" begin="3.45s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-opacity" values="0.7;0;0.7" dur="2.4s" begin="3.45s" repeatCount="indefinite"/>
+    </circle>
+    <line class="leader fadeIn" x1="910" y1="80" x2="910" y2="54" opacity="0"><animate attributeName="opacity" from="0" to="0.6" dur="0.3s" begin="3.3s" fill="freeze"/></line>
+    <g class="fadeIn" transform="translate(902,29)"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="3.35s" fill="freeze"/>
+      <line class="ico" x1="4" y1="1" x2="4" y2="17" stroke="#ffb300"/>
+      <path class="ico" d="M4,2 L15,5.5 L4,9 Z" stroke="#ffb300" fill="#ffb300" fill-opacity="0.15"/>
+    </g>
+    <g class="fadeIn"><animate attributeName="opacity" from="0" to="1" dur="0.35s" begin="3.4s" fill="freeze"/>
+      <text x="910" y="104" text-anchor="middle" class="ttl" font-size="9.5" fill="#ffd89a">NOW</text>
+    </g>
+  </g>
+
+  <text x="500" y="256" text-anchor="middle" class="lbl" font-size="9" opacity="0">
+    akeanti :)
+    <animate attributeName="opacity" from="0" to="0.6" dur="0.6s" begin="3.7s" fill="freeze"/>
+  </text>
+</svg>
