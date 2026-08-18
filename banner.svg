@@ -22,8 +22,8 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;display=swap');
       .mono    { font-family:'JetBrains Mono','SFMono-Regular','Menlo','Consolas',monospace; }
-      .trace   { stroke:#1793D1; stroke-width:1.6; fill:none; opacity:0.4; }
-      .via     { fill:#1793D1; opacity:0.7; }
+      .trace   { stroke:#1793D1; stroke-width:1.6; fill:none; opacity:0.5; stroke-dasharray:100; stroke-dashoffset:100; }
+      .via     { fill:#1793D1; opacity:0; }
       .title   { font-family:'JetBrains Mono','SFMono-Regular',monospace; font-weight:700; fill:#f2f7fb; letter-spacing:0.5px; }
       .subtitle{ font-family:'JetBrains Mono','SFMono-Regular',monospace; fill:#8fb8d6; }
       .meta    { font-family:'JetBrains Mono','SFMono-Regular',monospace; fill:#5c7488; }
@@ -36,17 +36,18 @@
   <rect width="1000" height="260" rx="16" fill="url(#grid)"/>
   <rect x="1" y="1" width="998" height="258" rx="15" fill="none" stroke="#1793D1" stroke-opacity="0.25"/>
 
-  <!-- ambient traces, background -->
-  <path class="trace" d="M0,228 H120 L140,248 H400"/>
-  <path class="trace" d="M1000,212 H860 L840,232 H660 L640,252"/>
-  <circle class="via" cx="120" cy="228" r="3.5"/><circle class="via" cx="140" cy="248" r="3.5"/>
-  <circle class="via" cx="860" cy="212" r="3.5"/><circle class="via" cx="840" cy="232" r="3.5"/><circle class="via" cx="640" cy="252" r="3.5"/>
-  <circle r="3" fill="#ffb300" filter="url(#glow)">
-    <animateMotion dur="4.6s" repeatCount="indefinite" path="M0,228 H120 L140,248 H400"/>
-  </circle>
-  <circle r="3" fill="#1793D1" filter="url(#glow)">
-    <animateMotion dur="5.8s" repeatCount="indefinite" path="M1000,212 H860 L840,232 H660 L640,252"/>
-  </circle>
+  <!-- ambient traces, self-drawn once on load -->
+  <path class="trace" pathLength="100" d="M0,228 H120 L140,248 H400">
+    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.1s" begin="0.15s" fill="freeze"/>
+  </path>
+  <path class="trace" pathLength="100" d="M1000,212 H860 L840,232 H660 L640,252">
+    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.1s" begin="0.45s" fill="freeze"/>
+  </path>
+  <circle class="via" cx="120" cy="228" r="3.5"><animate attributeName="opacity" from="0" to="0.7" dur="0.3s" begin="1.25s" fill="freeze"/></circle>
+  <circle class="via" cx="140" cy="248" r="3.5"><animate attributeName="opacity" from="0" to="0.7" dur="0.3s" begin="1.3s" fill="freeze"/></circle>
+  <circle class="via" cx="860" cy="212" r="3.5"><animate attributeName="opacity" from="0" to="0.7" dur="0.3s" begin="1.55s" fill="freeze"/></circle>
+  <circle class="via" cx="840" cy="232" r="3.5"><animate attributeName="opacity" from="0" to="0.7" dur="0.3s" begin="1.6s" fill="freeze"/></circle>
+  <circle class="via" cx="640" cy="252" r="3.5"><animate attributeName="opacity" from="0" to="0.7" dur="0.3s" begin="1.65s" fill="freeze"/></circle>
 
   <!-- title block -->
   <text x="56" y="112" class="title" font-size="46">AKEANTI</text>
@@ -63,10 +64,24 @@
     <text x="486" y="196.5" text-anchor="middle" fill="#9ee8bd">CEH · OT SECURITY</text>
   </g>
 
-  <!-- signature: oscilloscope, fault signal settling into a clean one -->
+  <!-- signature: benchtop oscilloscope, fault signal settling into a clean one -->
   <circle cx="780" cy="120" r="150" fill="url(#coreGlow)"/>
+
+  <!-- instrument casing / bezel -->
+  <rect x="612" y="38" width="336" height="164" rx="12" fill="#0a1420" stroke="#243747" stroke-width="1.4"/>
   <rect x="620" y="46" width="320" height="148" rx="10" fill="#0e1c2e" stroke="#1793D1" stroke-opacity="0.35"/>
-  <text x="632" y="63" class="cap" font-size="9.5" letter-spacing="0.5px">SIGNAL // FAULT -&gt; STABLE</text>
+  <text x="632" y="63" class="cap" font-size="9.5" letter-spacing="0.5px">OSC · CH1 // FAULT -&gt; STABLE</text>
+
+  <!-- knobs on the casing edge -->
+  <g stroke="#3a4a5c" stroke-width="1.2" fill="none">
+    <circle cx="920" cy="180" r="7"/><line x1="920" y1="180" x2="920" y2="175"/>
+    <circle cx="920" cy="200" r="0" opacity="0"/>
+  </g>
+  <circle cx="627" cy="188" r="3" fill="#3ddc84" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.35;0.9" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <text x="634" y="191" class="cap" font-size="7.5" opacity="0.8">PWR</text>
+
   <line x1="632" y1="88" x2="928" y2="88" stroke="#3a4a5c" stroke-opacity="0.35" stroke-width="0.6"/>
   <line x1="632" y1="120" x2="928" y2="120" stroke="#3a4a5c" stroke-opacity="0.35" stroke-width="0.6"/>
   <line x1="632" y1="152" x2="928" y2="152" stroke="#3a4a5c" stroke-opacity="0.35" stroke-width="0.6"/>
