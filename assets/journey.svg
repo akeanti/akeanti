@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" fill="none" role="img" aria-labelledby="title desc">
+<title id="title">From foundations to field problems</title>
+<desc id="desc">CPGE MP: mathematics and physics. TIPE and wireless power transfer: experiments. EHTP, Génie Électrique et Énergétique: electrical and energy engineering. Focus: applied AI for grid and PEM diagnostics.</desc>
+<defs><style>
+text{font-family:Segoe UI,Arial,sans-serif;fill:#f3f6f1}
+.mono{font-family:Consolas,Liberation Mono,monospace;letter-spacing:1.2px}
+.muted{fill:#b4c0ba}.teal{fill:#43b8c0}.sage{fill:#a3bf94}
+.label{font-size:16px;font-weight:600;letter-spacing:2px}
+.title{font-weight:700;letter-spacing:-.7px}
+.flow{animation:flow 12s linear infinite}
+.breathe{animation:breathe 5s ease-in-out infinite}
+@keyframes flow{to{stroke-dashoffset:-120}}
+@keyframes breathe{0%,100%{opacity:.35}50%{opacity:.85}}
+@media(prefers-reduced-motion:reduce){.flow,.breathe{animation:none}}
+</style></defs>
+<rect x="1" y="1" width="1198" height="318" rx="22" fill="#1a1c1b" stroke="#374640" />
+<text x="32" y="55" font-size="30" class="title" >Education &amp; projects.</text><line x1="64" y1="237" x2="1136" y2="237" stroke="#374640" stroke-width="2"/><path d="M64 237H1136" fill="none" stroke="#43b8c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flow" stroke-dasharray="10 110"/><text x="36" y="108" font-size="15" class="mono sage" >01 / FOUNDATIONS</text><g transform="translate(36 130) scale(0.95)" fill="none" stroke="#43b8c0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m11 8-8 9 8 9m12-18 8 9-8 9M20 3l-6 28"/></g><text x="36" y="200" font-size="29" class="title" >CPGE MP</text><circle cx="49" cy="237" r="7" fill="#1a1c1b" stroke="#43b8c0" stroke-width="2"/><text x="36" y="281" font-size="19" class="muted" >Mathematics &amp; physics</text><text x="328" y="108" font-size="15" class="mono sage" >02 / EXPERIMENTS</text><g transform="translate(328 130) scale(0.95)" fill="none" stroke="#43b8c0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h7l4-11 7 20 5-14 3 5h5"/></g><text x="328" y="200" font-size="29" class="title" >TIPE · WPT</text><circle cx="341" cy="237" r="7" fill="#1a1c1b" stroke="#43b8c0" stroke-width="2"/><text x="328" y="281" font-size="19" class="muted" >Build. Measure. Compare.</text><text x="620" y="108" font-size="15" class="mono sage" >03 / ENGINEERING</text><g transform="translate(620 130) scale(0.95)" fill="none" stroke="#43b8c0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 2 8 18h10l-3 14 14-19H18Z"/></g><text x="620" y="200" font-size="29" class="title" >EHTP · GEE</text><circle cx="633" cy="237" r="7" fill="#1a1c1b" stroke="#43b8c0" stroke-width="2"/><text x="620" y="281" font-size="19" class="muted" >Electrical &amp; energy systems</text><text x="912" y="108" font-size="15" class="mono sage" >04 / FOCUS</text><g transform="translate(912 130) scale(0.95)" fill="none" stroke="#43b8c0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 24 10-17 12 17H6m10-17v24"/><circle cx="6" cy="24" r="3"/><circle cx="16" cy="7" r="3"/><circle cx="28" cy="24" r="3"/><circle cx="16" cy="31" r="2"/></g><text x="912" y="200" font-size="29" class="title" >Applied AI</text><circle cx="925" cy="237" r="7" fill="#1a1c1b" stroke="#43b8c0" stroke-width="2"/><text x="912" y="281" font-size="19" class="muted" >Grid &amp; PEM diagnostics</text>
+</svg>
