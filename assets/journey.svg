@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="243" viewBox="0 0 1200 243" fill="none" role="img" aria-labelledby="title desc"><title id="title">Education and projects</title><desc id="desc">CPGE MP mathematics and physics. TIPE wireless-power experiments. CNC entrance exam and EHTP electrical and energy engineering. Focus on applied AI for grid and PEM diagnostics.</desc><defs><style>
+text{font-family:Segoe UI,Arial,sans-serif;fill:#f3f6f1}
+.mono{font-family:Consolas,Liberation Mono,monospace;letter-spacing:1.2px}
+.muted{fill:#b4c0ba}.teal{fill:#43b8c0}.sage{fill:#a3bf94}.gold{fill:#d5bd8f}
+.title{font-weight:650;letter-spacing:-.6px}
+.flow{animation:flow 16s linear infinite}.flow2{animation:flow 22s linear infinite reverse}
+.pulse{animation:pulse 6s ease-in-out infinite}.pulse2{animation:pulse 7s ease-in-out 2s infinite}
+.orbit{animation:orbit 40s linear infinite;transform-box:fill-box;transform-origin:center}
+.orbit2{animation:orbit 55s linear infinite reverse;transform-box:fill-box;transform-origin:center}
+.rise{animation:rise 8s linear infinite}.rise2{animation:rise 8s linear 3s infinite}
+.sweep{animation:sweep 12s ease-in-out infinite}.bloom{animation:bloom 7s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes flow{to{stroke-dashoffset:-240}}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes rise{0%{transform:translateY(12px);opacity:.2}60%{opacity:.8}100%{transform:translateY(-28px);opacity:.15}}
+@keyframes sweep{0%,100%{transform:translateX(0)}50%{transform:translateX(50px)}}
+@keyframes bloom{0%,100%{transform:scale(1);opacity:.3}50%{transform:scale(1.13);opacity:.75}}
+@media(prefers-reduced-motion:reduce){.flow,.flow2,.pulse,.pulse2,.orbit,.orbit2,.rise,.rise2,.sweep,.bloom{animation:none!important}}
+</style><pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#a3bf94" stroke-opacity=".045"/></pattern><linearGradient id="wash" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#43b8c0" stop-opacity=".06"/><stop offset="1" stop-color="#a3bf94" stop-opacity="0"/></linearGradient></defs><rect x="1" y="1" width="1198" height="241" rx="20" fill="#1a1c1b" stroke="#374640" /><text x="30" y="44" font-size="28" class="title" >Education &amp; projects</text><line x1="54" y1="123" x2="1146" y2="123" stroke="#374640" stroke-width="1.7" /><path d="M54 123H1146" fill="none" stroke="#43b8c0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 110" class="flow"/><text x="33" y="88" font-size="13" class="mono sage" >01 / FOUNDATIONS</text><circle cx="48" cy="123" r="7" fill="#1a1c1b" stroke="#43b8c0" stroke-width="1.8"/><text x="33" y="176" font-size="28" class="title" >CPGE MP</text><text x="33" y="210" font-size="18" class="muted" >Mathematics &amp; physics</text><text x="326" y="88" font-size="13" class="mono sage" >02 / EXPERIMENTS</text><circle cx="341" cy="123" r="7" fill="#1a1c1b" stroke="#43b8c0" stroke-width="1.8"/><text x="326" y="176" font-size="28" class="title" >TIPE · WPT</text><text x="326" y="210" font-size="18" class="muted" >Resonant power transfer</text><text x="619" y="88" font-size="13" class="mono sage" >03 / ENGINEERING</text><circle cx="634" cy="123" r="7" fill="#1a1c1b" stroke="#43b8c0" stroke-width="1.8"/><text x="619" y="176" font-size="28" class="title" >CNC → EHTP</text><text x="619" y="210" font-size="18" class="muted" >Electrical &amp; energy systems</text><text x="912" y="88" font-size="13" class="mono sage" >04 / FOCUS</text><circle cx="927" cy="123" r="7" fill="#1a1c1b" stroke="#43b8c0" stroke-width="1.8"/><text x="912" y="176" font-size="28" class="title" >Applied AI</text><text x="912" y="210" font-size="18" class="muted" >Grid &amp; PEM diagnostics</text><circle cx="927" cy="123" r="16" fill="none" stroke="#a3bf94" stroke-width="1" class="bloom"/></svg>
