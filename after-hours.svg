@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none" role="img" aria-labelledby="title desc"><title id="title">After hours | Mathematics and metroidvania games</title><desc id="desc">An abstract room map with a moving exploration route, reflecting Akeanti’s stated interest in mathematics and metroidvania games. It does not depict a particular commercial game.</desc><defs><style>
+text{font-family:Segoe UI,Arial,sans-serif;fill:#f4f0e5}
+.serif{font-family:Georgia,Times New Roman,serif;letter-spacing:-1.7px}
+.mono{font-family:Consolas,Liberation Mono,monospace;letter-spacing:1.4px}
+.bold{font-weight:650;letter-spacing:-.7px}
+.flow{animation:flow 10s linear infinite}.flow-slow{animation:flow 18s linear infinite reverse}
+.orbit{animation:orbit 30s linear infinite;transform-box:fill-box;transform-origin:center}
+.counter{animation:orbit 42s linear infinite reverse;transform-box:fill-box;transform-origin:center}
+.float{animation:float 7s ease-in-out infinite}.lift{animation:lift 9s ease-in-out infinite}
+.pulse{animation:pulse 5s ease-in-out infinite}.pulse-late{animation:pulse 6s ease-in-out 2s infinite}
+.shimmer{animation:shimmer 12s ease-in-out infinite}.rise{animation:rise 8s linear infinite}
+.ring{animation:ring 7s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes flow{to{stroke-dashoffset:-240}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes lift{0%,100%{transform:translate(0,0)}50%{transform:translate(9px,-12px)}}
+@keyframes pulse{0%,100%{opacity:.38}50%{opacity:1}}
+@keyframes shimmer{0%,45%{transform:translateX(-340px);opacity:0}55%{opacity:.25}80%,100%{transform:translateX(340px);opacity:0}}
+@keyframes rise{0%{transform:translateY(8px);opacity:.25}60%{opacity:.8}100%{transform:translateY(-23px);opacity:.1}}
+@keyframes ring{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.09);opacity:.85}}
+@media(prefers-reduced-motion:reduce){.flow,.flow-slow,.orbit,.counter,.float,.lift,.pulse,.pulse-late,.shimmer,.rise,.ring{animation:none!important}}
+
+.scan{animation:scan 7s linear infinite}.rock{animation:rock 14s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.rotor{animation:orbit 18s linear infinite;transform-origin:0px 0px}
+.drift{animation:drift 11s ease-in-out infinite}.dash{animation:flow 7s linear infinite}
+@keyframes scan{from{transform:translateX(0)}to{transform:translateX(204px)}}
+@keyframes rock{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@media(prefers-reduced-motion:reduce){.scan,.rock,.rotor,.drift,.dash{animation:none!important}}
+</style><clipPath id="bounds"><rect x="1" y="1" width="598" height="598" rx="24" fill="white" /></clipPath></defs><rect x="1" y="1" width="598" height="598" rx="24" fill="#efecdf" stroke="#c5cdbb" /><g clip-path="url(#bounds)"><text x="34" y="48" font-size="16" class="mono" style="fill:#22362d" >AFTER HOURS</text><text x="31" y="112" font-size="53" class="serif" style="fill:#22362d" >Maths.</text><text x="31" y="174" font-size="48" class="serif" style="fill:#22362d" >Metroidvanias.</text><rect x="68" y="240" width="97" height="62" rx="5" fill="none" stroke="#22362d" /><rect x="76" y="248" width="81" height="46" rx="2" fill="none" stroke="#c5cdbb" /><rect x="210" y="217" width="74" height="73" rx="5" fill="none" stroke="#22362d" /><rect x="218" y="225" width="58" height="57" rx="2" fill="none" stroke="#c5cdbb" /><rect x="349" y="237" width="143" height="59" rx="5" fill="none" stroke="#22362d" /><rect x="357" y="245" width="127" height="43" rx="2" fill="none" stroke="#c5cdbb" /><rect x="111" y="369" width="74" height="100" rx="5" fill="none" stroke="#22362d" /><rect x="119" y="377" width="58" height="84" rx="2" fill="none" stroke="#c5cdbb" /><rect x="236" y="348" width="114" height="71" rx="5" fill="none" stroke="#22362d" /><rect x="244" y="356" width="98" height="55" rx="2" fill="none" stroke="#c5cdbb" /><rect x="412" y="382" width="89" height="76" rx="5" fill="none" stroke="#22362d" /><rect x="420" y="390" width="73" height="60" rx="2" fill="none" stroke="#c5cdbb" /><path d="M117 272h129v-20h172v17h51v147H293v-33H148v35" fill="none" stroke="#22362d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".55"/><path d="M117 272h129v-20h172v17h51v147H293v-33H148v35" fill="none" stroke="#539e8b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 32" class="flow"/><circle cx="117" cy="272" r="8" fill="#22362d" /><polygon points="148,407 156,418 148,429 140,418" fill="#22362d" /><circle cx="246" cy="252" r="5" fill="#efecdf" stroke="#22362d" stroke-width="1.8"/><circle cx="418" cy="269" r="5" fill="#efecdf" stroke="#22362d" stroke-width="1.8"/><circle cx="293" cy="383" r="5" fill="#efecdf" stroke="#22362d" stroke-width="1.8"/><line x1="34" y1="529" x2="566" y2="529" stroke="#c5cdbb" stroke-width="1" /><text x="35" y="571" font-size="20" class="bold" style="fill:#22362d" >Different problems. Same curiosity.</text><g transform="translate(543 550) scale(0.9)" ><path d="M0 20 20 0M4 0h16v16" fill="none" stroke="#22362d" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" /></g></g></svg>
