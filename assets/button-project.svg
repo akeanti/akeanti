@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="60" viewBox="0 0 240 60" fill="none" role="img" aria-labelledby="title desc"><title id="title">Flagship project</title><desc id="desc">Flagship project link button.</desc><defs><style>
+text{font-family:Segoe UI,Arial,sans-serif;fill:#22362d}
+.bold{font-weight:650;letter-spacing:-.7px}
+.shimmer{animation:shimmer 12s ease-in-out infinite}
+@keyframes shimmer{0%,45%{transform:translateX(-340px);opacity:0}55%{opacity:.3}80%,100%{transform:translateX(340px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.shimmer{animation:none!important}}
+</style><clipPath id="bounds"><rect x="1" y="1" width="238" height="58" rx="13" fill="white" /></clipPath></defs><g clip-path="url(#bounds)"><rect x="1" y="1" width="238" height="58" rx="13" fill="#b7cd91" stroke="#8fa86c" /><path d="M24 22l-5 14M24 22l13 4M19 36l18-10M19 36l14 4M37 26l-4 14" fill="none" stroke="#22362d" stroke-width="1.4" stroke-linecap="round"/><circle cx="24" cy="22" r="3" fill="#22362d"/><circle cx="37" cy="26" r="3" fill="#22362d"/><circle cx="19" cy="36" r="3" fill="#22362d"/><circle cx="33" cy="40" r="3" fill="#b7cd91" stroke="#22362d" stroke-width="1.5"/><text x="54" y="37" font-size="18" class="bold">Flagship project</text><rect x="100" y="-15" width="23" height="100" fill="white" opacity=".06" transform="rotate(18 100 30)" class="shimmer"/></g></svg>

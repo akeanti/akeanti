@@ -3,11 +3,15 @@
 </p>
 
 <p align="center">
-  <a href="https://akeanti.xyz"><img src="./assets/button-portfolio.svg" width="18%" alt="Visit my portfolio"></a>
+  <a href="https://github.com/akeanti/cascade-gnn"><img src="./assets/button-project.svg" width="18%" alt="Open my flagship project, cascade-gnn"></a>
   <a href="mailto:akeantie@gmail.com"><img src="./assets/button-email.svg" width="18%" alt="Email me"></a>
   <a href="#selected-work"><img src="./assets/button-work.svg" width="18%" alt="See selected work"></a>
   <a href="#what-i-bring"><img src="./assets/button-fit.svg" width="18%" alt="Read what I could bring to your team"></a>
   <a href="#code-in-the-open"><img src="./assets/button-code.svg" width="18%" alt="See my open-source code"></a>
+</p>
+
+<p>
+<a href="#lets-talk"><img src="./assets/snapshot.svg" width="100%" alt="At a glance: open to a summer 2027 internship of 1–2 months in electrical and energy engineering, industrial AI or OT security. Morocco or abroad; on-site, hybrid or remote. EHTP (GEE), after CPGE MP and the CNC. Arabic native, French fluent, English professional."></a>
 </p>
 
 ## It started with a PC
@@ -26,6 +30,10 @@ Now I study **Génie Électrique et Énergétique at EHTP**, after **CPGE MP** a
 I want to help electrical systems waste less energy and catch problems earlier. That starts with understanding the hardware, getting useful measurements, and building models whose results people can make sense of. That's the kind of engineering I want to get good at.
 
 ## Selected work
+
+<p>
+<img src="./assets/impact.svg" width="100%" alt="Evidence, not adjectives: 23% wireless-power efficiency at 34 kHz on my TIPE prototype; R² = 0.992 against the Yates reference; 5 graph architectures benchmarked against XGBoost in cascade-gnn; 3 split strategies with leakage checks.">
+</p>
 
 <p align="center">
   <a href="https://github.com/akeanti/cascade-gnn"><img src="./assets/grid-card.svg" width="49%" alt="cascade-gnn: graph learning for cascading grid failures. Opens the repository."></a>
@@ -83,7 +91,7 @@ akeanti
 └── offline     Maths · metroidvanias
 ```
 
-**Tools:** Python, PyTorch Geometric, XGBoost, SHAP, GNNExplainer, Optuna, pandas, MCSA, pvlib, ESP32, Arduino, ADS1115, SCADA, Nmap, Wireshark, Git, Linux, Streamlit, LaTeX, and VS Code.
+**Tools:** Python, C++, Bash, PyTorch Geometric, XGBoost, SHAP, GNNExplainer, Optuna, pandas, MCSA, pvlib, ESP32, Arduino, ADS1115, SCADA, Nmap, Wireshark, Git, Linux, Streamlit, LaTeX, and VS Code.
 
 </details>
 
@@ -137,14 +145,17 @@ I also enjoy competitive mathematics and metroidvania games. There’s usually a
 
 ## Let's talk
 
-I'm open to **internships / stage / PFA** in electrical and energy engineering, industrial AI, or OT cybersecurity. **Morocco or abroad**, on-site, hybrid, or remote.
+I'm looking for a **summer 2027 internship (1–2 months)** in electrical and energy engineering, industrial AI, or OT cybersecurity. **Morocco or abroad**, on-site, hybrid, or remote. I work in **Arabic, French and English**.
+
+**CV available on request**: just email me and I'll send it over.
 
 <p>
 <a href="mailto:akeantie@gmail.com"><img src="./assets/contact-strip.svg" width="100%" alt="Let’s talk about an internship. Click to email Akeanti."></a>
 </p>
 
 <p align="center">
-  <a href="https://akeanti.xyz"><b>akeanti.xyz</b></a> &nbsp;·&nbsp;
   <a href="mailto:akeantie@gmail.com"><b>akeantie@gmail.com</b></a> &nbsp;·&nbsp;
   <a href="https://github.com/akeanti/cascade-gnn"><b>cascade-gnn</b></a>
 </p>
+
+<p align="center"><sub>Personal site, less formal: <a href="https://akeanti.xyz">akeanti.xyz</a></sub></p>

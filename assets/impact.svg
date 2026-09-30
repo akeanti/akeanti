@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="290" viewBox="0 0 1200 290" fill="none" role="img" aria-labelledby="title desc"><title id="title">Evidence, not adjectives</title><desc id="desc">23 percent wireless power transfer efficiency at 34 kHz on the TIPE prototype. R squared of 0.992 against the Yates reference. 5 graph neural network architectures benchmarked against XGBoost in cascade-gnn. 3 data-split strategies with leakage checks.</desc><defs><style>
+text{font-family:Segoe UI,Arial,sans-serif;fill:#f4f0e5}
+.serif{font-family:Georgia,Times New Roman,serif;letter-spacing:-2px}
+.mono{font-family:Consolas,Liberation Mono,monospace;letter-spacing:1.4px}
+.bold{font-weight:650;letter-spacing:-.4px}
+.flow{animation:flow 10s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-240}}
+@media(prefers-reduced-motion:reduce){.flow{animation:none!important}}
+</style><clipPath id="bounds"><rect x="1" y="1" width="1198" height="288" rx="24" fill="white" /></clipPath></defs><rect x="1" y="1" width="1198" height="288" rx="24" fill="#181e1c" stroke="#3b4a42" /><g clip-path="url(#bounds)">
+<text x="34" y="58" font-size="36" class="serif" style="letter-spacing:-1.7px">Evidence, not adjectives.</text><text x="1166" y="54" font-size="14" class="mono" text-anchor="end" style="fill:#b7cd91">CHECKABLE NUMBERS</text>
+<line x1="306" y1="104" x2="306" y2="256" stroke="#3b4a42" /><line x1="594" y1="104" x2="594" y2="256" stroke="#3b4a42" /><line x1="882" y1="104" x2="882" y2="256" stroke="#3b4a42" />
+
+<text x="34" y="124" font-size="14" class="mono" style="fill:#b7cd91">TIPE · BENCH</text><text x="30" y="186" font-size="66" class="serif">23%</text><path d="M34 202h120" stroke="#48bfc4" stroke-width="2" stroke-linecap="round" stroke-dasharray="16 104" class="flow"/><text x="34" y="232" font-size="19" class="bold">WPT efficiency</text><text x="34" y="258" font-size="16" style="fill:#b8c5b9">at 34 kHz, own prototype</text>
+
+<text x="322" y="124" font-size="14" class="mono" style="fill:#b7cd91">TIPE · MODEL</text><text x="318" y="186" font-size="66" class="serif">0.992</text><path d="M322 202h120" stroke="#48bfc4" stroke-width="2" stroke-linecap="round" stroke-dasharray="16 104" class="flow"/><text x="322" y="232" font-size="19" class="bold">R² vs Yates reference</text><text x="322" y="258" font-size="16" style="fill:#b8c5b9">in a model comparison</text>
+
+<text x="610" y="124" font-size="14" class="mono" style="fill:#b7cd91">CASCADE-GNN</text><text x="606" y="186" font-size="66" class="serif">5</text><path d="M610 202h120" stroke="#48bfc4" stroke-width="2" stroke-linecap="round" stroke-dasharray="16 104" class="flow"/><text x="610" y="232" font-size="19" class="bold">graph architectures</text><text x="610" y="258" font-size="16" style="fill:#b8c5b9">benchmarked vs XGBoost</text>
+
+<text x="898" y="124" font-size="14" class="mono" style="fill:#b7cd91">CASCADE-GNN</text><text x="894" y="186" font-size="66" class="serif">3</text><path d="M898 202h120" stroke="#48bfc4" stroke-width="2" stroke-linecap="round" stroke-dasharray="16 104" class="flow"/><text x="898" y="232" font-size="19" class="bold">split strategies</text><text x="898" y="258" font-size="16" style="fill:#b8c5b9">with leakage checks</text>
+</g></svg>
