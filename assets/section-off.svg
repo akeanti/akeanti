@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="96" viewBox="0 0 1200 96" fill="none" role="img" aria-labelledby="title desc"><title id="title">07 · Off the bench.</title><desc id="desc">Section 07 of 8: Off the bench. maths · games · drawings.</desc><defs><style>
+text{font-family:Segoe UI,Arial,sans-serif;fill:#f4f0e5}
+.serif{font-family:Georgia,Times New Roman,serif;letter-spacing:-1.2px}
+.mono{font-family:Consolas,Liberation Mono,Menlo,monospace;letter-spacing:1.4px}
+.tl{font-family:Consolas,Liberation Mono,Menlo,monospace;letter-spacing:0}
+.bold{font-weight:650;letter-spacing:-.4px}
+.pulse{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.ring{animation:ring 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+.cur{animation:pulse 2.4s ease-in-out infinite}
+.draw{animation:draw 1.2s cubic-bezier(.6,0,.2,1) .2s both;transform-box:fill-box;transform-origin:left}@keyframes draw{from{transform:scaleX(0)}}
+.shimmer{animation:shimmer 14s ease-in-out 4.2s infinite}@keyframes shimmer{0%,55%{transform:translateX(0);opacity:0}60%{opacity:1}85%,100%{transform:translateX(1500px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.cur,.draw,.shimmer,.pulse,.ring{animation:none!important}}
+</style><clipPath id="bounds"><rect x="1" y="1" width="1198" height="94" rx="18" fill="white"/></clipPath></defs><rect x="1" y="1" width="1198" height="94" rx="18" fill="#181e1c" stroke="#3b4a42"/><g clip-path="url(#bounds)">
+<g transform="skewX(-18)"><rect class="shimmer" x="-120" y="-10" width="70" height="120" fill="#ffffff" opacity=".05"/></g>
+<rect x="22" y="20" width="56" height="56" rx="14" fill="#efecdf"/><text x="50" y="56" font-size="21" class="tl" text-anchor="middle" style="fill:#22362d">07</text>
+<text x="98" y="40" font-size="13" class="mono" style="fill:#b7cd91">OFF THE BENCH</text>
+<text x="96" y="75" font-size="32" class="serif">Off the bench.</text><rect x="98" y="85" width="56" height="2" rx="1" fill="#48bfc4" class="draw"/>
+<rect x="856" y="28" width="34" height="6" rx="3" fill="#b7cd91" opacity=".55"/><rect x="896" y="28" width="34" height="6" rx="3" fill="#b7cd91" opacity=".55"/><rect x="936" y="28" width="34" height="6" rx="3" fill="#b7cd91" opacity=".55"/><rect x="976" y="28" width="34" height="6" rx="3" fill="#b7cd91" opacity=".55"/><rect x="1016" y="28" width="34" height="6" rx="3" fill="#b7cd91" opacity=".55"/><rect x="1056" y="28" width="34" height="6" rx="3" fill="#b7cd91" opacity=".55"/><rect x="1096" y="28" width="34" height="6" rx="3" fill="#48bfc4" class="cur"/><rect x="1136" y="28" width="34" height="6" rx="3" fill="#3b4a42"/>
+<text x="1170" y="70" font-size="12.5" class="mono" text-anchor="end" style="fill:#b8c5b9">MATHS · GAMES · DRAWINGS</text>
+</g></svg>

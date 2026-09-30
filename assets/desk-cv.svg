@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="104" viewBox="0 0 400 104" fill="none" role="img" aria-labelledby="title desc"><title id="title">Request my CV</title><desc id="desc">Request my CV. PRE-FILLED: COMPANY · ROLE · DATES. Opens a pre-filled email.</desc><defs><style>
+text{font-family:Segoe UI,Arial,sans-serif;fill:#f4f0e5}
+.serif{font-family:Georgia,Times New Roman,serif;letter-spacing:-1.2px}
+.mono{font-family:Consolas,Liberation Mono,Menlo,monospace;letter-spacing:1.4px}
+.tl{font-family:Consolas,Liberation Mono,Menlo,monospace;letter-spacing:0}
+.bold{font-weight:650;letter-spacing:-.4px}
+.pulse{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.ring{animation:ring 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+.shimmer{animation:shimmer 11s ease-in-out infinite}@keyframes shimmer{0%,50%{transform:translateX(-200px);opacity:0}58%{opacity:.3}82%,100%{transform:translateX(640px);opacity:0}}
+@media(prefers-reduced-motion:reduce){.shimmer{animation:none!important}}
+</style><clipPath id="bounds"><rect x="1" y="1" width="398" height="102" rx="18" fill="white"/></clipPath></defs><rect x="1" y="1" width="398" height="102" rx="18" fill="#b7cd91" stroke="#8fa86c"/><g clip-path="url(#bounds)">
+<rect x="24" y="26" width="52" height="52" rx="14" fill="#22362d"/><g stroke="#b7cd91" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M41 38h13l7 7v21H41z"/><path d="M54 38v7h7M45 51h12M45 56h12M45 61h7"/></g>
+<text x="94" y="52" font-size="23" class="bold" style="fill:#22362d">Request my CV</text><text x="94" y="77" font-size="11.5" class="mono" style="fill:#56675b">PRE-FILLED: COMPANY · ROLE · DATES</text>
+<path d="M361 41l14-14M364 27h11v11" stroke="#22362d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="0" y="-20" width="30" height="150" fill="#ffffff" opacity=".07" transform="rotate(18 0 52)" class="shimmer"/>
+</g></svg>

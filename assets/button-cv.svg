@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="60" viewBox="0 0 240 60" fill="none" role="img" aria-labelledby="title desc"><title id="title">Email me</title><desc id="desc">Email me link button.</desc><defs><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="60" viewBox="0 0 240 60" fill="none" role="img" aria-labelledby="title desc"><title id="title">Request CV</title><desc id="desc">Request CV link button.</desc><defs><style>
 text{font-family:Segoe UI,Arial,sans-serif;fill:#f4f0e5}
 .serif{font-family:Georgia,Times New Roman,serif;letter-spacing:-1.2px}
 .mono{font-family:Consolas,Liberation Mono,Menlo,monospace;letter-spacing:1.4px}
@@ -9,5 +9,5 @@ text{font-family:Segoe UI,Arial,sans-serif;fill:#f4f0e5}
 .shimmer{animation:shimmer 12s ease-in-out infinite}@keyframes shimmer{0%,45%{transform:translateX(-340px);opacity:0}55%{opacity:.3}80%,100%{transform:translateX(340px);opacity:0}}
 @media(prefers-reduced-motion:reduce){.shimmer,.pulse,.ring{animation:none!important}}
 </style><clipPath id="bounds"><rect x="1" y="1" width="238" height="58" rx="13" fill="white"/></clipPath></defs><rect x="1" y="1" width="238" height="58" rx="13" fill="#202a25" stroke="#3b4a42"/><g clip-path="url(#bounds)">
-<g stroke="#f4f0e5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="19" y="21" width="25" height="18" rx="3"/><path d="M20.5 23.5l11 8 11-8"/></g><text x="58" y="37" font-size="18" class="bold" style="fill:#f4f0e5">Email me</text><rect x="100" y="-15" width="23" height="100" fill="#ffffff" opacity=".06" transform="rotate(18 100 30)" class="shimmer"/>
+<g stroke="#f4f0e5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 17h11l6 6v20H21z"/><path d="M32 17v6h6M25 29h9M25 33.5h9M25 38h5"/></g><text x="58" y="37" font-size="18" class="bold" style="fill:#f4f0e5">Request CV</text><rect x="100" y="-15" width="23" height="100" fill="#ffffff" opacity=".06" transform="rotate(18 100 30)" class="shimmer"/>
 </g></svg>
