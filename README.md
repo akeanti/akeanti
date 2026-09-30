@@ -7,7 +7,7 @@
   <a href="mailto:akeantie@gmail.com"><img src="./assets/button-email.svg" width="18%" alt="Email me"></a>
   <a href="#selected-work"><img src="./assets/button-work.svg" width="18%" alt="See selected work"></a>
   <a href="#what-i-bring"><img src="./assets/button-fit.svg" width="18%" alt="Read what I could bring to your team"></a>
-  <a href="#art-notebook"><img src="./assets/button-art.svg" width="18%" alt="Open the art notebook"></a>
+  <a href="#code-in-the-open"><img src="./assets/button-code.svg" width="18%" alt="See my open-source code"></a>
 </p>
 
 ## It started with a PC
@@ -28,13 +28,13 @@ I want to help electrical systems waste less energy and catch problems earlier. 
 ## Selected work
 
 <p align="center">
-  <a href="#grid-project"><img src="./assets/grid-card.svg" width="49%" alt="cascade-gnn: graph learning for cascading grid failures."></a>
+  <a href="https://github.com/akeanti/cascade-gnn"><img src="./assets/grid-card.svg" width="49%" alt="cascade-gnn: graph learning for cascading grid failures. Opens the repository."></a>
   <a href="#pem-project"><img src="./assets/pem-card.svg" width="49%" alt="PEM electrolyzer fault diagnostics with current analysis, XGBoost and SHAP."></a>
 </p>
 
 ### Grid project
 
-**cascade-gnn** studies cascading grid failures using the **PowerGraph** dataset. I compare graph models with an **XGBoost** baseline, inspect predictions with **GNNExplainer**, and bring the results into **Streamlit**.
+**[cascade-gnn](https://github.com/akeanti/cascade-gnn)** studies cascading grid failures using the **PowerGraph** dataset. I compare graph models with an **XGBoost** baseline, inspect predictions with **GNNExplainer**, and bring the results into **Streamlit**. The code, tests and grouped-holdout splits are public → [read the repo](https://github.com/akeanti/cascade-gnn).
 
 ### PEM project
 
@@ -57,14 +57,58 @@ My **TIPE wireless-power prototype reached 23% efficiency at 34 kHz**, with **R�
 
 The internship I’m looking for has room for both a notebook and a workbench. I’d be glad to help with measurements, prototypes, data analysis, or diagnostic tools, and learn from the engineers around me.
 
+## How I work
+
+<p>
+<img src="./assets/workflow.svg" width="100%" alt="Measure → Model → Compare → Explain → Review. Embedded acquisition, models, baseline comparisons, explanations and Streamlit.">
+</p>
+
+<p>
+<img src="./assets/toolbox.svg" width="100%" alt="Tools for power and energy, machine learning, embedded systems, industrial security and software development.">
+</p>
+
+<p>
+<img src="./assets/journey.svg" width="100%" alt="Age six: dad’s old PC → CPGE MP → TIPE wireless-power experiments → EHTP → Current grid and PEM projects.">
+</p>
+
+<details>
+<summary><b>The short version</b> · plain text</summary>
+
+```text
+akeanti
+├── studying    Electrical & energy, EHTP
+├── foundation  CPGE MP · CNC
+├── building    Grid & PEM diagnostics
+├── learning    BMS · renewables · OT security
+└── offline     Maths · metroidvanias
+```
+
+**Tools:** Python, PyTorch Geometric, XGBoost, SHAP, GNNExplainer, Optuna, pandas, MCSA, pvlib, ESP32, Arduino, ADS1115, SCADA, Nmap, Wireshark, Git, Linux, Streamlit, LaTeX, and VS Code.
+
+</details>
+
+## Code in the open
+
+<p>
+<a href="https://github.com/akeanti?tab=repositories"><img src="./assets/open-source.svg" width="100%" alt="Code in the open: cascade-gnn, CPGE-Robotics, and a maths wiki, plus LaTeX and Advent of Code 2025."></a>
+</p>
+
+| Project | What it is |
+| :-- | :-- |
+| [**cascade-gnn**](https://github.com/akeanti/cascade-gnn) | Graph neural networks vs XGBoost for cascading grid failures on PowerGraph, with GNNExplainer and a Streamlit demo. |
+| [**CPGE-Robotics**](https://github.com/akeanti/CPGE-Robotics) | Arduino projects from the prépa robotics club. |
+| [**Maths wiki**](https://akeanti.github.io/Maths-Ain-t-Mathing-Wiki/) | My own maths notes, written up as a wiki. |
+| [**LaTeX**](https://github.com/akeanti/LaTeX) | Templates and documents I've typeset. |
+| [**Advent of Code 2025**](https://github.com/akeanti/Advent-of-code-2025) | Python solutions with write-ups. |
+
 <img src="./assets/divider.svg" width="100%" alt="">
 
-## Art notebook
+## Off the bench
 
-A few drawings around the things I like working on. The signals and scenes here are illustrations; the project results are in the notes above.
+I also enjoy competitive mathematics and metroidvania games. There’s usually another problem to get absorbed in. I draw around the things I work on too; the signals and scenes below are illustrations, and the project results are in the notes above.
 
-<details open>
-<summary><b>Animated studies</b> · collapse the extra artwork</summary>
+<details>
+<summary><b>Open the art notebook</b> · animated studies</summary>
 
 <p>
 <img src="./assets/workbench-scene.svg" width="100%" alt="An animated electronics workbench illustration: open PC, oscilloscope and layered circuit board.">
@@ -91,45 +135,6 @@ A few drawings around the things I like working on. The signals and scenes here 
 
 </details>
 
-## Workbench
-
-<details open>
-<summary><b>Workflow, tools &amp; journey</b> · collapse for a shorter profile</summary>
-
-<p>
-<img src="./assets/workflow.svg" width="100%" alt="Measure → Model → Compare → Explain → Review. Embedded acquisition, models, baseline comparisons, explanations and Streamlit.">
-</p>
-
-<p>
-<img src="./assets/toolbox.svg" width="100%" alt="Tools for power and energy, machine learning, embedded systems, industrial security and software development.">
-</p>
-
-<p>
-<img src="./assets/journey.svg" width="100%" alt="Age six: dad’s old PC → CPGE MP → TIPE wireless-power experiments → EHTP → Current grid and PEM projects.">
-</p>
-
-</details>
-
-<details>
-<summary><b>The short version</b></summary>
-
-```text
-akeanti
-├── studying    Electrical & energy, EHTP
-├── foundation  CPGE MP · CNC
-├── building    Grid & PEM diagnostics
-├── learning    BMS · renewables · OT security
-└── offline     Maths · metroidvanias
-```
-
-**Tools:** Python, PyTorch Geometric, XGBoost, SHAP, GNNExplainer, Optuna, pandas, MCSA, pvlib, ESP32, Arduino, ADS1115, SCADA, Nmap, Wireshark, Git, Linux, Streamlit, LaTeX, and VS Code.
-
-</details>
-
-### Off the bench
-
-I also enjoy competitive mathematics and metroidvania games. There’s usually another problem to get absorbed in.
-
 ## Let's talk
 
 I'm open to **internships / stage / PFA** in electrical and energy engineering, industrial AI, or OT cybersecurity. **Morocco or abroad**, on-site, hybrid, or remote.
@@ -140,5 +145,6 @@ I'm open to **internships / stage / PFA** in electrical and energy engineering, 
 
 <p align="center">
   <a href="https://akeanti.xyz"><b>akeanti.xyz</b></a> &nbsp;·&nbsp;
-  <a href="mailto:akeantie@gmail.com"><b>akeantie@gmail.com</b></a>
+  <a href="mailto:akeantie@gmail.com"><b>akeantie@gmail.com</b></a> &nbsp;·&nbsp;
+  <a href="https://github.com/akeanti/cascade-gnn"><b>cascade-gnn</b></a>
 </p>
