@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="456" viewBox="0 0 1200 456" fill="none" role="img" aria-labelledby="title desc"><title id="title">swingbus N-1 screening</title><desc id="desc">Animated terminal. Command: swingbus n1 pglib_opf_case118_ieee --from-opf --top 5. Output: N-1 DC screening of pglib_opf_case118_ieee, 186 outages, 9 islanding, 123 with overloads, 0 diverged, 8.3 ms. Worst five: outage 65-68 loads branch 49-69 to 287 percent; 81-80 and 68-81 load 77-80 to 193.6 percent; 8-5 loads 15-17 to 161.8 percent; 68-69 loads 49-69 to 157.5 percent. All violations. Output copied from the swingbus README.</desc><defs><style>
+text{font-family:Segoe UI,Arial,sans-serif;fill:#f4f0e5}
+.serif{font-family:Georgia,Times New Roman,serif;letter-spacing:-1.7px}
+.mono{font-family:Consolas,Liberation Mono,Menlo,monospace;letter-spacing:1.4px}
+.tl{font-family:Consolas,Liberation Mono,Menlo,monospace;letter-spacing:0}
+.bold{font-weight:650;letter-spacing:-.4px}
+.flow{animation:flow 10s linear infinite}.flow-fast{animation:flow 6s linear infinite}.flow-slow{animation:flow 18s linear infinite reverse}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+.ring{animation:ring 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center}
+.orbit{animation:spin 30s linear infinite;transform-box:fill-box;transform-origin:center}
+.ccw{animation:ccw 4s linear infinite}
+.draw{animation:draw 1.2s cubic-bezier(.6,0,.2,1) .2s both;transform-box:fill-box;transform-origin:left}
+@keyframes flow{to{stroke-dashoffset:-240}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ccw{to{transform:rotate(-360deg)}}
+@keyframes draw{from{transform:scaleX(0)}}
+.blink{animation:blink 1.05s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+.type{transform:translateX(436.0px);animation:type 16.0s infinite}@keyframes type{0%,3.125%{transform:translateX(0);animation-timing-function:steps(53,end)}18.031%,94.375%{transform:translateX(424.0px);animation-timing-function:steps(1,end)}97.188%,100%{transform:translateX(0)}}
+.l1{animation:l1 16.0s infinite}@keyframes l1{0%,20.844%{opacity:0}21.594%,93.750%{opacity:1}96.250%,100%{opacity:0}}
+.l2{animation:l2 16.0s infinite}@keyframes l2{0%,23.031%{opacity:0}23.781%,93.750%{opacity:1}96.250%,100%{opacity:0}}
+.l3{animation:l3 16.0s infinite}@keyframes l3{0%,23.656%{opacity:0}24.406%,93.750%{opacity:1}96.250%,100%{opacity:0}}
+.r0{animation:r0 16.0s infinite}@keyframes r0{0%,25.531%{opacity:0}26.281%,93.750%{opacity:1}96.250%,100%{opacity:0}}
+.b0{transform-box:fill-box;transform-origin:left;animation:b0 16.0s infinite}@keyframes b0{0%,25.531%{transform:scaleX(0)}29.906%,93.750%{transform:scaleX(1)}96.250%,100%{transform:scaleX(0)}}
+.r1{animation:r1 16.0s infinite}@keyframes r1{0%,26.906%{opacity:0}27.656%,93.750%{opacity:1}96.250%,100%{opacity:0}}
+.b1{transform-box:fill-box;transform-origin:left;animation:b1 16.0s infinite}@keyframes b1{0%,26.906%{transform:scaleX(0)}31.281%,93.750%{transform:scaleX(1)}96.250%,100%{transform:scaleX(0)}}
+.r2{animation:r2 16.0s infinite}@keyframes r2{0%,28.281%{opacity:0}29.031%,93.750%{opacity:1}96.250%,100%{opacity:0}}
+.b2{transform-box:fill-box;transform-origin:left;animation:b2 16.0s infinite}@keyframes b2{0%,28.281%{transform:scaleX(0)}32.656%,93.750%{transform:scaleX(1)}96.250%,100%{transform:scaleX(0)}}
+.r3{animation:r3 16.0s infinite}@keyframes r3{0%,29.656%{opacity:0}30.406%,93.750%{opacity:1}96.250%,100%{opacity:0}}
+.b3{transform-box:fill-box;transform-origin:left;animation:b3 16.0s infinite}@keyframes b3{0%,29.656%{transform:scaleX(0)}34.031%,93.750%{transform:scaleX(1)}96.250%,100%{transform:scaleX(0)}}
+.r4{animation:r4 16.0s infinite}@keyframes r4{0%,31.031%{opacity:0}31.781%,93.750%{opacity:1}96.250%,100%{opacity:0}}
+.b4{transform-box:fill-box;transform-origin:left;animation:b4 16.0s infinite}@keyframes b4{0%,31.031%{transform:scaleX(0)}35.406%,93.750%{transform:scaleX(1)}96.250%,100%{transform:scaleX(0)}}
+.l9{animation:l9 16.0s infinite}@keyframes l9{0%,33.344%{opacity:0}34.094%,93.750%{opacity:1}96.250%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><clipPath id="bounds"><rect x="1" y="1" width="1198" height="454" rx="24" fill="white"/></clipPath><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#e0a84a"/><stop offset="1" stop-color="#e2785a"/></linearGradient></defs><rect x="1" y="1" width="1198" height="454" rx="24" fill="#181e1c" stroke="#3b4a42"/><g clip-path="url(#bounds)">
+<rect x="24" y="24" width="1152" height="360" rx="14" fill="#0f1312" stroke="#3b4a42"/>
+<path d="M24 60H1176" stroke="#3b4a42"/>
+<circle cx="48" cy="42" r="6" fill="#e2785a" fill-opacity=".85"/>
+<circle cx="68" cy="42" r="6" fill="#e0a84a" fill-opacity=".85"/>
+<circle cx="88" cy="42" r="6" fill="#b7cd91" fill-opacity=".85"/>
+<text x="600" y="47" font-size="12.5" class="tl" text-anchor="middle" style="fill:#b8c5b9">~/grids — swingbus</text>
+<text x="1154" y="47" font-size="11.5" class="mono" text-anchor="end" style="fill:#b7cd91">REAL OUTPUT</text>
+<text x="56" y="100" font-size="14.5" class="tl" xml:space="preserve" style="fill:#b7cd91" textLength="8.0" lengthAdjust="spacing">$</text>
+<text x="72.0" y="100" font-size="14.5" class="tl" xml:space="preserve" style="fill:#f4f0e5" textLength="424.0" lengthAdjust="spacing">swingbus n1 pglib_opf_case118_ieee --from-opf --top 5</text>
+<clipPath id="cmdclip"><rect x="70.0" y="82" width="454.0" height="26"/></clipPath>
+<g clip-path="url(#cmdclip)"><g class="type"><rect x="71.0" y="82" width="464.0" height="26" fill="#0f1312"/><rect class="blink" x="72.0" y="86" width="8" height="17" fill="#48bfc4"/></g></g>
+<g class="l1"><text x="56" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#b8c5b9" textLength="160.0" lengthAdjust="spacing">N-1 DC screening of </text><text x="216.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#f4f0e5" textLength="176.0" lengthAdjust="spacing">pglib_opf_case118_ieee</text><text x="392.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#3b4a42" textLength="24.0" lengthAdjust="spacing"> | </text><text x="416.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#48bfc4" textLength="88.0" lengthAdjust="spacing">186 outages</text><text x="504.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#3b4a42" textLength="24.0" lengthAdjust="spacing"> | </text><text x="528.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#b8c5b9" textLength="88.0" lengthAdjust="spacing">9 islanding</text><text x="616.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#3b4a42" textLength="24.0" lengthAdjust="spacing"> | </text><text x="640.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#e0a84a" textLength="144.0" lengthAdjust="spacing">123 with overloads</text><text x="784.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#3b4a42" textLength="24.0" lengthAdjust="spacing"> | </text><text x="808.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#b8c5b9" textLength="80.0" lengthAdjust="spacing">0 diverged</text><text x="888.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#3b4a42" textLength="24.0" lengthAdjust="spacing"> | </text><text x="912.0" y="124" font-size="14.5" class="tl" xml:space="preserve" style="fill:#48bfc4" textLength="48.0" lengthAdjust="spacing">8.3 ms</text></g>
+<g class="l2"><text x="56" y="172" font-size="14.5" class="tl" xml:space="preserve" style="fill:#b8c5b9" textLength="472.0" lengthAdjust="spacing">rank  outage  max load (%)  worst branch  overloads  status</text><text x="668" y="172" font-size="11" class="mono" style="fill:#b8c5b9">LOADING VS RATING</text></g>
+<g class="l3"><text x="56" y="196" font-size="14.5" class="tl" xml:space="preserve" style="fill:#3b4a42" textLength="496.0" lengthAdjust="spacing">----  ------  ------------  ------------  ---------  ---------</text></g>
+<g class="r0"><text x="56" y="220" font-size="14.5" class="tl" xml:space="preserve" style="fill:#f4f0e5" textLength="424.0" lengthAdjust="spacing">   1  65-68          287.0  49-69                 6  </text><text x="480.0" y="220" font-size="14.5" class="tl" xml:space="preserve" style="fill:#e2785a" textLength="72.0" lengthAdjust="spacing">violation</text><rect x="668" y="209" width="472" height="10" rx="5" fill="#1d2522"/></g>
+<rect x="668" y="209" width="451.5" height="10" rx="5" fill="url(#lg)" class="b0"/>
+<g class="r1"><text x="56" y="244" font-size="14.5" class="tl" xml:space="preserve" style="fill:#f4f0e5" textLength="424.0" lengthAdjust="spacing">   2  81-80          193.6  77-80                 5  </text><text x="480.0" y="244" font-size="14.5" class="tl" xml:space="preserve" style="fill:#e2785a" textLength="72.0" lengthAdjust="spacing">violation</text><rect x="668" y="233" width="472" height="10" rx="5" fill="#1d2522"/></g>
+<rect x="668" y="233" width="304.6" height="10" rx="5" fill="url(#lg)" class="b1"/>
+<g class="r2"><text x="56" y="268" font-size="14.5" class="tl" xml:space="preserve" style="fill:#f4f0e5" textLength="424.0" lengthAdjust="spacing">   3  68-81          193.6  77-80                 5  </text><text x="480.0" y="268" font-size="14.5" class="tl" xml:space="preserve" style="fill:#e2785a" textLength="72.0" lengthAdjust="spacing">violation</text><rect x="668" y="257" width="472" height="10" rx="5" fill="#1d2522"/></g>
+<rect x="668" y="257" width="304.6" height="10" rx="5" fill="url(#lg)" class="b2"/>
+<g class="r3"><text x="56" y="292" font-size="14.5" class="tl" xml:space="preserve" style="fill:#f4f0e5" textLength="424.0" lengthAdjust="spacing">   4  8-5            161.8  15-17                 4  </text><text x="480.0" y="292" font-size="14.5" class="tl" xml:space="preserve" style="fill:#e2785a" textLength="72.0" lengthAdjust="spacing">violation</text><rect x="668" y="281" width="472" height="10" rx="5" fill="#1d2522"/></g>
+<rect x="668" y="281" width="254.6" height="10" rx="5" fill="url(#lg)" class="b3"/>
+<g class="r4"><text x="56" y="316" font-size="14.5" class="tl" xml:space="preserve" style="fill:#f4f0e5" textLength="424.0" lengthAdjust="spacing">   5  68-69          157.5  49-69                 3  </text><text x="480.0" y="316" font-size="14.5" class="tl" xml:space="preserve" style="fill:#e2785a" textLength="72.0" lengthAdjust="spacing">violation</text><rect x="668" y="305" width="472" height="10" rx="5" fill="#1d2522"/></g>
+<rect x="668" y="305" width="247.8" height="10" rx="5" fill="url(#lg)" class="b4"/>
+<path d="M825.3 178V322" stroke="#b7cd91" stroke-dasharray="3 3" class="l3"/>
+<g class="l3"><text x="831.33" y="188" font-size="10.5" class="tl" style="fill:#b7cd91">100%</text></g>
+<g class="l9"><text x="56" y="348" font-size="14.5" class="tl" xml:space="preserve" style="fill:#b7cd91" textLength="8.0" lengthAdjust="spacing">$</text><rect class="blink" x="72.0" y="334" width="8" height="17" fill="#48bfc4"/></g>
+<text x="600" y="422" font-size="12.5" class="mono" text-anchor="middle" style="fill:#b8c5b9">THE WHOLE N-1 SET: ONE PTDF, ONE LODF AND A FEW MATRIX PRODUCTS · OUTPUT FROM THE SWINGBUS README</text>
+</g></svg>

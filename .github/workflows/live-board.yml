@@ -1,0 +1,42 @@
+name: shipping log
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/scripts/live_board.py"
+      - ".github/workflows/live-board.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: live-board
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Rebuild assets/live.svg
+        run: python3 .github/scripts/live_board.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit if something shipped
+        run: |
+          if git diff --quiet -- assets/live.svg && git ls-files --error-unmatch assets/live.svg >/dev/null 2>&1; then
+            echo "Shipping log unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/live.svg
+          git commit -m "Refresh shipping log"
+          git push

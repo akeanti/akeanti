@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="286" viewBox="0 0 1200 286" fill="none" role="img" aria-labelledby="title desc"><title id="title">Ask me about</title><desc id="desc">Interview starters. One: why a tuned XGBoost can beat a GNN, and what it says about the features. Two: keeping ML results honest with grouped splits, leakage checks and a claim ledger. Three: building a 34 kHz wireless power prototype and comparing it to the Yates reference.</desc><defs><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="286" viewBox="0 0 1200 286" fill="none" role="img" aria-labelledby="title desc"><title id="title">Ask me about</title><desc id="desc">Ask me about: timing the grid with a GPS pulse, and why 1 microsecond is 0.018 degrees at 50 Hz; why the cheapest dispatch fails N-1, with 123 of 186 IEEE 118 outages causing overloads; why a tuned XGBoost can beat a GNN. Click to email me.</desc><defs><style>
 text{font-family:Segoe UI,Arial,sans-serif;fill:#22362d}
 .serif{font-family:Georgia,Times New Roman,serif;letter-spacing:-1.2px}
 .mono{font-family:Consolas,Liberation Mono,monospace;letter-spacing:1.4px}
@@ -11,11 +11,11 @@ text{font-family:Segoe UI,Arial,sans-serif;fill:#22362d}
 <text x="34" y="60" font-size="38" class="serif">Ask me about.</text><text x="1166" y="56" font-size="14" class="mono" text-anchor="end">INTERVIEW STARTERS</text>
 
 <text x="34" y="128" font-size="46" class="serif q" style="fill:#48bfc4">01</text><line x1="96" y1="114" x2="374" y2="114" stroke="#c5cdbb"/><path d="M96 114h278" stroke="#22362d" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="15 263" class="flow-slow"/>
-<text x="34" y="176" font-size="26" class="serif">Why a tuned XGBoost</text><text x="34" y="208" font-size="26" class="serif">can beat a GNN</text><text x="34" y="246" font-size="17" style="fill:#56675b">and what it says about the features</text>
+<text x="34" y="176" font-size="26" class="serif">Timing the grid</text><text x="34" y="208" font-size="26" class="serif">with a GPS pulse</text><text x="34" y="246" font-size="17" style="fill:#56675b">and why 1 µs is 0.018° at 50 Hz</text>
 
 <text x="422" y="128" font-size="46" class="serif q" style="fill:#48bfc4;animation-delay:2s">02</text><line x1="484" y1="114" x2="762" y2="114" stroke="#c5cdbb"/><path d="M484 114h278" stroke="#22362d" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="15 263" class="flow-slow"/>
-<text x="422" y="176" font-size="26" class="serif">Keeping ML results</text><text x="422" y="208" font-size="26" class="serif">honest</text><text x="422" y="246" font-size="17" style="fill:#56675b">splits, leakage checks, a claim ledger</text>
+<text x="422" y="176" font-size="26" class="serif">Why the cheapest</text><text x="422" y="208" font-size="26" class="serif">dispatch fails N-1</text><text x="422" y="246" font-size="17" style="fill:#56675b">123 of 186 IEEE 118 outages overload</text>
 
 <text x="810" y="128" font-size="46" class="serif q" style="fill:#48bfc4;animation-delay:4s">03</text><line x1="872" y1="114" x2="1166" y2="114" stroke="#c5cdbb"/><path d="M872 114h294" stroke="#22362d" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="15 279" class="flow-slow"/>
-<text x="810" y="176" font-size="26" class="serif">Building a 34 kHz</text><text x="810" y="208" font-size="26" class="serif">WPT prototype</text><text x="810" y="246" font-size="17" style="fill:#56675b">and comparing it to the Yates reference</text>
+<text x="810" y="176" font-size="26" class="serif">Why a tuned XGBoost</text><text x="810" y="208" font-size="26" class="serif">can beat a GNN</text><text x="810" y="246" font-size="17" style="fill:#56675b">and what it says about the features</text>
 </g></svg>
