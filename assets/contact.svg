@@ -1,36 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="310" viewBox="0 0 1200 310" fill="none" role="img" aria-labelledby="t d"><title id="t">Let&#x27;s work together</title><desc id="d">Hiring a first-year engineering intern? Stage de 1re année, summer 2027. When: Summer 2027, 1–2 months · dates on request. Where: Morocco or abroad, on-site, hybrid or remote. Fields: Power &amp; energy systems, embedded · industrial AI · OT security. School: EHTP · first year, GEE, after CPGE MP and the CNC. Languages: Arabic · French · English, native · fluent · professional. Contact: akeantie@gmail.com, CV on request. Click to request my CV.</desc><defs><style>
-text{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;fill:#f4f0e5}
-.serif{font-family:Georgia,'Times New Roman',serif}.mono{font-family:Consolas,'SF Mono',Menlo,'Liberation Mono',monospace}
-.b{font-weight:650}.mu{fill:#a9b8ad}.dim{fill:#728278}.sage{fill:#b7cd91}.teal{fill:#48bfc4}.amber{fill:#e0a84a}.ink{fill:#16201b}
-.pulse{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
-.ring{animation:ring 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.8);opacity:0}}
-.spin{animation:spin 28s linear infinite;transform-box:fill-box;transform-origin:center}.spinr{animation:spin 40s linear infinite reverse;transform-box:fill-box;transform-origin:center}@keyframes spin{to{transform:rotate(360deg)}}
-.flow{stroke-dasharray:4 7;animation:flow 1.4s linear infinite}@keyframes flow{to{stroke-dashoffset:-22}}
-.wave{animation:wave 5s linear infinite}@keyframes wave{to{transform:translateX(-240px)}}
-.wave2{animation:wave2 3s linear infinite}@keyframes wave2{to{transform:translateX(-56px)}}
-.scan{animation:scan 3.6s linear infinite}@keyframes scan{from{transform:translateX(0)}to{transform:translateX(168px)}}
-.draw{stroke-dasharray:420;animation:draw 5s ease-in-out infinite}@keyframes draw{0%{stroke-dashoffset:420}55%,85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
-.twinkle{animation:twinkle 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
-.trip{opacity:0;animation:trip 6s ease-in-out infinite}@keyframes trip{0%,12%{opacity:0}20%,72%{opacity:1}86%,100%{opacity:0}}
-.grow{animation:grow 1.4s cubic-bezier(.2,.7,.2,1) both;transform-box:fill-box;transform-origin:left}@keyframes grow{from{transform:scaleX(0)}}
-.prog{animation:prog 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:left}@keyframes prog{0%{transform:scaleX(.04)}80%,100%{transform:scaleX(1)}}
-.in{animation:in .8s cubic-bezier(.2,.7,.2,1) both}@keyframes in{from{opacity:0;transform:translateY(8px)}}
-.pop{animation:pop .5s ease-out both}@keyframes pop{from{opacity:0}}
-.sweep{animation:sweep 6s ease-in-out infinite}@keyframes sweep{0%{transform:translateX(-160px);opacity:0}15%{opacity:1}60%,100%{transform:translateX(1240px);opacity:0}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important}.trip{opacity:.8}}
-</style><clipPath id="clip"><rect width="1200" height="310" rx="22"/></clipPath><pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#2a3530"/></pattern></defs><g clip-path="url(#clip)"><rect width="1200" height="310" fill="#181e1c"/>
-<rect width="1200" height="310" fill="url(#dots)" opacity=".6"/>
-<radialGradient id="cg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(220 150) scale(420)"><stop stop-color="#b7cd91" stop-opacity=".12"/><stop offset="1" stop-color="#b7cd91" stop-opacity="0"/></radialGradient><rect width="1200" height="310" fill="url(#cg)"/>
-<text x="48" y="64" font-size="14" class="mono teal b" letter-spacing="2.5">03 · LET&#8217;S WORK TOGETHER</text>
-<text x="46" y="128" font-size="44" class="serif" letter-spacing="-1">Hiring a first-year</text>
-<text x="46" y="178" font-size="44" class="serif" letter-spacing="-1">engineering intern?</text>
-<text x="48" y="214" font-size="17" class="mu">Stage de 1re année · summer 2027 · one click to start.</text>
-<rect x="48" y="238" width="236" height="48" rx="24" fill="#b7cd91"/><text x="166" y="268" font-size="18" class="b ink" text-anchor="middle">Request my CV  →</text>
-<rect x="618" y="30" width="556" height="250" rx="16" fill="#1f2724" stroke="#33413b"/>
-<g class="in" style="animation-delay:0.00s"><text x="646" y="68" font-size="12" class="mono sage" letter-spacing="2">WHEN</text><text x="646" y="93" font-size="17.5" class="b">Summer 2027</text><text x="646" y="114" font-size="14" class="mu">1–2 months · dates on request</text></g>
-<g class="in" style="animation-delay:0.08s"><text x="916" y="68" font-size="12" class="mono sage" letter-spacing="2">WHERE</text><text x="916" y="93" font-size="17.5" class="b">Morocco or abroad</text><text x="916" y="114" font-size="14" class="mu">on-site, hybrid or remote</text></g>
-<g class="in" style="animation-delay:0.16s"><text x="646" y="144" font-size="12" class="mono sage" letter-spacing="2">FIELDS</text><text x="646" y="169" font-size="17.5" class="b">Power &amp; energy systems</text><text x="646" y="190" font-size="14" class="mu">embedded · industrial AI · OT security</text></g>
-<g class="in" style="animation-delay:0.24s"><text x="916" y="144" font-size="12" class="mono sage" letter-spacing="2">SCHOOL</text><text x="916" y="169" font-size="17.5" class="b">EHTP · first year, GEE</text><text x="916" y="190" font-size="14" class="mu">after CPGE MP and the CNC</text></g>
-<g class="in" style="animation-delay:0.32s"><text x="646" y="220" font-size="12" class="mono sage" letter-spacing="2">LANGUAGES</text><text x="646" y="245" font-size="17.5" class="b">Arabic · French · English</text><text x="646" y="266" font-size="14" class="mu">native · fluent · professional</text></g>
-<g class="in" style="animation-delay:0.40s"><text x="916" y="220" font-size="12" class="mono sage" letter-spacing="2">CONTACT</text><text x="916" y="245" font-size="17.5" class="b">akeantie@gmail.com</text><text x="916" y="266" font-size="14" class="mu">CV on request</text></g>
-</g><rect x=".5" y=".5" width="1199" height="309" rx="21.5" stroke="#33413b"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" fill="none" role="img" aria-labelledby="t d"><title id="t">Contact</title><desc id="d">Hiring a first-year engineering intern? Stage de 1re année, summer 2027, for 1 to 2 months. When: Summer 2027, 1 to 2 months, dates on request. Where: Morocco or abroad, on-site, hybrid or remote. Fields: Power and energy systems, embedded, industrial AI, OT security. School: EHTP, first year (GEE), after CPGE MP and the CNC. Languages: Arabic, French, English, native, fluent, professional. Email: akeantie@gmail.com, CV on request. Click to request my CV.</desc><defs><style>
+text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;fill:#F6F6F4}.serif{font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif}.mono{font-family:'JetBrains Mono','SF Mono','Cascadia Mono',Consolas,Menlo,monospace}
+.b{font-weight:600}.it{font-style:italic}.body{fill:#C8CDCA}.soft{fill:#8E9692}.faint{fill:#5C635F}
+.teal{fill:#42BBC4}.sage{fill:#93B787}.paper{fill:#1A1C1B}
+.ring{animation:ring 2.6s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.4);opacity:0}}
+.flow{stroke-dasharray:1.5 9;animation:flow 1.1s linear infinite}@keyframes flow{to{stroke-dashoffset:-21}}
+.draw{stroke-dasharray:440;animation:draw 6s cubic-bezier(.45,0,.2,1) infinite}@keyframes draw{0%{stroke-dashoffset:440}55%,88%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.trip{opacity:0;animation:trip 7s ease-in-out infinite}@keyframes trip{0%,10%{opacity:0}18%,72%{opacity:1}86%,100%{opacity:0}}
+.bar{animation:bar 1.1s cubic-bezier(.2,.7,.2,1) both;transform-box:fill-box;transform-origin:bottom}@keyframes bar{from{transform:scaleY(0)}}
+.grow{animation:grow 1.2s cubic-bezier(.2,.7,.2,1) both;transform-box:fill-box;transform-origin:left}@keyframes grow{from{transform:scaleX(0)}}
+.prog{animation:prog 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:left}@keyframes prog{0%{transform:scaleX(.05)}80%,100%{transform:scaleX(1)}}
+.blink{animation:blink 2.4s ease-in-out infinite}@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+.twinkle{animation:twinkle 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></defs><rect x=".5" y=".5" width="1199" height="319" rx="4" fill="#1A1C1B" stroke="#323634"/>
+<text x="48" y="62" font-size="16" class="serif it soft"><tspan class="mono teal b" font-style="normal" font-size="12">03</tspan>  Let us talk</text>
+<text x="46" y="134" font-size="46" class="serif" letter-spacing="-.8">Hiring a first-year</text>
+<text x="46" y="186" font-size="46" class="serif" letter-spacing="-.8">engineering intern?</text>
+<text x="48" y="224" font-size="17" class="body">Stage de 1re année, summer 2027, for 1 to 2 months.</text>
+<rect x="48" y="246" width="232" height="46" rx="3" fill="#42BBC4"/><text x="164" y="275" font-size="16.5" class="b" text-anchor="middle" style="fill:#1A1C1B">Request my CV  →</text>
+<path d="M620 32V288" stroke="#2A2E2C"/>
+<text x="652" y="54" font-size="10" class="mono soft" letter-spacing="1.6">WHEN</text><text x="782" y="50" font-size="15.5" class="b">Summer 2027</text><text x="782" y="67" font-size="13" class="soft">1 to 2 months, dates on request</text>
+<path d="M652 75H1160" stroke="#2A2E2C"/>
+<text x="652" y="97" font-size="10" class="mono soft" letter-spacing="1.6">WHERE</text><text x="782" y="93" font-size="15.5" class="b">Morocco or abroad</text><text x="782" y="110" font-size="13" class="soft">on-site, hybrid or remote</text>
+<path d="M652 118H1160" stroke="#2A2E2C"/>
+<text x="652" y="140" font-size="10" class="mono soft" letter-spacing="1.6">FIELDS</text><text x="782" y="136" font-size="15.5" class="b">Power and energy systems</text><text x="782" y="153" font-size="13" class="soft">embedded, industrial AI, OT security</text>
+<path d="M652 161H1160" stroke="#2A2E2C"/>
+<text x="652" y="183" font-size="10" class="mono soft" letter-spacing="1.6">SCHOOL</text><text x="782" y="179" font-size="15.5" class="b">EHTP, first year (GEE)</text><text x="782" y="196" font-size="13" class="soft">after CPGE MP and the CNC</text>
+<path d="M652 204H1160" stroke="#2A2E2C"/>
+<text x="652" y="226" font-size="10" class="mono soft" letter-spacing="1.6">LANGUAGES</text><text x="782" y="222" font-size="15.5" class="b">Arabic, French, English</text><text x="782" y="239" font-size="13" class="soft">native, fluent, professional</text>
+<path d="M652 247H1160" stroke="#2A2E2C"/>
+<text x="652" y="269" font-size="10" class="mono soft" letter-spacing="1.6">EMAIL</text><text x="782" y="265" font-size="15.5" class="b">akeantie@gmail.com</text><text x="782" y="282" font-size="13" class="soft">CV on request</text>
+</svg>
