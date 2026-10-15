@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="330" viewBox="0 0 520 330" fill="none" role="img" aria-labelledby="t d"><title id="t">drpc</title><desc id="d">drpc: Discord Rich Presence for MATLAB and Simulink: shows what you are editing, running, debugging or simulating. Runs inside MATLAB, no Python or Node. Key numbers: 9 activity states detected; 1 line install from MATLAB. Status: v1.1.0. CI success. 1 stars, updated 11 Oct 2026.</desc><defs><style>
+text{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;fill:#f4f0e5}
+.serif{font-family:Georgia,'Times New Roman',serif}.mono{font-family:Consolas,'SF Mono',Menlo,'Liberation Mono',monospace}
+.b{font-weight:650}.mu{fill:#a9b8ad}.dim{fill:#728278}.sage{fill:#b7cd91}.teal{fill:#48bfc4}.amber{fill:#e0a84a}.ink{fill:#16201b}
+.pulse{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.ring{animation:ring 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.8);opacity:0}}
+.spin{animation:spin 28s linear infinite;transform-box:fill-box;transform-origin:center}.spinr{animation:spin 40s linear infinite reverse;transform-box:fill-box;transform-origin:center}@keyframes spin{to{transform:rotate(360deg)}}
+.flow{stroke-dasharray:4 7;animation:flow 1.4s linear infinite}@keyframes flow{to{stroke-dashoffset:-22}}
+.wave{animation:wave 5s linear infinite}@keyframes wave{to{transform:translateX(-240px)}}
+.wave2{animation:wave2 3s linear infinite}@keyframes wave2{to{transform:translateX(-56px)}}
+.scan{animation:scan 3.6s linear infinite}@keyframes scan{from{transform:translateX(0)}to{transform:translateX(168px)}}
+.draw{stroke-dasharray:420;animation:draw 5s ease-in-out infinite}@keyframes draw{0%{stroke-dashoffset:420}55%,85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.twinkle{animation:twinkle 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+.trip{opacity:0;animation:trip 6s ease-in-out infinite}@keyframes trip{0%,12%{opacity:0}20%,72%{opacity:1}86%,100%{opacity:0}}
+.grow{animation:grow 1.4s cubic-bezier(.2,.7,.2,1) both;transform-box:fill-box;transform-origin:left}@keyframes grow{from{transform:scaleX(0)}}
+.prog{animation:prog 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:left}@keyframes prog{0%{transform:scaleX(.04)}80%,100%{transform:scaleX(1)}}
+.in{animation:in .8s cubic-bezier(.2,.7,.2,1) both}@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.pop{animation:pop .5s ease-out both}@keyframes pop{from{opacity:0}}
+.sweep{animation:sweep 6s ease-in-out infinite}@keyframes sweep{0%{transform:translateX(-160px);opacity:0}15%{opacity:1}60%,100%{transform:translateX(1240px);opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.trip{opacity:.8}}
+</style><clipPath id="clip"><rect width="520" height="330" rx="20"/></clipPath><pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#2a3530"/></pattern></defs><g clip-path="url(#clip)"><rect width="520" height="330" fill="#181e1c"/>
+<rect width="520" height="330" fill="url(#dots)" opacity=".45"/>
+<rect x="24" y="22" width="148" height="28" rx="14" fill="#b7cd91" fill-opacity=".08" stroke="#b7cd91" stroke-opacity=".45"/><text x="36" y="41" font-size="12" class="mono sage" letter-spacing="1.4">DEVELOPER TOOLS</text>
+<rect x="423" y="22" width="73" height="28" rx="14" fill="#b7cd91"/><text x="460" y="41" font-size="12.5" class="mono ink b" text-anchor="middle" letter-spacing="1">v1.1.0</text>
+<text x="409" y="41" font-size="12" class="mono" text-anchor="end" letter-spacing="1.2" style="fill:#b7cd91">CI PASSING</text><circle cx="319" cy="36" r="4" fill="#b7cd91"/><circle cx="319" cy="36" r="4" stroke="#b7cd91" class="ring"/>
+<clipPath id="gclip"><rect width="52" height="52" rx="13"/></clipPath><g transform="translate(24 66)"><rect width="52" height="52" rx="13" fill="#232d29" stroke="#33413b"/><rect x="9" y="12" width="34" height="28" rx="7" fill="#e16737"/><path d="M15 33 L21 24 L25 29 L30 19 L37 33" stroke="#fff" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="41" cy="38" r="6.5" fill="#1f2724"/><circle cx="41" cy="38" r="4" fill="#3ba55d" class="pulse"/></g>
+<text x="92" y="95" font-size="28" class="b" letter-spacing="-.5">drpc</text><text x="92" y="116" font-size="13" class="mono dim">akeanti/matlab-discord-rpc</text>
+<g transform="translate(326 60)" opacity=".9"><rect x="0" y="4" width="170" height="64" rx="10" fill="#232d29" stroke="#33413b"/><rect x="12" y="16" width="40" height="40" rx="9" fill="#e16737"/><path d="M19 47 L26 34 L31 41 L37 27 L45 47" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="51" cy="54" r="7" fill="#232d29"/><circle cx="51" cy="54" r="4.5" fill="#3ba55d" class="pulse"/><text x="62" y="27" font-size="10.5" class="b">Simulating</text><text x="62" y="41" font-size="10" class="mu">motor_model.slx</text><rect x="62" y="48" width="96" height="5" rx="2.5" fill="#33413b"/><rect x="62" y="48" width="96" height="5" rx="2.5" fill="#b7cd91" class="prog"/></g>
+<text x="24" y="160" font-size="17" class="mu">Discord Rich Presence for MATLAB and Simulink: shows</text>
+<text x="24" y="184" font-size="17" class="mu">what you are editing, running, debugging or simulating. Runs</text>
+<text x="24" y="208" font-size="17" class="mu">inside MATLAB, no Python or Node.</text>
+<g class="in" style="animation-delay:0.20s"><text x="24" y="252" font-size="27" class="b sage" letter-spacing="-.5">9</text><text x="24" y="274" font-size="14" class="mu">activity states detected</text></g>
+<path d="M256 232V276" stroke="#33413b"/>
+<g class="in" style="animation-delay:0.35s"><text x="272" y="252" font-size="27" class="b sage" letter-spacing="-.5">1 line</text><text x="272" y="274" font-size="14" class="mu">install from MATLAB</text></g>
+<path d="M24 292H496" stroke="#33413b"/>
+<text x="496" y="316" font-size="13.5" class="dim" text-anchor="end">★ 1 · updated 11 Oct 2026</text>
+<circle cx="30" cy="311" r="5" fill="#e16737"/>
+<text x="42" y="316" font-size="13.5" class="mono mu">MATLAB · C# · .NET · Windows</text>
+</g><rect x=".5" y=".5" width="519" height="329" rx="19.5" stroke="#33413b"/></svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="64" viewBox="0 0 300 64" fill="none" role="img" aria-label="Email me"><title>Email me</title><defs><style>text{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;fill:#f4f0e5}
+.serif{font-family:Georgia,'Times New Roman',serif}.mono{font-family:Consolas,'SF Mono',Menlo,'Liberation Mono',monospace}
+.b{font-weight:650}.mu{fill:#a9b8ad}.dim{fill:#728278}.sage{fill:#b7cd91}.teal{fill:#48bfc4}.amber{fill:#e0a84a}.ink{fill:#16201b}
+.pulse{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.ring{animation:ring 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.8);opacity:0}}
+.spin{animation:spin 28s linear infinite;transform-box:fill-box;transform-origin:center}.spinr{animation:spin 40s linear infinite reverse;transform-box:fill-box;transform-origin:center}@keyframes spin{to{transform:rotate(360deg)}}
+.flow{stroke-dasharray:4 7;animation:flow 1.4s linear infinite}@keyframes flow{to{stroke-dashoffset:-22}}
+.wave{animation:wave 5s linear infinite}@keyframes wave{to{transform:translateX(-240px)}}
+.wave2{animation:wave2 3s linear infinite}@keyframes wave2{to{transform:translateX(-56px)}}
+.scan{animation:scan 3.6s linear infinite}@keyframes scan{from{transform:translateX(0)}to{transform:translateX(168px)}}
+.draw{stroke-dasharray:420;animation:draw 5s ease-in-out infinite}@keyframes draw{0%{stroke-dashoffset:420}55%,85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.twinkle{animation:twinkle 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+.trip{opacity:0;animation:trip 6s ease-in-out infinite}@keyframes trip{0%,12%{opacity:0}20%,72%{opacity:1}86%,100%{opacity:0}}
+.grow{animation:grow 1.4s cubic-bezier(.2,.7,.2,1) both;transform-box:fill-box;transform-origin:left}@keyframes grow{from{transform:scaleX(0)}}
+.prog{animation:prog 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:left}@keyframes prog{0%{transform:scaleX(.04)}80%,100%{transform:scaleX(1)}}
+.in{animation:in .8s cubic-bezier(.2,.7,.2,1) both}@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.pop{animation:pop .5s ease-out both}@keyframes pop{from{opacity:0}}
+.sweep{animation:sweep 6s ease-in-out infinite}@keyframes sweep{0%{transform:translateX(-160px);opacity:0}15%{opacity:1}60%,100%{transform:translateX(1240px);opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.trip{opacity:.8}}</style></defs><rect x="1" y="1" width="298" height="62" rx="31" fill="#1f2724" stroke="#33413b" stroke-width="2"/><g transform="translate(96 32)"><rect x="-11" y="-8" width="22" height="16" rx="3" stroke="#f4f0e5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M-10 -6l10 7l10 -7" stroke="#f4f0e5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g><text x="119" y="39.5" font-size="21" class="b" style="fill:#f4f0e5">Email me</text></svg>

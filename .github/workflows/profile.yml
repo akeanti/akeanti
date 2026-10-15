@@ -1,4 +1,4 @@
-name: shipping log
+name: live profile
 
 on:
   schedule:
@@ -7,14 +7,14 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/scripts/live_board.py"
-      - ".github/workflows/live-board.yml"
+      - ".github/scripts/build_profile.py"
+      - ".github/workflows/profile.yml"
 
 permissions:
   contents: write
 
 concurrency:
-  group: live-board
+  group: live-profile
   cancel-in-progress: false
 
 jobs:
@@ -24,19 +24,19 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Rebuild assets/live.svg
-        run: python3 .github/scripts/live_board.py
+      - name: Rebuild header, pinned cards, stats and the README pinned block
+        run: python3 .github/scripts/build_profile.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit if something shipped
+      - name: Commit if something changed
         run: |
-          if git diff --quiet -- assets/live.svg && git ls-files --error-unmatch assets/live.svg >/dev/null 2>&1; then
-            echo "Shipping log unchanged."
+          git add -A assets README.md
+          if git diff --cached --quiet; then
+            echo "Profile unchanged."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/live.svg
-          git commit -m "Refresh shipping log"
+          git commit -m "Refresh live profile"
           git push

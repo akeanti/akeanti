@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="196" viewBox="0 0 1200 196" fill="none" role="img" aria-labelledby="t d"><title id="t">Proof in numbers</title><desc id="d">Proof in numbers: 10e−13 pu match with the PYPOWER reference (swingbus); 8.3 ms full N-1 screen of a 118-bus grid (swingbus); 2.4× faster maze runs with clothoid turns (ariadne); 99.6% top-1 gesture recognition on-device (malfoid); 230+ automated tests in CI across 4 repos (4 repos).</desc><defs><style>
+text{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;fill:#f4f0e5}
+.serif{font-family:Georgia,'Times New Roman',serif}.mono{font-family:Consolas,'SF Mono',Menlo,'Liberation Mono',monospace}
+.b{font-weight:650}.mu{fill:#a9b8ad}.dim{fill:#728278}.sage{fill:#b7cd91}.teal{fill:#48bfc4}.amber{fill:#e0a84a}.ink{fill:#16201b}
+.pulse{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.ring{animation:ring 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.8);opacity:0}}
+.spin{animation:spin 28s linear infinite;transform-box:fill-box;transform-origin:center}.spinr{animation:spin 40s linear infinite reverse;transform-box:fill-box;transform-origin:center}@keyframes spin{to{transform:rotate(360deg)}}
+.flow{stroke-dasharray:4 7;animation:flow 1.4s linear infinite}@keyframes flow{to{stroke-dashoffset:-22}}
+.wave{animation:wave 5s linear infinite}@keyframes wave{to{transform:translateX(-240px)}}
+.wave2{animation:wave2 3s linear infinite}@keyframes wave2{to{transform:translateX(-56px)}}
+.scan{animation:scan 3.6s linear infinite}@keyframes scan{from{transform:translateX(0)}to{transform:translateX(168px)}}
+.draw{stroke-dasharray:420;animation:draw 5s ease-in-out infinite}@keyframes draw{0%{stroke-dashoffset:420}55%,85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.twinkle{animation:twinkle 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+.trip{opacity:0;animation:trip 6s ease-in-out infinite}@keyframes trip{0%,12%{opacity:0}20%,72%{opacity:1}86%,100%{opacity:0}}
+.grow{animation:grow 1.4s cubic-bezier(.2,.7,.2,1) both;transform-box:fill-box;transform-origin:left}@keyframes grow{from{transform:scaleX(0)}}
+.prog{animation:prog 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:left}@keyframes prog{0%{transform:scaleX(.04)}80%,100%{transform:scaleX(1)}}
+.in{animation:in .8s cubic-bezier(.2,.7,.2,1) both}@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.pop{animation:pop .5s ease-out both}@keyframes pop{from{opacity:0}}
+.sweep{animation:sweep 6s ease-in-out infinite}@keyframes sweep{0%{transform:translateX(-160px);opacity:0}15%{opacity:1}60%,100%{transform:translateX(1240px);opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.trip{opacity:.8}}
+</style><clipPath id="clip"><rect width="1200" height="196" rx="20"/></clipPath><pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#2a3530"/></pattern></defs><g clip-path="url(#clip)"><rect width="1200" height="196" fill="#181e1c"/>
+<g class="in" style="animation-delay:0.00s"><text x="46" y="52" font-size="12" class="mono" letter-spacing="2" style="fill:#b7cd91">SWINGBUS</text><text x="46" y="106" font-size="44" class="b" letter-spacing="-1.5">10<tspan dy="-18.5" font-size="24.2">−13</tspan><tspan dy="18.5">&#8203;</tspan><tspan font-size="24" style="fill:#b7cd91"> pu</tspan></text>
+<text x="46" y="138" font-size="16" class="mu">match with the</text>
+<text x="46" y="159" font-size="16" class="mu">PYPOWER reference</text>
+</g>
+<path d="M254 36V160" stroke="#33413b"/>
+<g class="in" style="animation-delay:0.12s"><text x="276" y="52" font-size="12" class="mono" letter-spacing="2" style="fill:#48bfc4">SWINGBUS</text><text x="276" y="106" font-size="44" class="b" letter-spacing="-1.5">8.3<tspan font-size="24" style="fill:#48bfc4"> ms</tspan></text>
+<text x="276" y="138" font-size="16" class="mu">full N-1 screen of a</text>
+<text x="276" y="159" font-size="16" class="mu">118-bus grid</text>
+</g>
+<path d="M485 36V160" stroke="#33413b"/>
+<g class="in" style="animation-delay:0.24s"><text x="507" y="52" font-size="12" class="mono" letter-spacing="2" style="fill:#b7cd91">ARIADNE</text><text x="507" y="106" font-size="44" class="b" letter-spacing="-1.5">2.4<tspan font-size="24" style="fill:#b7cd91">×</tspan></text>
+<text x="507" y="138" font-size="16" class="mu">faster maze runs with</text>
+<text x="507" y="159" font-size="16" class="mu">clothoid turns</text>
+</g>
+<path d="M715 36V160" stroke="#33413b"/>
+<g class="in" style="animation-delay:0.36s"><text x="737" y="52" font-size="12" class="mono" letter-spacing="2" style="fill:#48bfc4">MALFOID</text><text x="737" y="106" font-size="44" class="b" letter-spacing="-1.5">99.6<tspan font-size="24" style="fill:#48bfc4">%</tspan></text>
+<text x="737" y="138" font-size="16" class="mu">top-1 gesture recognition</text>
+<text x="737" y="159" font-size="16" class="mu">on-device</text>
+</g>
+<path d="M946 36V160" stroke="#33413b"/>
+<g class="in" style="animation-delay:0.48s"><text x="968" y="52" font-size="12" class="mono" letter-spacing="2" style="fill:#b7cd91">4 REPOS</text><text x="968" y="106" font-size="44" class="b" letter-spacing="-1.5">230<tspan font-size="24" style="fill:#b7cd91">+</tspan></text>
+<text x="968" y="138" font-size="16" class="mu">automated tests in CI</text>
+<text x="968" y="159" font-size="16" class="mu">across 4 repos</text>
+</g>
+</g><rect x=".5" y=".5" width="1199" height="195" rx="19.5" stroke="#33413b"/></svg>
