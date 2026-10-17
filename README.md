@@ -1,19 +1,13 @@
 <p>
-<img src="./assets/header.svg" width="100%" alt="Akeanti: electrical and energy engineering student at EHTP, first year. Power systems, embedded hardware and scientific computing. Open to a first-year internship, summer 2027, for 1 to 2 months.">
+<img src="./assets/header.svg" width="100%" alt="Elmehdi Essamit (akeanti), with a portrait photo: electrical and energy engineering student at EHTP, first year, based in Casablanca. Power grids, energy and embedded systems. From the ESP32 sensor to the grid solver, every result checked against a reference. Open to a first-year internship, summer 2027, for 1 to 2 months.">
 </p>
 
 <p align="center">
-  <a href="mailto:akeantie@gmail.com?subject=CV%20request%3A%20%5Bcompany%5D%20internship&amp;body=Hi%20Akeanti%2C%0D%0A%0D%0ACould%20you%20send%20me%20your%20CV%3F%0D%0A%0D%0ACompany%3A%0D%0ARole%20%2F%20team%3A%0D%0AInternship%20dates%3A%0D%0ALocation%20%2F%20work%20mode%3A%0D%0A%0D%0AThanks%2C"><img src="./assets/btn-cv.svg" width="23%" alt="Request my CV"></a>
-  <a href="mailto:akeantie@gmail.com?subject=Internship%20opportunity"><img src="./assets/btn-email.svg" width="23%" alt="Email me"></a>
-  <a href="https://akeanti.xyz"><img src="./assets/btn-site.svg" width="23%" alt="Website: akeanti.xyz"></a>
-  <a href="#selected-work"><img src="./assets/btn-work.svg" width="23%" alt="See my projects"></a>
-</p>
-
-<p align="center">
-  First-year <b>electrical &amp; energy engineering</b> student at <b>EHTP</b>, after CPGE MP and the CNC.<br>
-  I build complete systems, from GPS-synced sensors and ESP32 firmware to grid solvers and ML models,<br>
-  and I check every result against a reference.<br>
-  <b>Seeking a first-year internship (stage de 1re année) for summer 2027, for 1 to 2 months.</b>
+  <a href="https://github.com/akeanti/akeanti/raw/main/cv/Elmehdi_Essamit_CV.pdf"><img src="./assets/btn-cv.svg" width="19%" alt="Download my CV (PDF)"></a>
+  <a href="mailto:essamit.elmehdi@proton.me?subject=Internship%20opportunity"><img src="./assets/btn-email.svg" width="19%" alt="Email me: essamit.elmehdi@proton.me"></a>
+  <a href="https://elmehdi-essamit.com"><img src="./assets/btn-site.svg" width="19%" alt="Website: elmehdi-essamit.com"></a>
+  <a href="https://www.linkedin.com/in/elmehdi-essamit"><img src="./assets/btn-linkedin.svg" width="19%" alt="LinkedIn: elmehdi-essamit"></a>
+  <a href="#selected-work"><img src="./assets/btn-work.svg" width="19%" alt="See my projects"></a>
 </p>
 
 <p>
@@ -44,11 +38,23 @@
 <!-- PINNED:END -->
 
 <p>
-<img src="./assets/section-toolkit.svg" width="100%" alt="02 · Toolkit and activity">
+<img src="./assets/tipe.svg" width="100%" alt="Off GitHub: wireless power transfer, my TIPE research project in CPGE, on a physical bench. Two coupled coils, first as a plain RL link, then as RLC circuits tuned to resonance at 34 kHz. Efficiency rises from 7.4% to 23%; at 14 cm the tuned link still delivers 13%, against 0.3% untuned. Model validated with R squared 0.992, coupling k = 0.044, quality factor Q about 16.9. Next step: Litz wire.">
 </p>
 
 <p>
-<img src="./assets/skills.svg" width="100%" alt="Toolkit. Power and energy: power flow, N-1 contingency, DC-OPF and LMPs, synchrophasors, IEEE C37.118, MATPOWER, MATLAB and Simulink, signal processing. Embedded and hardware: ESP32 and ESP32-S3, ESP-IDF, FreeRTOS, C and C++, PlatformIO, KiCad, IMUs and sensors, MQTT, Arduino. Software and data: Python, NumPy, SciPy, PyTorch, XGBoost, SHAP, pytest, Docker, GitHub Actions, Git, Linux, LaTeX.">
+<img src="./assets/section-background.svg" width="100%" alt="02 · Background: school and clubs, as a one-line diagram">
+</p>
+
+<p>
+<img src="./assets/background.svg" width="100%" alt="My background drawn as a one-line diagram. 2024, Sefrou: Baccalauréat Sciences Maths B, Mention Très Bien, Lycée Le Jasmin 2. 2024 to 2026, Meknès: CPGE, MP track, Lycée Omar Ibn Al Khattab, then admitted to EHTP through the CNC. 2026 to 2029, Casablanca: EHTP, Ingénieur d'État in Electrical and Energy Engineering, now in year 1 of 3. Next, summer 2027: your team. Roles held alongside: September 2024 to June 2026, vice-president and technical trainer of the BeurdByte Builders club in CPGE, training students in C, Arduino, ESP and IoT and coaching them to a working prototype; since October 2026, member of the Visits and Workshops unit of Club Electro-Power at EHTP, organizing industrial visits and microcontroller workshops.">
+</p>
+
+<p>
+<img src="./assets/section-toolkit.svg" width="100%" alt="03 · Toolkit and activity">
+</p>
+
+<p>
+<img src="./assets/skills.svg" width="100%" alt="Toolkit. Grids and energy: power flow (Newton-Raphson), three-phase, P/Q/S, power factor, transformers, N-1 contingency, DC-OPF and LMPs, synchrophasors, IEEE C37.118, MATPOWER cases. Embedded and measurement: ESP32 and ESP32-S3, C and C++, ESP-IDF, FreeRTOS, PlatformIO, KiCad, MQTT, oscilloscope, IMUs and sensors, Arduino. Software and tools: Python, MATLAB, Simulink, NumPy, SciPy, PyTorch, XGBoost, SHAP, pytest, Docker, GitHub Actions, Git, Linux, LaTeX. Certifications: Electric Power Systems, University at Buffalo on Coursera; Mobilités et véhicules électriques, École des Ponts ParisTech on Coursera; MATLAB, Simulink and Simscape Onramp, MathWorks. Languages: Arabic (native), French (fluent), English (professional).">
 </p>
 
 <p>
@@ -56,32 +62,7 @@
 </p>
 
 <p>
-<a href="mailto:akeantie@gmail.com?subject=CV%20request%3A%20%5Bcompany%5D%20internship&amp;body=Hi%20Akeanti%2C%0D%0A%0D%0ACould%20you%20send%20me%20your%20CV%3F%0D%0A%0D%0ACompany%3A%0D%0ARole%20%2F%20team%3A%0D%0AInternship%20dates%3A%0D%0ALocation%20%2F%20work%20mode%3A%0D%0A%0D%0AThanks%2C"><img src="./assets/contact.svg" width="100%" alt="Hiring a first-year engineering intern? Stage de 1re année, summer 2027, for 1 to 2 months, Morocco or abroad, on-site, hybrid or remote. Fields: power and energy systems, embedded, industrial AI, OT security. EHTP, first year, after CPGE MP and the CNC. Arabic, French, English. Click to request my CV."></a>
+<a href="https://github.com/akeanti/akeanti/raw/main/cv/Elmehdi_Essamit_CV.pdf"><img src="./assets/contact.svg" width="100%" alt="Hiring a first-year engineering intern? Stage d'initiation, summer 2027, for 1 to 2 months, in Morocco or abroad, on-site, hybrid or remote. Fields: power and energy systems; studies, operations, maintenance, automation. Email: essamit.elmehdi@proton.me, or LinkedIn: elmehdi-essamit. Web: elmehdi-essamit.com. Click to download my CV, one page, in French."></a>
 </p>
 
-<details>
-<summary><b>Plain-text profile</b> · for your notes or ATS</summary>
-
-```text
-Akeanti | First-year electrical & energy engineering student, EHTP (GEE)
-Background   CPGE MP · CNC
-Looking for  First-year internship (stage de 1re année), summer 2027, for 1 to 2 months
-Fields       Power & energy systems · embedded systems · industrial AI · OT security
-Location     Morocco or abroad · on-site, hybrid or remote
-Languages    Arabic (native) · French (fluent) · English (professional)
-Projects     swingbus     power flow, N-1, DC-OPF with LMPs in NumPy/SciPy; matches PYPOWER to 1e-13 pu,
-                          full N-1 of IEEE 118 in 8.3 ms, 95 tests on Linux/macOS/Windows
-             nabd         GPS-synced ESP32-S3 synchrophasor nodes (IEEE C37.118), ~$59 per node, KiCad, hardened CI
-             cascade-gnn  5 graph neural networks vs XGBoost on PowerGraph (NeurIPS 2024), edge attributions, Docker
-             ariadne      ESP32 micromouse: clothoid turns, time-optimal planning, 10 kHz physics sim, 115 tests, v3.0.0
-             malfoid      ESP32-S3 gesture wand: on-device recognition (99.6% top-1), haptics, Home Assistant/MQTT
-             drpc         Discord Rich Presence for MATLAB/Simulink (MATLAB + C#), v1.1.0
-             Earlier      PEM electrolyzer fault diagnostics (XGBoost, SHAP); resonant WPT prototype, 23% at 34 kHz
-Skills       Python, C, C++, C#, MATLAB/Simulink, NumPy, SciPy, PyTorch, XGBoost, SHAP, ESP32, ESP-IDF,
-             FreeRTOS, PlatformIO, KiCad, MQTT, Git, Linux, Docker, GitHub Actions, LaTeX
-Contact      akeantie@gmail.com · github.com/akeanti · akeanti.xyz · CV on request
-```
-
-</details>
-
-<p align="center"><sub>The header, project cards and stats rebuild themselves from the GitHub API every 6 hours (<a href=".github/scripts/build_profile.py">script</a>).</sub></p>
+<p align="center"><sub>The header, project cards and stats rebuild themselves from the GitHub API every 6 hours (<a href=".github/scripts/build_profile.py">script</a>). The rest follows my <a href="cv/Elmehdi_Essamit_CV.pdf">CV</a>.</sub></p>
