@@ -12,7 +12,8 @@ engineering drawing sheet: hairlines, figure plates, serif for display, mono for
 
 Live:   header (now building, latest release), pin-N (one card per GitHub pin, in pin order, with
         release, CI state, stars and last push), stats (weekly activity, languages).
-Static: kpis, skills, section-*, btn-*, contact.
+Static: kpis, tipe, background, skills, section-*, btn-*, contact.
+        Their facts come from my CV (cv/Elmehdi_Essamit_CV.pdf); keep the two in step.
 
 Outputs depend only on GitHub data, never on the wall clock, so the workflow commits only when
 something changed: a push, a release, a star, a new pin, or another day of contributions.
@@ -33,6 +34,11 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 ASSETS = os.path.join(ROOT, "assets")
 README = os.path.join(ROOT, "README.md")
 SKIP = {"akeanti", "1969"}  # the profile repo and the Unix-epoch joke stay out of "now building"
+
+NAME = "Elmehdi Essamit"
+EMAIL = "essamit.elmehdi@proton.me"
+SITE = "elmehdi-essamit.com"
+LINKEDIN = "linkedin.com/in/elmehdi-essamit"
 
 # Sampled from assets/logo.jpg: its background, white, teal and sage. Nothing else.
 LOGO = dict(paper="#1A1C1B", frame="#323634", minor="#202322", major="#272B29", ink="#F6F6F4",
@@ -288,26 +294,34 @@ def header(t, d):
     o.append(f'<path d="M6 {m + zh:.0f}H{m}M{W - m} {m + zh:.0f}H{W - 6}" stroke="{t["frame"]}"/>')
 
     # identity
-    o.append(f'<text x="56" y="82" font-size="17" class="serif it soft">Electrical and energy engineering · EHTP</text>'
-             f'<text x="52" y="168" font-size="96" class="serif" letter-spacing="-1.5">Akeanti</text>')
-    lede = "Power systems, embedded hardware and scientific computing."
+    first, last = NAME.split()
+    nsize = 80 if tw(NAME, 80, serif=True) < 660 else 68
+    o.append(f'<text x="56" y="82" font-size="17" class="serif it soft">Élève-ingénieur, first year · Electrical and energy engineering · EHTP</text>'
+             f'<text x="52" y="164" font-size="{nsize}" class="serif" letter-spacing="-1.5">{e(first)} <tspan class="teal">{e(last)}</tspan></text>')
+    lede = "Power grids, energy and embedded systems."
     size = 22 if tw(lede, 22) < 660 else 20
+    pitch = "From the ESP32 sensor to the grid solver, every result checked against a reference."
+    psize = 16.5 if tw(pitch, 16.5) < 660 else 15.5
     o.append(f'<text x="56" y="212" font-size="{size}" class="body">{lede}</text>'
-             f'<text x="56" y="244" font-size="16.5" class="soft">First year at EHTP after CPGE MP · Morocco · Arabic, French, English</text>')
+             f'<text x="56" y="244" font-size="{psize}" class="soft">{pitch}</text>')
     o.append(f'<circle cx="62" cy="285" r="4.5" fill="{t["teal"]}"/><circle cx="62" cy="285" r="4.5" stroke="{t["teal"]}" class="ring"/>'
              f'<text x="78" y="291" font-size="17" class="b">Open to a first-year internship, summer 2027, for 1 to 2 months</text>')
 
-    # the logo at the centre of a phasor ring: its three arms (white, teal, sage) are the three
-    # phases, and each one draws its own waveform to the left
+    # my portrait at the centre of a phasor ring: three phases in the logo's white, teal and sage
+    # orbit it, and each one draws its own waveform to the left
     cx, cy, R, T, lam = 1030, 170, 108, 9, 150
     x0, xl = cx - R - 30, 742
     phases = [(90, t["ink"]), (-30, t["teal"]), (210, t["sage"])]
     logo = base64.b64encode(open(os.path.join(ASSETS, "logo-mark.jpg"), "rb").read()).decode()
+    photo = base64.b64encode(open(os.path.join(ASSETS, "photo.jpg"), "rb").read()).decode()
+    pr = R - 12
     o.append(f'<path d="M{xl} {cy}H{cx - R - 14}M{cx + R + 14} {cy}H{cx + R + 26}" stroke="{t["frame"]}"/>'
              f'<path d="M{cx} {cy - R - 26}V{cy - R - 14}M{cx} {cy + R + 14}V{cy + R + 20}" stroke="{t["frame"]}"/>'
              f'<path d="M{x0} {cy - R - 6}V{cy + R + 6}" stroke="{t["frame"]}" stroke-dasharray="2 4"/>'
              f'<circle cx="{cx}" cy="{cy}" r="{R}" stroke="{t["frame"]}"/>'
-             f'<image href="data:image/jpeg;base64,{logo}" x="{cx - 92}" y="{cy - 92}" width="184" height="184"/>')
+             f'<clipPath id="pf"><circle cx="{cx}" cy="{cy}" r="{pr}"/></clipPath>'
+             f'<image href="data:image/jpeg;base64,{photo}" x="{cx - pr}" y="{cy - pr}" width="{2 * pr}" height="{2 * pr}" clip-path="url(#pf)"/>'
+             f'<circle cx="{cx}" cy="{cy}" r="{pr}" stroke="{t["frame"]}" stroke-width="2"/>')
     for a in range(0, 360, 15):
         r1, r2 = R + 4, R + (12 if a % 90 == 0 else 8 if a % 30 == 0 else 6)
         c, s = math.cos(math.radians(a)), math.sin(math.radians(a))
@@ -342,24 +356,27 @@ def header(t, d):
     top = 330
     cells = [("NOW BUILDING", b["name"], f"last push {day(b['pushedAt'])}"),
              ("LATEST RELEASE", f"{lr[1]} {lr[2]}" if lr else "none yet", day(lr[0]) if lr else ""),
-             ("WORK MODE", "Morocco or abroad", "on-site, hybrid or remote"),
-             ("SHEET", f"AK-01 · rev {d['revision']}", "rebuilt from GitHub every 6 h")]
+             ("BASED IN", "Casablanca, Morocco", "UTC+1"),
+             ("SHEET", f"EE-01 · rev {d['revision']}", "rebuilt every 6 h")]
     bounds = [m, 340, 640, 920, W - m]
     o.append(f'<path d="M{m} {top}H{W - m}" stroke="{t["frame"]}"/>')
     for i, (label, value, sub) in enumerate(cells):
         x = bounds[i] + (42 if i == 0 else 24)
         if i:
             o.append(f'<path d="M{bounds[i]} {top}V{H - m}" stroke="{t["frame"]}"/>')
+        if label == "SHEET":
+            o.append(f'<image href="data:image/jpeg;base64,{logo}" x="{bounds[i] + 14}" y="{top + 10}" width="56" height="56"/>')
+            x = bounds[i] + 80
         o.append(f'<text x="{x}" y="{top + 22}" font-size="10" class="mono soft" letter-spacing="1.6">{label}</text>'
                  f'<text x="{x}" y="{top + 46}" font-size="17" class="b">{e(value)}</text>'
                  f'<text x="{x}" y="{top + 66}" font-size="13" class="soft">{e(sub)}</text>')
 
-    desc = (f"Akeanti. Electrical and energy engineering student at EHTP, first year, after CPGE MP. Power systems, "
-            f"embedded hardware and scientific computing. Open to a first-year internship, summer 2027, for 1 to 2 months. "
+    desc = (f"{NAME} (akeanti). Electrical and energy engineering student at EHTP, first year, based in Casablanca. "
+            f"Power grids, energy and embedded systems. {pitch} Open to a first-year internship, summer 2027, for 1 to 2 months. "
             f"Now building: {b['name']}, last push {day(b['pushedAt'])}."
             + (f" Latest release: {lr[1]} {lr[2]}, {day(lr[0])}." if lr else "")
-            + " Illustration: three rotating phasors drawing their sine waves.")
-    return svg(t, W, H, "Akeanti", desc, "\n".join(o))
+            + " Illustration: a portrait of me inside a ring of three rotating phasors drawing their sine waves.")
+    return svg(t, W, H, NAME, desc, "\n".join(o))
 
 
 # ---------------------------------------------------------------- pinned cards
@@ -605,12 +622,12 @@ def section(t, num, title, note):
 
 def skills(t):
     W = 1200
-    cols = [("A", "POWER & ENERGY", ["Power flow (Newton-Raphson)", "N-1 contingency", "DC-OPF and LMPs", "Synchrophasors",
-                                    "IEEE C37.118", "MATPOWER cases", "MATLAB and Simulink", "Signal processing"]),
-            ("B", "EMBEDDED & HARDWARE", ["ESP32 and ESP32-S3", "ESP-IDF", "FreeRTOS", "C and C++", "PlatformIO", "KiCad",
-                                         "IMUs and sensors", "MQTT", "Arduino"]),
-            ("C", "SOFTWARE & DATA", ["Python", "NumPy", "SciPy", "PyTorch", "XGBoost", "SHAP", "pytest", "Docker",
-                                     "GitHub Actions", "Git", "Linux", "LaTeX"])]
+    cols = [("A", "GRIDS & ENERGY", ["Power flow (Newton-Raphson)", "Three-phase", "P/Q/S", "Power factor", "Transformers",
+                                    "N-1 contingency", "DC-OPF and LMPs", "Synchrophasors", "IEEE C37.118", "MATPOWER cases"]),
+            ("B", "EMBEDDED & MEASUREMENT", ["ESP32 and ESP32-S3", "C and C++", "ESP-IDF", "FreeRTOS", "PlatformIO", "KiCad",
+                                            "MQTT", "Oscilloscope", "IMUs and sensors", "Arduino"]),
+            ("C", "SOFTWARE & TOOLS", ["Python", "MATLAB", "Simulink", "NumPy", "SciPy", "PyTorch", "XGBoost", "SHAP",
+                                      "pytest", "Docker", "GitHub Actions", "Git", "Linux", "LaTeX"])]
     cw, fs, lead = W / 3, 15.5, 27
     o, height = [], 0
     for i, (letter, title, items) in enumerate(cols):
@@ -632,14 +649,40 @@ def skills(t):
         height = max(height, 84 + (len(lines) - 1) * lead + 34)
         if i:
             o.append(f'<path d="M{i * cw:.0f} 28V{{H}}" stroke="{t["rule"]}"/>')
-    H = height
-    body = "\n".join(o).replace("{H}", str(H - 28))
-    desc = "Toolkit. " + " ".join(f"{title.capitalize()}: {', '.join(items)}." for _, title, items in cols)
-    return svg(t, W, H, "Toolkit", desc, body)
+
+    # certifications under the first two columns, languages under the third
+    certs = [("Electric Power Systems", "University at Buffalo, Coursera"),
+             ("Mobilités et véhicules électriques", "École des Ponts ParisTech, Coursera"),
+             ("MATLAB, Simulink and Simscape Onramp", "MathWorks")]
+    langs = [("Arabic", "native", 5), ("French", "fluent", 4), ("English", "professional", 4)]
+    top, step = height + 2, 30
+    lx = 2 * cw + 32
+    o.append(f'<path d="M32 {top}H{W - 32}" stroke="{t["rule"]}"/>'
+             f'<path d="M{2 * cw:.0f} {top + 22}V{top + 64 + len(certs) * step}" stroke="{t["rule"]}"/>')
+    for x, letter, title in ((32, "D", "CERTIFICATIONS"), (lx, "E", "LANGUAGES")):
+        o.append(f'<text x="{x:.0f}" y="{top + 40}" font-size="10" class="mono" letter-spacing="1.6"><tspan class="teal b">{letter}</tspan>'
+                 f'<tspan class="soft">  {title}</tspan></text>')
+    for i, (name, issuer) in enumerate(certs):
+        y = top + 76 + i * step
+        o.append(f'<rect x="32" y="{y - 12}" width="14" height="14" rx="2" fill="{t["teal"]}"/>'
+                 f'<path d="M35.4 {y - 5}L38.2 {y - 2.3}L42.8 {y - 8}" stroke="{t["paper"]}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>'
+                 f'<text x="58" y="{y}" font-size="{fs}">{e(name)}<tspan class="soft" font-size="13">  ·  {e(issuer)}</tspan></text>')
+    for i, (lang, level, n) in enumerate(langs):
+        y = top + 76 + i * step
+        o.append(f'<text x="{lx:.0f}" y="{y}" font-size="{fs}">{e(lang)}<tspan class="soft" font-size="13">  ·  {e(level)}</tspan></text>')
+        for k in range(5):
+            o.append(f'<rect x="{W - 32 - (5 - k) * 30 + 4}" y="{y - 8}" width="26" height="5" rx="2.5" '
+                     f'fill="{t["teal"] if k < n else t["rule"]}" class="grow" style="animation-delay:{.08 * k + .12 * i:.2f}s"/>')
+    H = top + 76 + (len(certs) - 1) * step + 34
+    body = "\n".join(o).replace("{H}", str(top - 14))
+    desc = ("Toolkit. " + " ".join(f"{title.capitalize()}: {', '.join(items)}." for _, title, items in cols)
+            + " Certifications: " + "; ".join(f"{c}, {i}" for c, i in certs) + ". Languages: "
+            + ", ".join(f"{lang} ({level})" for lang, level, _ in langs) + ".")
+    return svg(t, W, H, "Toolkit, certifications and languages", desc, body)
 
 
 def button(t, label, mark, primary=False):
-    W, H = 280, 52
+    W, H = 224, 52
     if primary:
         body = (f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="3" fill="{t["teal"]}"/>'
                 f'<text x="{W / 2}" y="32.5" font-size="17" class="b" text-anchor="middle" style="fill:{t["paper"]}">{e(label)}  {mark}</text>')
@@ -654,27 +697,190 @@ def contact(t):
     W, H = 1200, 320
     rows = [("WHEN", "Summer 2027", "1 to 2 months, dates on request"),
             ("WHERE", "Morocco or abroad", "on-site, hybrid or remote"),
-            ("FIELDS", "Power and energy systems", "embedded, industrial AI, OT security"),
-            ("SCHOOL", "EHTP, first year (GEE)", "after CPGE MP and the CNC"),
-            ("LANGUAGES", "Arabic, French, English", "native, fluent, professional"),
-            ("EMAIL", "akeantie@gmail.com", "CV on request")]
-    o = [f'<text x="48" y="62" font-size="16" class="serif it soft"><tspan class="mono teal b" font-style="normal" font-size="12">03</tspan>  Let us talk</text>',
+            ("FIELDS", "Power and energy systems", "studies, operations, maintenance, automation"),
+            ("EMAIL", EMAIL, f"or {LINKEDIN}"),
+            ("WEB", SITE, "portfolio")]
+    step = (H - 64) / len(rows)
+    o = [f'<text x="48" y="62" font-size="16" class="serif it soft"><tspan class="mono teal b" font-style="normal" font-size="12">04</tspan>  Let us talk</text>',
          f'<text x="46" y="134" font-size="46" class="serif" letter-spacing="-.8">Hiring a first-year</text>',
          f'<text x="46" y="186" font-size="46" class="serif" letter-spacing="-.8">engineering intern?</text>',
-         f'<text x="48" y="224" font-size="17" class="body">Stage de 1re année, summer 2027, for 1 to 2 months.</text>',
+         f'<text x="48" y="224" font-size="17" class="body">Stage d\'initiation. My CV has it all on one page, in French.</text>',
          f'<rect x="48" y="246" width="232" height="46" rx="3" fill="{t["teal"]}"/>'
-         f'<text x="164" y="275" font-size="16.5" class="b" text-anchor="middle" style="fill:{t["paper"]}">Request my CV  →</text>',
+         f'<text x="164" y="275" font-size="16.5" class="b" text-anchor="middle" style="fill:{t["paper"]}">Download my CV  ↓</text>',
          f'<path d="M620 32V{H - 32}" stroke="{t["rule"]}"/>']
     for i, (k, v, s) in enumerate(rows):
-        y = 32 + i * 43
-        o.append(f'<text x="652" y="{y + 22}" font-size="10" class="mono soft" letter-spacing="1.6">{k}</text>'
-                 f'<text x="782" y="{y + 18}" font-size="15.5" class="b">{e(v)}</text>'
-                 f'<text x="782" y="{y + 35}" font-size="13" class="soft">{e(s)}</text>')
+        y = 32 + i * step
+        o.append(f'<text x="652" y="{y + 27:.0f}" font-size="10" class="mono soft" letter-spacing="1.6">{k}</text>'
+                 f'<text x="782" y="{y + 23:.0f}" font-size="15.5" class="b">{e(v)}</text>'
+                 f'<text x="782" y="{y + 41:.0f}" font-size="13" class="soft">{e(s)}</text>')
         if i < len(rows) - 1:
-            o.append(f'<path d="M652 {y + 43}H1160" stroke="{t["rule"]}"/>')
-    desc = ("Hiring a first-year engineering intern? Stage de 1re année, summer 2027, for 1 to 2 months. "
-            + " ".join(f"{k.capitalize()}: {v}, {s}." for k, v, s in rows) + " Click to request my CV.")
+            o.append(f'<path d="M652 {y + step:.0f}H1160" stroke="{t["rule"]}"/>')
+    desc = ("Hiring a first-year engineering intern? Stage d'initiation. My CV has it all on one page, in French. "
+            + " ".join(f"{k.capitalize()}: {v}, {s}." for k, v, s in rows) + " Click to download my CV.")
     return svg(t, W, H, "Contact", desc, "\n".join(o))
+
+
+# ---------------------------------------------------------------- off GitHub: the bench, and my background
+
+def tipe(t):
+    """The one project that lives on a bench, not on GitHub: resonant wireless power transfer (TIPE, CPGE)."""
+    W, H, P = 1200, 320, 470
+    ink, teal, sage, soft, frame, paper = t["ink"], t["teal"], t["sage"], t["soft"], t["frame"], t["paper"]
+    o = [f'<clipPath id="tc"><rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="3.5"/></clipPath>'
+         f'<rect x="1" y="1" width="{P}" height="{H - 2}" fill="url(#gp)" clip-path="url(#tc)"/>'
+         f'<path d="M{P} 1V{H - 1}" stroke="{frame}"/>']
+
+    # Fig. 2a: source, series capacitor and transmit coil; receive coil, capacitor and load
+    cy, ry = 92, 36
+    tx, rx = [104 + 8 * k for k in range(6)], [306 + 8 * k for k in range(6)]
+    for xs in (tx, rx):
+        o += [f'<ellipse cx="{x}" cy="{cy}" rx="6" ry="{ry}" stroke="{ink}" stroke-width="1.3"/>' for x in xs]
+    # mutual flux: along the shared axis, and bowing across the gap
+    flux = [f"M{tx[0] - 10} {cy}H{rx[-1] + 10}"] + [
+        f"M{tx[-1]} {cy + s * 18}C{tx[-1] + 44} {cy + s * 52} {rx[0] - 44} {cy + s * 52} {rx[0]} {cy + s * 18}" for s in (-1, 1)]
+    o += [f'<path d="{p}" stroke="{teal}" stroke-width="1.5" class="flow" style="animation-duration:{1.1 + k * .2:.1f}s"/>'
+          for k, p in enumerate(flux)]
+    top, bot = cy - ry, cy + ry
+    o.append(f'<path d="M{tx[0]} {top}H86M80 {top}H58V{cy - 12}M58 {cy + 12}V{bot}H{tx[0]}" stroke="{ink}" stroke-width="1.3"/>'
+             f'<circle cx="58" cy="{cy}" r="12" stroke="{ink}" stroke-width="1.3" fill="{paper}"/>'
+             f'<path d="M51 {cy}q3.5 -6 7 0t7 0" stroke="{ink}" stroke-width="1.3"/>'
+             f'<path d="M80 {top - 8}V{top + 8}M86 {top - 8}V{top + 8}" stroke="{ink}" stroke-width="1.6"/>'
+             f'<path d="M{rx[-1]} {top}H378M384 {top}H418V{cy - 16}l6 3l-12 5l12 5l-12 5l6 3V{bot}H{rx[-1]}" stroke="{ink}" stroke-width="1.3" stroke-linejoin="round"/>'
+             f'<path d="M378 {top - 8}V{top + 8}M384 {top - 8}V{top + 8}" stroke="{ink}" stroke-width="1.6"/>')
+    o.append(f'<text x="{tx[2] + 4}" y="{bot + 22}" font-size="10" class="mono soft" text-anchor="middle">TX</text>'
+             f'<text x="{rx[2] + 4}" y="{bot + 22}" font-size="10" class="mono soft" text-anchor="middle">RX</text>'
+             f'<text x="58" y="{top - 14}" font-size="10" class="mono soft" text-anchor="middle">GBF</text>'
+             f'<text x="430" y="{cy + 4}" font-size="10" class="mono soft">R</text>')
+    # dimension line for the 14 cm gap, as on a drawing
+    dy_ = bot + 32
+    o.append(f'<path d="M{tx[-1] + 6} {bot + 8}V{dy_ + 6}M{rx[0] - 6} {bot + 8}V{dy_ + 6}M{tx[-1] + 6} {dy_}H{rx[0] - 6}" stroke="{soft}"/>'
+             f'<path d="M{tx[-1] + 6} {dy_}l7 -3v6zM{rx[0] - 6} {dy_}l-7 -3v6z" fill="{soft}"/>'
+             f'<text x="{(tx[-1] + rx[0]) / 2:.0f}" y="{dy_ - 6}" font-size="10" class="mono soft" text-anchor="middle">d = 14 cm</text>')
+
+    # Fig. 2b: series RLC current response with the measured Q, peaking at the 34 kHz tuning
+    gx0, gx1, base, peak = 44, 430, 286, 196
+    f0, Q, f_lo, f_hi = 34.0, 16.9, 26.0, 42.0
+    def gx(f):
+        return gx0 + (gx1 - gx0) * (f - f_lo) / (f_hi - f_lo)
+    pts = []
+    for i in range(0, 321):
+        f = f_lo + (f_hi - f_lo) * i / 320
+        amp = 1 / math.sqrt(1 + Q * Q * (f / f0 - f0 / f) ** 2)
+        pts.append(f"{gx(f):.1f},{base - (base - peak) * amp:.1f}")
+    o.append(f'<path d="M{gx0} {base}H{gx1}M{gx0} {base}V{peak - 12}" stroke="{frame}"/>'
+             f'<path d="M{gx(f0):.1f} {peak - 4}V{base}" stroke="{soft}" stroke-dasharray="2 4"/>'
+             f'<style>.sweep{{stroke-dasharray:900;animation:sweep 6s cubic-bezier(.45,0,.2,1) infinite}}'
+             f'@keyframes sweep{{0%{{stroke-dashoffset:900}}55%,88%{{stroke-dashoffset:0;opacity:1}}100%{{stroke-dashoffset:0;opacity:0}}}}</style>'
+             f'<polyline points="{" ".join(pts)}" stroke="{sage}" stroke-width="1.8" class="sweep"/>'
+             f'<text x="{gx(37):.0f}" y="{peak + 6}" font-size="10" class="mono teal">f0 = 34 kHz</text>'
+             f'<text x="{gx(37):.0f}" y="{peak + 20}" font-size="10" class="mono soft">Q ≈ 16.9</text>'
+             f'<text x="{gx0 + 6}" y="{peak - 2}" font-size="10" class="mono soft">|i|</text>'
+             f'<text x="{gx1}" y="{base + 16}" font-size="9" class="mono faint" text-anchor="end">f, kHz</text>')
+    for f in (30, 38):
+        o.append(f'<path d="M{gx(f):.1f} {base}V{base + 4}" stroke="{frame}"/>'
+                 f'<text x="{gx(f):.1f}" y="{base + 16}" font-size="9" class="mono faint" text-anchor="middle">{f}</text>')
+
+    # the write-up
+    x0, x1 = P + 34, W - 32
+    o.append(f'<text x="{x0}" y="46" font-size="11" class="mono" letter-spacing="1.4"><tspan class="teal b">OFF GITHUB</tspan>'
+             f'<tspan class="soft">  ·  TIPE, CPGE RESEARCH PROJECT  ·  PHYSICAL BENCH</tspan></text>'
+             f'<text x="{x0}" y="88" font-size="30" class="serif">Wireless power transfer</text>'
+             f'<text x="{x1}" y="87" font-size="15" class="serif it soft" text-anchor="end">Resonant inductive coupling</text>')
+    pitch = ("Two coupled coils, first as a plain RL link, then as RLC circuits tuned to resonance. At 14 cm "
+             "the tuned link still delivers 13%, against 0.3% untuned. Next step: Litz wire.")
+    lines = wrap(pitch, 15.5, x1 - x0)
+    for i, line in enumerate(lines[:3]):
+        o.append(f'<text x="{x0}" y="{122 + i * 22}" font-size="15.5" class="body">{e(line)}</text>')
+    o.append(f'<path d="M{x0} 196H{x1}" stroke="{t["rule"]}"/>')
+    metrics = [("23%", "efficiency, up from 7.4%"), ("R^{2} = 0.992", "model against the bench"), ("Q ≈ 16.9", "quality factor, k = 0.044")]
+    mw = (x1 - x0) / 3
+    for i, (val, cap) in enumerate(metrics):
+        mx = x0 + i * mw
+        o.append(f'<text x="{mx:.0f}" y="238" font-size="29" class="serif">{rich(val, 29)}</text>'
+                 f'<text x="{mx:.0f}" y="258" font-size="12.5" class="soft">{e(cap)}</text>')
+        if i:
+            o.append(f'<path d="M{mx - 18:.0f} 212V260" stroke="{t["rule"]}"/>')
+    o.append(f'<path d="M{x0} 276H{x1}" stroke="{t["rule"]}"/>'
+             f'<text x="{x0}" y="298" font-size="11.5" class="mono soft">RLC coupling · signal generator · oscilloscope · Python</text>'
+             f'<text x="{x1}" y="298" font-size="12" class="soft" text-anchor="end">Fig. 2. Bench and current response</text>')
+
+    desc = (f"Wireless power transfer, TIPE research project in CPGE, on a physical bench. {pitch} "
+            "Key numbers: 23% efficiency at 34 kHz, up from 7.4% on the RL bench; model validated with R squared 0.992; "
+            "coupling k = 0.044; quality factor Q about 16.9. Tools: RLC coupling, signal generator, oscilloscope, Python. "
+            "Figure: transmit and receive coils 14 cm apart with their capacitors, and the resonance curve at 34 kHz.")
+    return svg(t, W, H, "Wireless power transfer, TIPE", desc, "\n".join(o), defs=graph_paper(t))
+
+
+def background(t):
+    """School and clubs as a one-line diagram: each school a station on the line, each club role a feeder off it."""
+    W, H, y = 1200, 356, 168
+    ink, teal, sage, paper = t["ink"], t["teal"], t["sage"], t["paper"]
+    now = 2
+    stations = [(56, "2024", "Sefrou", "Baccalauréat", "Sciences Maths B", "Mention Très Bien, Lycée Le Jasmin 2"),
+                (361, "2024 to 2026", "Meknès", "CPGE, MP track", "Lycée Omar Ibn Al Khattab", "then admitted to EHTP via the CNC"),
+                (680, "2026 to 2029", "Casablanca", "EHTP, Ingénieur d'État", "Electrical and Energy Engineering", "now in year 1 of 3"),
+                (980, "Next", "summer 2027", "Your team?", "this slot is open", "")]
+    feeders = [(400, "Sept 2024 to June 2026", "Vice-president & trainer", "BeurdByte Builders club, CPGE",
+                "Trained students in C, Arduino, ESP and IoT, and coached them to a working prototype."),
+               (680, "Since Oct 2026", "Visits & Workshops unit", "Club Electro-Power, EHTP",
+                "Member, organizing industrial visits and microcontroller workshops.")]
+    notes = [("CPGE", "two-year prep for the engineering schools"), ("CNC", "national entrance exam to those schools"),
+             ("EHTP", "École Hassania des Travaux Publics"), ("Bac", "Mention Très Bien is the top honours band")]
+
+    # the line: live up to the school I am at, dashed after it
+    o = []
+    for a, b in ((73, 339), (383, 680)):
+        o.append(f'<path d="M{a} {y}H{b}" stroke="{ink}" stroke-width="1.4"/>'
+                 f'<path d="M{a} {y}H{b}" stroke="{teal}" stroke-width="1.6" class="flow"/>')
+    o.append(f'<path d="M680 {y}H973M987 {y}H1148" stroke="{sage}" stroke-width="1.4" stroke-dasharray="5 6"/>'
+             f'<path d="M1148 {y - 6}L1160 {y}L1148 {y + 6}Z" fill="{sage}"/>')
+    # generator, transformer, busbar, open breaker
+    o.append(f'<circle cx="56" cy="{y}" r="17" stroke="{ink}" stroke-width="1.4" fill="{paper}"/>'
+             f'<path d="M47 {y}q4.5 -8 9 0t9 0" stroke="{ink}" stroke-width="1.4"/>'
+             f'<circle cx="352" cy="{y}" r="13" stroke="{ink}" stroke-width="1.4"/>'
+             f'<circle cx="370" cy="{y}" r="13" stroke="{ink}" stroke-width="1.4"/>'
+             f'<path d="M680 {y - 26}V{y + 26}" stroke="{teal}" stroke-width="5"/>'
+             f'<circle cx="680" cy="{y}" r="5" stroke="{teal}" class="ring"/>'
+             f'<rect x="973" y="{y - 7}" width="14" height="14" fill="{paper}" stroke="{sage}" stroke-width="1.4"/>')
+    for i, (sx, when, where, title, sub, detail) in enumerate(stations):
+        x = sx - 16
+        o.append(f'<text x="{x}" y="56" font-size="10.5" class="mono" letter-spacing="1.4"><tspan class="{"sage" if i > now else "teal"} b">'
+                 f'{e(when.upper())}</tspan><tspan class="soft">  ·  {e(where.upper())}</tspan></text>'
+                 f'<text x="{x}" y="86" font-size="21" class="serif">{e(title)}</text>'
+                 f'<text x="{x}" y="108" font-size="14.5" class="{"soft it serif" if i > now else "body"}">{e(sub)}</text>')
+        if detail:
+            o.append(f'<text x="{x}" y="128" font-size="13" class="{"teal" if i == now else "soft"}">{e(detail)}</text>')
+
+    for fx, when, role, org, line in feeders:
+        o.append(f'<path d="M{fx} {y + (26 if fx == 680 else 0)}V{H - 34}" stroke="{ink}" stroke-width="1.3"/>'
+                 f'<path d="M{fx - 6} {H - 36}L{fx} {H - 25}L{fx + 6} {H - 36}Z" fill="{ink}"/>')
+        if fx != 680:
+            o.append(f'<circle cx="{fx}" cy="{y}" r="3.5" fill="{ink}"/>')
+        x = fx + 20
+        o.append(f'<text x="{x}" y="216" font-size="10.5" class="mono" letter-spacing="1.4"><tspan class="teal b">{e(when.upper())}</tspan></text>'
+                 f'<text x="{x}" y="242" font-size="18" class="serif">{e(role)}</text>'
+                 f'<text x="{x}" y="263" font-size="14.5" class="serif it teal">{e(org)}</text>')
+        for j, part in enumerate(wrap(line, 13, 240)[:3]):
+            o.append(f'<text x="{x}" y="{288 + j * 19}" font-size="13" class="soft">{e(part)}</text>')
+
+    # notes for readers who do not know the Moroccan system, and a legend, as on any drawing
+    o.append(f'<text x="40" y="216" font-size="10" class="mono soft" letter-spacing="1.6">NOTES</text>')
+    for j, (k, v) in enumerate(notes):
+        o.append(f'<text x="40" y="{242 + j * 22}" font-size="10.5" class="mono teal b">{k}</text>'
+                 f'<text x="86" y="{242 + j * 22}" font-size="12.5" class="soft">{e(v)}</text>')
+    o.append(f'<text x="980" y="216" font-size="10" class="mono soft" letter-spacing="1.6">LEGEND</text>')
+    keys = [(f'<path d="M980 238H1006" stroke="{ink}" stroke-width="1.4"/><path d="M980 238H1006" stroke="{teal}" stroke-width="1.6" class="flow"/>', "done"),
+            (f'<path d="M993 251V269" stroke="{teal}" stroke-width="5"/>', "where I am now"),
+            (f'<path d="M980 282H1006" stroke="{sage}" stroke-width="1.4" stroke-dasharray="5 6"/>', "next"),
+            (f'<path d="M993 294V304" stroke="{ink}" stroke-width="1.3"/><path d="M988 302L993 310L998 302Z" fill="{ink}"/>', "role held alongside")]
+    for j, (mark, label) in enumerate(keys):
+        o.append(f'{mark}<text x="1018" y="{242 + j * 22}" font-size="12.5" class="soft">{label}</text>')
+
+    desc = ("Background, drawn as a one-line diagram. "
+            + " ".join(f"{w}, {p}: {ti}, {su}{', ' + d if d else ''}." for _, w, p, ti, su, d in stations)
+            + " Roles held alongside: " + " ".join(f"{w}: {r}, {g}. {line}" for _, w, r, g, line in feeders)
+            + " Notes: " + "; ".join(f"{k}: {v}" for k, v in notes) + ".")
+    return svg(t, W, H, "Background", desc, "\n".join(o))
 
 
 # ---------------------------------------------------------------- README pinned block
@@ -730,13 +936,17 @@ def main():
     update_readme(readme_block(alts, d["pins"]))
 
     emit("kpis", kpis)
+    emit("tipe", tipe)
+    emit("background", background)
     emit("skills", skills)
     emit("section-work", section, "01", "Selected work", "Synced with my GitHub pins")
-    emit("section-toolkit", section, "02", "Toolkit and activity", "What I work with")
+    emit("section-background", section, "02", "Background", "School and clubs, as a one-line diagram")
+    emit("section-toolkit", section, "03", "Toolkit and activity", "What I work with")
     emit("contact", contact)
-    emit("btn-cv", button, "Request CV", "→", True)
+    emit("btn-cv", button, "Download CV", "↓", True)
     emit("btn-email", button, "Email me", "↗")
-    emit("btn-site", button, "akeanti.xyz", "↗")
+    emit("btn-site", button, SITE, "↗")
+    emit("btn-linkedin", button, "LinkedIn", "↗")
     emit("btn-work", button, "See projects", "↓")
 
 

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="226" viewBox="0 0 1200 226" fill="none" role="img" aria-labelledby="t d"><title id="t">Toolkit</title><desc id="d">Toolkit. Power &amp; energy: Power flow (Newton-Raphson), N-1 contingency, DC-OPF and LMPs, Synchrophasors, IEEE C37.118, MATPOWER cases, MATLAB and Simulink, Signal processing. Embedded &amp; hardware: ESP32 and ESP32-S3, ESP-IDF, FreeRTOS, C and C++, PlatformIO, KiCad, IMUs and sensors, MQTT, Arduino. Software &amp; data: Python, NumPy, SciPy, PyTorch, XGBoost, SHAP, pytest, Docker, GitHub Actions, Git, Linux, LaTeX.</desc><defs><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="398" viewBox="0 0 1200 398" fill="none" role="img" aria-labelledby="t d"><title id="t">Toolkit, certifications and languages</title><desc id="d">Toolkit. Grids &amp; energy: Power flow (Newton-Raphson), Three-phase, P/Q/S, Power factor, Transformers, N-1 contingency, DC-OPF and LMPs, Synchrophasors, IEEE C37.118, MATPOWER cases. Embedded &amp; measurement: ESP32 and ESP32-S3, C and C++, ESP-IDF, FreeRTOS, PlatformIO, KiCad, MQTT, Oscilloscope, IMUs and sensors, Arduino. Software &amp; tools: Python, MATLAB, Simulink, NumPy, SciPy, PyTorch, XGBoost, SHAP, pytest, Docker, GitHub Actions, Git, Linux, LaTeX. Certifications: Electric Power Systems, University at Buffalo, Coursera; Mobilités et véhicules électriques, École des Ponts ParisTech, Coursera; MATLAB, Simulink and Simscape Onramp, MathWorks. Languages: Arabic (native), French (fluent), English (professional).</desc><defs><style>
 text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;fill:#F6F6F4}.serif{font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif}.mono{font-family:'JetBrains Mono','SF Mono','Cascadia Mono',Consolas,Menlo,monospace}
 .b{font-weight:600}.it{font-style:italic}.body{fill:#C8CDCA}.soft{fill:#8E9692}.faint{fill:#5C635F}
 .teal{fill:#42BBC4}.sage{fill:#93B787}.paper{fill:#1A1C1B}
@@ -12,21 +12,45 @@ text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Ne
 .blink{animation:blink 2.4s ease-in-out infinite}@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
 .twinkle{animation:twinkle 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
-</style></defs><rect x=".5" y=".5" width="1199" height="225" rx="4" fill="#1A1C1B" stroke="#323634"/>
-<text x="32" y="48" font-size="10" class="mono" letter-spacing="1.6"><tspan class="teal b">A</tspan><tspan class="soft">  POWER &amp; ENERGY</tspan></text>
-<text x="32" y="84" font-size="15.5"><tspan>Power flow (Newton-Raphson)</tspan></text>
-<text x="32" y="111" font-size="15.5"><tspan>N-1 contingency</tspan><tspan class="faint">  /  </tspan><tspan>DC-OPF and LMPs</tspan></text>
-<text x="32" y="138" font-size="15.5"><tspan>Synchrophasors</tspan><tspan class="faint">  /  </tspan><tspan>IEEE C37.118</tspan></text>
-<text x="32" y="165" font-size="15.5"><tspan>MATPOWER cases</tspan><tspan class="faint">  /  </tspan><tspan>MATLAB and Simulink</tspan></text>
-<text x="32" y="192" font-size="15.5"><tspan>Signal processing</tspan></text>
-<text x="432" y="48" font-size="10" class="mono" letter-spacing="1.6"><tspan class="teal b">B</tspan><tspan class="soft">  EMBEDDED &amp; HARDWARE</tspan></text>
-<text x="432" y="84" font-size="15.5"><tspan>ESP32 and ESP32-S3</tspan><tspan class="faint">  /  </tspan><tspan>ESP-IDF</tspan><tspan class="faint">  /  </tspan><tspan>FreeRTOS</tspan></text>
-<text x="432" y="111" font-size="15.5"><tspan>C and C++</tspan><tspan class="faint">  /  </tspan><tspan>PlatformIO</tspan><tspan class="faint">  /  </tspan><tspan>KiCad</tspan></text>
-<text x="432" y="138" font-size="15.5"><tspan>IMUs and sensors</tspan><tspan class="faint">  /  </tspan><tspan>MQTT</tspan><tspan class="faint">  /  </tspan><tspan>Arduino</tspan></text>
-<path d="M400 28V198" stroke="#2A2E2C"/>
-<text x="832" y="48" font-size="10" class="mono" letter-spacing="1.6"><tspan class="teal b">C</tspan><tspan class="soft">  SOFTWARE &amp; DATA</tspan></text>
-<text x="832" y="84" font-size="15.5"><tspan>Python</tspan><tspan class="faint">  /  </tspan><tspan>NumPy</tspan><tspan class="faint">  /  </tspan><tspan>SciPy</tspan><tspan class="faint">  /  </tspan><tspan>PyTorch</tspan><tspan class="faint">  /  </tspan><tspan>XGBoost</tspan></text>
-<text x="832" y="111" font-size="15.5"><tspan>SHAP</tspan><tspan class="faint">  /  </tspan><tspan>pytest</tspan><tspan class="faint">  /  </tspan><tspan>Docker</tspan><tspan class="faint">  /  </tspan><tspan>GitHub Actions</tspan><tspan class="faint">  /  </tspan><tspan>Git</tspan></text>
-<text x="832" y="138" font-size="15.5"><tspan>Linux</tspan><tspan class="faint">  /  </tspan><tspan>LaTeX</tspan></text>
-<path d="M800 28V198" stroke="#2A2E2C"/>
+</style></defs><rect x=".5" y=".5" width="1199" height="397" rx="4" fill="#1A1C1B" stroke="#323634"/>
+<text x="32" y="48" font-size="10" class="mono" letter-spacing="1.6"><tspan class="teal b">A</tspan><tspan class="soft">  GRIDS &amp; ENERGY</tspan></text>
+<text x="32" y="84" font-size="15.5"><tspan>Power flow (Newton-Raphson)</tspan><tspan class="faint">  /  </tspan><tspan>Three-phase</tspan></text>
+<text x="32" y="111" font-size="15.5"><tspan>P/Q/S</tspan><tspan class="faint">  /  </tspan><tspan>Power factor</tspan><tspan class="faint">  /  </tspan><tspan>Transformers</tspan></text>
+<text x="32" y="138" font-size="15.5"><tspan>N-1 contingency</tspan><tspan class="faint">  /  </tspan><tspan>DC-OPF and LMPs</tspan></text>
+<text x="32" y="165" font-size="15.5"><tspan>Synchrophasors</tspan><tspan class="faint">  /  </tspan><tspan>IEEE C37.118</tspan></text>
+<text x="32" y="192" font-size="15.5"><tspan>MATPOWER cases</tspan></text>
+<text x="432" y="48" font-size="10" class="mono" letter-spacing="1.6"><tspan class="teal b">B</tspan><tspan class="soft">  EMBEDDED &amp; MEASUREMENT</tspan></text>
+<text x="432" y="84" font-size="15.5"><tspan>ESP32 and ESP32-S3</tspan><tspan class="faint">  /  </tspan><tspan>C and C++</tspan><tspan class="faint">  /  </tspan><tspan>ESP-IDF</tspan></text>
+<text x="432" y="111" font-size="15.5"><tspan>FreeRTOS</tspan><tspan class="faint">  /  </tspan><tspan>PlatformIO</tspan><tspan class="faint">  /  </tspan><tspan>KiCad</tspan><tspan class="faint">  /  </tspan><tspan>MQTT</tspan></text>
+<text x="432" y="138" font-size="15.5"><tspan>Oscilloscope</tspan><tspan class="faint">  /  </tspan><tspan>IMUs and sensors</tspan><tspan class="faint">  /  </tspan><tspan>Arduino</tspan></text>
+<path d="M400 28V214" stroke="#2A2E2C"/>
+<text x="832" y="48" font-size="10" class="mono" letter-spacing="1.6"><tspan class="teal b">C</tspan><tspan class="soft">  SOFTWARE &amp; TOOLS</tspan></text>
+<text x="832" y="84" font-size="15.5"><tspan>Python</tspan><tspan class="faint">  /  </tspan><tspan>MATLAB</tspan><tspan class="faint">  /  </tspan><tspan>Simulink</tspan><tspan class="faint">  /  </tspan><tspan>NumPy</tspan><tspan class="faint">  /  </tspan><tspan>SciPy</tspan></text>
+<text x="832" y="111" font-size="15.5"><tspan>PyTorch</tspan><tspan class="faint">  /  </tspan><tspan>XGBoost</tspan><tspan class="faint">  /  </tspan><tspan>SHAP</tspan><tspan class="faint">  /  </tspan><tspan>pytest</tspan><tspan class="faint">  /  </tspan><tspan>Docker</tspan></text>
+<text x="832" y="138" font-size="15.5"><tspan>GitHub Actions</tspan><tspan class="faint">  /  </tspan><tspan>Git</tspan><tspan class="faint">  /  </tspan><tspan>Linux</tspan><tspan class="faint">  /  </tspan><tspan>LaTeX</tspan></text>
+<path d="M800 28V214" stroke="#2A2E2C"/>
+<path d="M32 228H1168" stroke="#2A2E2C"/><path d="M800 250V382" stroke="#2A2E2C"/>
+<text x="32" y="268" font-size="10" class="mono" letter-spacing="1.6"><tspan class="teal b">D</tspan><tspan class="soft">  CERTIFICATIONS</tspan></text>
+<text x="832" y="268" font-size="10" class="mono" letter-spacing="1.6"><tspan class="teal b">E</tspan><tspan class="soft">  LANGUAGES</tspan></text>
+<rect x="32" y="292" width="14" height="14" rx="2" fill="#42BBC4"/><path d="M35.4 299L38.2 301.7L42.8 296" stroke="#1A1C1B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="58" y="304" font-size="15.5">Electric Power Systems<tspan class="soft" font-size="13">  ·  University at Buffalo, Coursera</tspan></text>
+<rect x="32" y="322" width="14" height="14" rx="2" fill="#42BBC4"/><path d="M35.4 329L38.2 331.7L42.8 326" stroke="#1A1C1B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="58" y="334" font-size="15.5">Mobilités et véhicules électriques<tspan class="soft" font-size="13">  ·  École des Ponts ParisTech, Coursera</tspan></text>
+<rect x="32" y="352" width="14" height="14" rx="2" fill="#42BBC4"/><path d="M35.4 359L38.2 361.7L42.8 356" stroke="#1A1C1B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><text x="58" y="364" font-size="15.5">MATLAB, Simulink and Simscape Onramp<tspan class="soft" font-size="13">  ·  MathWorks</tspan></text>
+<text x="832" y="304" font-size="15.5">Arabic<tspan class="soft" font-size="13">  ·  native</tspan></text>
+<rect x="1022" y="296" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.00s"/>
+<rect x="1052" y="296" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.08s"/>
+<rect x="1082" y="296" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.16s"/>
+<rect x="1112" y="296" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.24s"/>
+<rect x="1142" y="296" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.32s"/>
+<text x="832" y="334" font-size="15.5">French<tspan class="soft" font-size="13">  ·  fluent</tspan></text>
+<rect x="1022" y="326" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.12s"/>
+<rect x="1052" y="326" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.20s"/>
+<rect x="1082" y="326" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.28s"/>
+<rect x="1112" y="326" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.36s"/>
+<rect x="1142" y="326" width="26" height="5" rx="2.5" fill="#2A2E2C" class="grow" style="animation-delay:0.44s"/>
+<text x="832" y="364" font-size="15.5">English<tspan class="soft" font-size="13">  ·  professional</tspan></text>
+<rect x="1022" y="356" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.24s"/>
+<rect x="1052" y="356" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.32s"/>
+<rect x="1082" y="356" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.40s"/>
+<rect x="1112" y="356" width="26" height="5" rx="2.5" fill="#42BBC4" class="grow" style="animation-delay:0.48s"/>
+<rect x="1142" y="356" width="26" height="5" rx="2.5" fill="#2A2E2C" class="grow" style="animation-delay:0.56s"/>
 </svg>

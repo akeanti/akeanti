@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="356" viewBox="0 0 1200 356" fill="none" role="img" aria-labelledby="t d"><title id="t">Background</title><desc id="d">Background, drawn as a one-line diagram. 2024, Sefrou: Baccalauréat, Sciences Maths B, Mention Très Bien, Lycée Le Jasmin 2. 2024 to 2026, Meknès: CPGE, MP track, Lycée Omar Ibn Al Khattab, then admitted to EHTP via the CNC. 2026 to 2029, Casablanca: EHTP, Ingénieur d&#x27;État, Electrical and Energy Engineering, now in year 1 of 3. Next, summer 2027: Your team?, this slot is open. Roles held alongside: Sept 2024 to June 2026: Vice-president &amp; trainer, BeurdByte Builders club, CPGE. Trained students in C, Arduino, ESP and IoT, and coached them to a working prototype. Since Oct 2026: Visits &amp; Workshops unit, Club Electro-Power, EHTP. Member, organizing industrial visits and microcontroller workshops. Notes: CPGE: two-year prep for the engineering schools; CNC: national entrance exam to those schools; EHTP: École Hassania des Travaux Publics; Bac: Mention Très Bien is the top honours band.</desc><defs><style>
+text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;fill:#F6F6F4}.serif{font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif}.mono{font-family:'JetBrains Mono','SF Mono','Cascadia Mono',Consolas,Menlo,monospace}
+.b{font-weight:600}.it{font-style:italic}.body{fill:#C8CDCA}.soft{fill:#8E9692}.faint{fill:#5C635F}
+.teal{fill:#42BBC4}.sage{fill:#93B787}.paper{fill:#1A1C1B}
+.ring{animation:ring 2.6s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.4);opacity:0}}
+.flow{stroke-dasharray:1.5 9;animation:flow 1.1s linear infinite}@keyframes flow{to{stroke-dashoffset:-21}}
+.draw{stroke-dasharray:440;animation:draw 6s cubic-bezier(.45,0,.2,1) infinite}@keyframes draw{0%{stroke-dashoffset:440}55%,88%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.trip{opacity:0;animation:trip 7s ease-in-out infinite}@keyframes trip{0%,10%{opacity:0}18%,72%{opacity:1}86%,100%{opacity:0}}
+.bar{animation:bar 1.1s cubic-bezier(.2,.7,.2,1) both;transform-box:fill-box;transform-origin:bottom}@keyframes bar{from{transform:scaleY(0)}}
+.grow{animation:grow 1.2s cubic-bezier(.2,.7,.2,1) both;transform-box:fill-box;transform-origin:left}@keyframes grow{from{transform:scaleX(0)}}
+.prog{animation:prog 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:left}@keyframes prog{0%{transform:scaleX(.05)}80%,100%{transform:scaleX(1)}}
+.blink{animation:blink 2.4s ease-in-out infinite}@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+.twinkle{animation:twinkle 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></defs><rect x=".5" y=".5" width="1199" height="355" rx="4" fill="#1A1C1B" stroke="#323634"/>
+<path d="M73 168H339" stroke="#F6F6F4" stroke-width="1.4"/><path d="M73 168H339" stroke="#42BBC4" stroke-width="1.6" class="flow"/>
+<path d="M383 168H680" stroke="#F6F6F4" stroke-width="1.4"/><path d="M383 168H680" stroke="#42BBC4" stroke-width="1.6" class="flow"/>
+<path d="M680 168H973M987 168H1148" stroke="#93B787" stroke-width="1.4" stroke-dasharray="5 6"/><path d="M1148 162L1160 168L1148 174Z" fill="#93B787"/>
+<circle cx="56" cy="168" r="17" stroke="#F6F6F4" stroke-width="1.4" fill="#1A1C1B"/><path d="M47 168q4.5 -8 9 0t9 0" stroke="#F6F6F4" stroke-width="1.4"/><circle cx="352" cy="168" r="13" stroke="#F6F6F4" stroke-width="1.4"/><circle cx="370" cy="168" r="13" stroke="#F6F6F4" stroke-width="1.4"/><path d="M680 142V194" stroke="#42BBC4" stroke-width="5"/><circle cx="680" cy="168" r="5" stroke="#42BBC4" class="ring"/><rect x="973" y="161" width="14" height="14" fill="#1A1C1B" stroke="#93B787" stroke-width="1.4"/>
+<text x="40" y="56" font-size="10.5" class="mono" letter-spacing="1.4"><tspan class="teal b">2024</tspan><tspan class="soft">  ·  SEFROU</tspan></text><text x="40" y="86" font-size="21" class="serif">Baccalauréat</text><text x="40" y="108" font-size="14.5" class="body">Sciences Maths B</text>
+<text x="40" y="128" font-size="13" class="soft">Mention Très Bien, Lycée Le Jasmin 2</text>
+<text x="345" y="56" font-size="10.5" class="mono" letter-spacing="1.4"><tspan class="teal b">2024 TO 2026</tspan><tspan class="soft">  ·  MEKNÈS</tspan></text><text x="345" y="86" font-size="21" class="serif">CPGE, MP track</text><text x="345" y="108" font-size="14.5" class="body">Lycée Omar Ibn Al Khattab</text>
+<text x="345" y="128" font-size="13" class="soft">then admitted to EHTP via the CNC</text>
+<text x="664" y="56" font-size="10.5" class="mono" letter-spacing="1.4"><tspan class="teal b">2026 TO 2029</tspan><tspan class="soft">  ·  CASABLANCA</tspan></text><text x="664" y="86" font-size="21" class="serif">EHTP, Ingénieur d&#x27;État</text><text x="664" y="108" font-size="14.5" class="body">Electrical and Energy Engineering</text>
+<text x="664" y="128" font-size="13" class="teal">now in year 1 of 3</text>
+<text x="964" y="56" font-size="10.5" class="mono" letter-spacing="1.4"><tspan class="sage b">NEXT</tspan><tspan class="soft">  ·  SUMMER 2027</tspan></text><text x="964" y="86" font-size="21" class="serif">Your team?</text><text x="964" y="108" font-size="14.5" class="soft it serif">this slot is open</text>
+<path d="M400 168V322" stroke="#F6F6F4" stroke-width="1.3"/><path d="M394 320L400 331L406 320Z" fill="#F6F6F4"/>
+<circle cx="400" cy="168" r="3.5" fill="#F6F6F4"/>
+<text x="420" y="216" font-size="10.5" class="mono" letter-spacing="1.4"><tspan class="teal b">SEPT 2024 TO JUNE 2026</tspan></text><text x="420" y="242" font-size="18" class="serif">Vice-president &amp; trainer</text><text x="420" y="263" font-size="14.5" class="serif it teal">BeurdByte Builders club, CPGE</text>
+<text x="420" y="288" font-size="13" class="soft">Trained students in C, Arduino, ESP and</text>
+<text x="420" y="307" font-size="13" class="soft">IoT, and coached them to a working</text>
+<text x="420" y="326" font-size="13" class="soft">prototype.</text>
+<path d="M680 194V322" stroke="#F6F6F4" stroke-width="1.3"/><path d="M674 320L680 331L686 320Z" fill="#F6F6F4"/>
+<text x="700" y="216" font-size="10.5" class="mono" letter-spacing="1.4"><tspan class="teal b">SINCE OCT 2026</tspan></text><text x="700" y="242" font-size="18" class="serif">Visits &amp; Workshops unit</text><text x="700" y="263" font-size="14.5" class="serif it teal">Club Electro-Power, EHTP</text>
+<text x="700" y="288" font-size="13" class="soft">Member, organizing industrial visits and</text>
+<text x="700" y="307" font-size="13" class="soft">microcontroller workshops.</text>
+<text x="40" y="216" font-size="10" class="mono soft" letter-spacing="1.6">NOTES</text>
+<text x="40" y="242" font-size="10.5" class="mono teal b">CPGE</text><text x="86" y="242" font-size="12.5" class="soft">two-year prep for the engineering schools</text>
+<text x="40" y="264" font-size="10.5" class="mono teal b">CNC</text><text x="86" y="264" font-size="12.5" class="soft">national entrance exam to those schools</text>
+<text x="40" y="286" font-size="10.5" class="mono teal b">EHTP</text><text x="86" y="286" font-size="12.5" class="soft">École Hassania des Travaux Publics</text>
+<text x="40" y="308" font-size="10.5" class="mono teal b">Bac</text><text x="86" y="308" font-size="12.5" class="soft">Mention Très Bien is the top honours band</text>
+<text x="980" y="216" font-size="10" class="mono soft" letter-spacing="1.6">LEGEND</text>
+<path d="M980 238H1006" stroke="#F6F6F4" stroke-width="1.4"/><path d="M980 238H1006" stroke="#42BBC4" stroke-width="1.6" class="flow"/><text x="1018" y="242" font-size="12.5" class="soft">done</text>
+<path d="M993 251V269" stroke="#42BBC4" stroke-width="5"/><text x="1018" y="264" font-size="12.5" class="soft">where I am now</text>
+<path d="M980 282H1006" stroke="#93B787" stroke-width="1.4" stroke-dasharray="5 6"/><text x="1018" y="286" font-size="12.5" class="soft">next</text>
+<path d="M993 294V304" stroke="#F6F6F4" stroke-width="1.3"/><path d="M988 302L993 310L998 302Z" fill="#F6F6F4"/><text x="1018" y="308" font-size="12.5" class="soft">role held alongside</text>
+</svg>
