@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" fill="none" role="img" aria-labelledby="t d"><title id="t">GitHub activity</title><desc id="d">GitHub activity: 116 contributions in the last 26 weeks, 33 public repositories, 71 stars, 21 followers. Busiest week: 29. Languages over the last 12 months: Python 55%, C++ 22%, HTML 11%, MATLAB 6%, TypeScript 6%.</desc><defs><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" fill="none" role="img" aria-labelledby="t d"><title id="t">GitHub activity</title><desc id="d">GitHub activity: 118 contributions in the last 26 weeks, 33 public repositories, 71 stars, 21 followers. Busiest week: 30. Languages over the last 12 months: Python 55%, C++ 22%, HTML 11%, MATLAB 6%, TypeScript 6%.</desc><defs><style>
 text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;fill:#F6F6F4}.serif{font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif}.mono{font-family:'JetBrains Mono','SF Mono','Cascadia Mono',Consolas,Menlo,monospace}
 .b{font-weight:600}.it{font-style:italic}.body{fill:#C8CDCA}.soft{fill:#8E9692}.faint{fill:#5C635F}
 .teal{fill:#42BBC4}.sage{fill:#93B787}.paper{fill:#1A1C1B}
@@ -14,7 +14,7 @@ text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Ne
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
 </style></defs><rect x=".5" y=".5" width="1199" height="249" rx="4" fill="#1A1C1B" stroke="#323634"/>
 <text x="32" y="46" font-size="10" class="mono soft" letter-spacing="1.6">ON GITHUB</text>
-<text x="32" y="102" font-size="44" class="serif">116</text><text x="32" y="124" font-size="13.5" class="body">contributions</text><text x="32" y="141" font-size="12" class="soft">last 26 weeks</text>
+<text x="32" y="102" font-size="44" class="serif">118</text><text x="32" y="124" font-size="13.5" class="body">contributions</text><text x="32" y="141" font-size="12" class="soft">last 26 weeks</text>
 <text x="182" y="102" font-size="44" class="serif">33</text><text x="182" y="124" font-size="13.5" class="body">public repos</text><text x="182" y="141" font-size="12" class="soft">original work</text>
 <text x="32" y="192" font-size="44" class="serif">71</text><text x="32" y="214" font-size="13.5" class="body">stars</text><text x="32" y="231" font-size="12" class="soft">across my repos</text>
 <text x="182" y="192" font-size="44" class="serif">21</text><text x="182" y="214" font-size="13.5" class="body">followers</text><text x="182" y="231" font-size="12" class="soft">and counting</text>
@@ -22,7 +22,7 @@ text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Ne
 <rect x="364.2" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <text x="364.2" y="210" font-size="10" class="mono soft">Apr</text>
 <rect x="381.6" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<rect x="399.0" y="168.0" width="9" height="24.0" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.050s"/>
+<rect x="399.0" y="168.8" width="9" height="23.2" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.050s"/>
 <rect x="416.3" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="433.7" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="451.1" y="190.5" width="9" height="1.5" fill="#5C635F"/>
@@ -30,8 +30,8 @@ text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Ne
 <rect x="485.9" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <text x="485.9" y="210" font-size="10" class="mono soft">Jun</text>
 <rect x="503.3" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<rect x="520.7" y="188.0" width="9" height="4.0" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.225s"/>
-<rect x="538.0" y="180.0" width="9" height="12.0" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.250s"/>
+<rect x="520.7" y="188.1" width="9" height="3.9" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.225s"/>
+<rect x="538.0" y="180.4" width="9" height="11.6" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.250s"/>
 <rect x="555.4" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <text x="555.4" y="210" font-size="10" class="mono soft">Jul</text>
 <rect x="572.8" y="190.5" width="9" height="1.5" fill="#5C635F"/>
@@ -39,18 +39,18 @@ text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Ne
 <rect x="607.6" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="625.0" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <text x="625.0" y="210" font-size="10" class="mono soft">Aug</text>
-<rect x="642.3" y="152.0" width="9" height="40.0" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.400s"/>
-<rect x="659.7" y="124.0" width="9" height="68.0" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.425s"/>
+<rect x="642.3" y="153.3" width="9" height="38.7" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.400s"/>
+<rect x="659.7" y="126.3" width="9" height="65.7" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.425s"/>
 <rect x="677.1" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="694.5" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="711.9" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <text x="711.9" y="210" font-size="10" class="mono soft">Sep</text>
-<rect x="729.3" y="112.0" width="9" height="80.0" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.525s"/>
+<rect x="729.3" y="114.7" width="9" height="77.3" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.525s"/>
 <rect x="746.7" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<rect x="764.0" y="184.0" width="9" height="8.0" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.575s"/>
-<rect x="781.4" y="76.0" width="9" height="116.0" fill="#42BBC4" fill-opacity="1" class="bar" style="animation-delay:0.600s"/>
-<rect x="798.8" y="80.0" width="9" height="112.0" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.625s"/>
-<text x="785.9" y="68" font-size="10" class="mono teal" text-anchor="middle">29</text>
+<rect x="764.0" y="184.3" width="9" height="7.7" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.575s"/>
+<rect x="781.4" y="79.9" width="9" height="112.1" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.600s"/>
+<rect x="798.8" y="76.0" width="9" height="116.0" fill="#42BBC4" fill-opacity="1" class="bar" style="animation-delay:0.625s"/>
+<text x="803.3" y="68" font-size="10" class="mono teal" text-anchor="middle">30</text>
 <text x="872" y="46" font-size="10" class="mono soft" letter-spacing="1.6">LANGUAGES · 12 MONTHS</text>
 <text x="872" y="82" font-size="14.5">Python</text><text x="1168" y="82" font-size="12" class="mono soft" text-anchor="end">54.8%</text><rect x="872" y="89" width="296" height="2" fill="#2A2E2C"/><rect x="872" y="89" width="296.0" height="2" fill="#42BBC4" class="grow" style="animation-delay:0.0s"/>
 <text x="872" y="112" font-size="14.5">C++</text><text x="1168" y="112" font-size="12" class="mono soft" text-anchor="end">22.2%</text><rect x="872" y="119" width="296" height="2" fill="#2A2E2C"/><rect x="872" y="119" width="119.9" height="2" fill="#F6F6F4" class="grow" style="animation-delay:0.1s"/>
