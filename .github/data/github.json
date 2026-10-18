@@ -1770,7 +1770,7 @@
      "name": "MATLAB"
     },
     "pushedAt": "2026-10-11T22:50:38Z",
-    "stargazerCount": 1,
+    "stargazerCount": 2,
     "url": "https://github.com/akeanti/matlab-discord-rpc"
    },
    {
@@ -1827,9 +1827,7 @@
    {
     "defaultBranchRef": {
      "target": {
-      "statusCheckRollup": {
-       "state": "PENDING"
-      }
+      "statusCheckRollup": null
      }
     },
     "description": null,
@@ -1839,7 +1837,7 @@
     },
     "latestRelease": null,
     "name": "akeanti",
-    "pushedAt": "2026-10-18T11:24:05Z",
+    "pushedAt": "2026-10-18T11:24:27Z",
     "stargazerCount": 4
    },
    {
@@ -2069,7 +2067,7 @@
     },
     "name": "matlab-discord-rpc",
     "pushedAt": "2026-10-11T22:50:38Z",
-    "stargazerCount": 1
+    "stargazerCount": 2
    },
    {
     "defaultBranchRef": {

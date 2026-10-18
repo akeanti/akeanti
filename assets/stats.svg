@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" fill="none" role="img" aria-labelledby="t d"><title id="t">GitHub activity</title><desc id="d">GitHub activity: 120 contributions in the last 26 weeks, 33 public repositories, 71 stars, 21 followers. Busiest week: 30. Languages over the last 12 months: Python 55%, C++ 22%, HTML 11%, MATLAB 6%, TypeScript 6%.</desc><defs><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="250" viewBox="0 0 1200 250" fill="none" role="img" aria-labelledby="t d"><title id="t">GitHub activity</title><desc id="d">GitHub activity: 120 contributions in the last 26 weeks, 33 public repositories, 72 stars, 21 followers. Busiest week: 30. Languages over the last 12 months: Python 55%, C++ 22%, HTML 11%, MATLAB 6%, TypeScript 6%.</desc><defs><style>
 text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;fill:#F6F6F4}.serif{font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif}.mono{font-family:'JetBrains Mono','SF Mono','Cascadia Mono',Consolas,Menlo,monospace}
 .b{font-weight:600}.it{font-style:italic}.body{fill:#C8CDCA}.soft{fill:#8E9692}.faint{fill:#5C635F}
 .teal{fill:#42BBC4}.sage{fill:#93B787}.paper{fill:#1A1C1B}
@@ -16,7 +16,7 @@ text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Ne
 <text x="32" y="46" font-size="10" class="mono soft" letter-spacing="1.6">ON GITHUB</text>
 <text x="32" y="102" font-size="44" class="serif">120</text><text x="32" y="124" font-size="13.5" class="body">contributions</text><text x="32" y="141" font-size="12" class="soft">last 26 weeks</text>
 <text x="182" y="102" font-size="44" class="serif">33</text><text x="182" y="124" font-size="13.5" class="body">public repos</text><text x="182" y="141" font-size="12" class="soft">original work</text>
-<text x="32" y="192" font-size="44" class="serif">71</text><text x="32" y="214" font-size="13.5" class="body">stars</text><text x="32" y="231" font-size="12" class="soft">across my repos</text>
+<text x="32" y="192" font-size="44" class="serif">72</text><text x="32" y="214" font-size="13.5" class="body">stars</text><text x="32" y="231" font-size="12" class="soft">across my repos</text>
 <text x="182" y="192" font-size="44" class="serif">21</text><text x="182" y="214" font-size="13.5" class="body">followers</text><text x="182" y="231" font-size="12" class="soft">and counting</text>
 <path d="M332 30V220M842 30V220" stroke="#2A2E2C"/><text x="360" y="46" font-size="10" class="mono soft" letter-spacing="1.6">WEEKLY CONTRIBUTIONS · 26 WEEKS</text><path d="M360 192H812" stroke="#323634"/>
 <rect x="364.2" y="190.5" width="9" height="1.5" fill="#5C635F"/>
