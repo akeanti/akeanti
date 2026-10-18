@@ -3,11 +3,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/akeanti/akeanti/raw/main/cv/Elmehdi_Essamit_CV.pdf"><img src="./assets/btn-cv.svg" width="19%" alt="Download my CV (PDF)"></a>
-  <a href="mailto:essamit.elmehdi@proton.me?subject=Internship%20opportunity"><img src="./assets/btn-email.svg" width="19%" alt="Email me: essamit.elmehdi@proton.me"></a>
-  <a href="https://elmehdi-essamit.com"><img src="./assets/btn-site.svg" width="19%" alt="Website: elmehdi-essamit.com"></a>
-  <a href="https://www.linkedin.com/in/elmehdi-essamit"><img src="./assets/btn-linkedin.svg" width="19%" alt="LinkedIn: elmehdi-essamit"></a>
-  <a href="#selected-work"><img src="./assets/btn-work.svg" width="19%" alt="See my projects"></a>
+  <a href="https://github.com/akeanti/akeanti/raw/main/cv/Elmehdi_Essamit_CV.pdf"><img src="./assets/btn-cv.svg" width="18.5%" alt="Download my CV (PDF, in French)"></a>
+  <a href="mailto:essamit.elmehdi@proton.me?subject=Internship%20opportunity"><img src="./assets/btn-email.svg" width="18.5%" alt="Email me: essamit.elmehdi@proton.me"></a>
+  <a href="https://elmehdi-essamit.com"><img src="./assets/btn-site.svg" width="18.5%" alt="Website: elmehdi-essamit.com"></a>
+  <a href="https://www.linkedin.com/in/elmehdi-essamit"><img src="./assets/btn-linkedin.svg" width="18.5%" alt="LinkedIn: elmehdi-essamit"></a>
+  <a href="#selected-work"><img src="./assets/btn-work.svg" width="18.5%" alt="See my projects"></a>
 </p>
 
 <p>
@@ -63,6 +63,11 @@
 
 <p>
 <a href="https://github.com/akeanti/akeanti/raw/main/cv/Elmehdi_Essamit_CV.pdf"><img src="./assets/contact.svg" width="100%" alt="Hiring a first-year engineering intern? Stage d'initiation, summer 2027, for 1 to 2 months, in Morocco or abroad, on-site, hybrid or remote. Fields: power and energy systems; studies, operations, maintenance, automation. Email: essamit.elmehdi@proton.me, or LinkedIn: elmehdi-essamit. Web: elmehdi-essamit.com. Click to download my CV, one page, in French."></a>
+</p>
+
+<p align="center">
+  <b>Elmehdi Essamit</b> · Casablanca, Morocco<br>
+  <code>essamit.elmehdi@proton.me</code> · <a href="https://elmehdi-essamit.com">elmehdi-essamit.com</a> · <a href="https://www.linkedin.com/in/elmehdi-essamit">LinkedIn</a> · <a href="https://github.com/akeanti/akeanti/raw/main/cv/Elmehdi_Essamit_CV.pdf">CV (PDF, in French)</a>
 </p>
 
 <p align="center"><sub>The header, project cards and stats rebuild themselves from the GitHub API every 6 hours (<a href=".github/scripts/build_profile.py">script</a>). The rest follows my <a href="cv/Elmehdi_Essamit_CV.pdf">CV</a>.</sub></p>

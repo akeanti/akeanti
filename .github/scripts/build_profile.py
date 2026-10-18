@@ -11,7 +11,7 @@ Every graphic uses the logo's own palette (its charcoal, white, teal and sage) a
 engineering drawing sheet: hairlines, figure plates, serif for display, mono for data.
 
 Live:   header (now building, latest release), pin-N (one card per GitHub pin, in pin order, with
-        release, CI state, stars and last push), stats (weekly activity, languages).
+        release, CI state, license or stars, and last push), stats (weekly activity, languages).
 Static: kpis, tipe, background, skills, section-*, btn-*, contact.
         Their facts come from my CV (cv/Elmehdi_Essamit_CV.pdf); keep the two in step.
 
@@ -34,6 +34,7 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 ASSETS = os.path.join(ROOT, "assets")
 README = os.path.join(ROOT, "README.md")
 SKIP = {"akeanti", "1969"}  # the profile repo and the Unix-epoch joke stay out of "now building"
+STAR_FLOOR = 10  # below this many stars, a card shows the repo's license instead of a count that undersells it
 
 NAME = "Elmehdi Essamit"
 EMAIL = "essamit.elmehdi@proton.me"
@@ -52,6 +53,7 @@ query($login: String!) {
     pinnedItems(first: 6, types: REPOSITORY) { nodes { ... on Repository {
       name description url stargazerCount pushedAt
       primaryLanguage { name color }
+      licenseInfo { spdxId }
       latestRelease { tagName publishedAt }
       defaultBranchRef { target { ... on Commit { statusCheckRollup { state } } } }
     } } }
@@ -471,6 +473,9 @@ def card(t, repo, idx, total):
     pitch = p.get("pitch") or clip(repo["description"], 150)
     rel = repo["latestRelease"]
     ci = (((repo.get("defaultBranchRef") or {}).get("target") or {}).get("statusCheckRollup") or {}).get("state")
+    stars, lic = repo["stargazerCount"], (repo.get("licenseInfo") or {}).get("spdxId")
+    badge = (f"{stars} star{'s' if stars != 1 else ''}" if stars >= STAR_FLOOR
+             else f"{lic} license" if lic and lic != "NOASSERTION" else "")
 
     o = [f'<clipPath id="cc"><rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="3.5"/></clipPath>'
          f'<rect x="1" y="1" width="{W - 2}" height="{band - 1}" fill="url(#gp)" clip-path="url(#cc)"/>'
@@ -508,7 +513,8 @@ def card(t, repo, idx, total):
             o.append(f'<path d="M{mx + 236} 262V308" stroke="{t["rule"]}"/>')
 
     o.append(f'<path d="M22 320H{W - 22}" stroke="{t["rule"]}"/>')
-    meta = f"★ {repo['stargazerCount']} · updated {day(repo['pushedAt'])}"
+    meta = " · ".join(filter(None, [f"★ {stars}" if stars >= STAR_FLOOR else badge.removesuffix(" license"),
+                                     f"updated {day(repo['pushedAt'])}"]))
     o.append(f'<text x="{W - 22}" y="340" font-size="12" class="soft" text-anchor="end">{e(meta)}</text>')
     room = W - 44 - tw(meta, 12) - 16
     parts = (p.get("stack") or lang.get("name") or "").split(" · ")
@@ -519,7 +525,7 @@ def card(t, repo, idx, total):
     figures = "; ".join(f"{plain(v)} {c}" for v, c in p.get("metrics", []))
     desc = (f"{title}, {kind.lower()}. {pitch} " + (f"Key numbers: {figures}. " if figures else "")
             + (f"{label.capitalize()}: {value}. " if value else "") + (f"{word.capitalize()}. " if word else "")
-            + f"{repo['stargazerCount']} star{'s' if repo['stargazerCount'] != 1 else ''}, updated {day(repo['pushedAt'])}.")
+            + (f"{badge}, updated" if badge else "Updated") + f" {day(repo['pushedAt'])}.")
     return svg(t, W, H, title, desc, "\n".join(o), defs=graph_paper(t)), desc
 
 
@@ -701,7 +707,7 @@ def contact(t):
             ("EMAIL", EMAIL, f"or {LINKEDIN}"),
             ("WEB", SITE, "portfolio")]
     step = (H - 64) / len(rows)
-    o = [f'<text x="48" y="62" font-size="16" class="serif it soft"><tspan class="mono teal b" font-style="normal" font-size="12">04</tspan>  Let us talk</text>',
+    o = [f'<text x="48" y="62" font-size="16" class="serif it soft"><tspan class="mono teal b" font-style="normal" font-size="12">04</tspan>  Get in touch</text>',
          f'<text x="46" y="134" font-size="46" class="serif" letter-spacing="-.8">Hiring a first-year</text>',
          f'<text x="46" y="186" font-size="46" class="serif" letter-spacing="-.8">engineering intern?</text>',
          f'<text x="48" y="224" font-size="17" class="body">Stage d\'initiation. My CV has it all on one page, in French.</text>',
@@ -943,7 +949,7 @@ def main():
     emit("section-background", section, "02", "Background", "School and clubs, as a one-line diagram")
     emit("section-toolkit", section, "03", "Toolkit and activity", "What I work with")
     emit("contact", contact)
-    emit("btn-cv", button, "Download CV", "↓", True)
+    emit("btn-cv", button, "Download CV (FR)", "↓", True)
     emit("btn-email", button, "Email me", "↗")
     emit("btn-site", button, SITE, "↗")
     emit("btn-linkedin", button, "LinkedIn", "↗")
