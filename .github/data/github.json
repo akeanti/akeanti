@@ -1669,7 +1669,7 @@
     {
      "contributionDays": [
       {
-       "contributionCount": 2,
+       "contributionCount": 5,
        "date": "2026-10-18"
       }
      ]
@@ -1758,8 +1758,8 @@
     },
     "description": "Discord Rich Presence for MATLAB. Shows what you're editing, running, debugging or simulating. Runs inside MATLAB, no Python needed.",
     "latestRelease": {
-     "publishedAt": "2026-10-11T22:50:38Z",
-     "tagName": "v1.1.0"
+     "publishedAt": "2026-10-18T23:19:20Z",
+     "tagName": "v1.2.0"
     },
     "licenseInfo": {
      "spdxId": "MIT"
@@ -1769,7 +1769,7 @@
      "color": "#e16737",
      "name": "MATLAB"
     },
-    "pushedAt": "2026-10-11T22:50:38Z",
+    "pushedAt": "2026-10-18T23:19:20Z",
     "stargazerCount": 2,
     "url": "https://github.com/akeanti/matlab-discord-rpc"
    },
@@ -1827,6 +1827,63 @@
    {
     "defaultBranchRef": {
      "target": {
+      "statusCheckRollup": {
+       "state": "SUCCESS"
+      }
+     }
+    },
+    "description": "Discord Rich Presence for MATLAB. Shows what you're editing, running, debugging or simulating. Runs inside MATLAB, no Python needed.",
+    "isArchived": false,
+    "languages": {
+     "edges": [
+      {
+       "node": {
+        "color": "#e16737",
+        "name": "MATLAB"
+       },
+       "size": 56974
+      },
+      {
+       "node": {
+        "color": "#7355dd",
+        "name": "C#"
+       },
+       "size": 27399
+      },
+      {
+       "node": {
+        "color": "#3572A5",
+        "name": "Python"
+       },
+       "size": 4087
+      },
+      {
+       "node": {
+        "color": "#012456",
+        "name": "PowerShell"
+       },
+       "size": 2366
+      },
+      {
+       "node": {
+        "color": "#89e051",
+        "name": "Shell"
+       },
+       "size": 1102
+      }
+     ]
+    },
+    "latestRelease": {
+     "publishedAt": "2026-10-18T23:19:20Z",
+     "tagName": "v1.2.0"
+    },
+    "name": "matlab-discord-rpc",
+    "pushedAt": "2026-10-18T23:19:20Z",
+    "stargazerCount": 2
+   },
+   {
+    "defaultBranchRef": {
+     "target": {
       "statusCheckRollup": null
      }
     },
@@ -1837,7 +1894,7 @@
     },
     "latestRelease": null,
     "name": "akeanti",
-    "pushedAt": "2026-10-18T11:24:27Z",
+    "pushedAt": "2026-10-18T15:58:08Z",
     "stargazerCount": 4
    },
    {
@@ -2011,63 +2068,6 @@
     "name": "ariadne",
     "pushedAt": "2026-10-13T14:47:08Z",
     "stargazerCount": 1
-   },
-   {
-    "defaultBranchRef": {
-     "target": {
-      "statusCheckRollup": {
-       "state": "SUCCESS"
-      }
-     }
-    },
-    "description": "Discord Rich Presence for MATLAB. Shows what you're editing, running, debugging or simulating. Runs inside MATLAB, no Python needed.",
-    "isArchived": false,
-    "languages": {
-     "edges": [
-      {
-       "node": {
-        "color": "#e16737",
-        "name": "MATLAB"
-       },
-       "size": 53739
-      },
-      {
-       "node": {
-        "color": "#7355dd",
-        "name": "C#"
-       },
-       "size": 27399
-      },
-      {
-       "node": {
-        "color": "#3572A5",
-        "name": "Python"
-       },
-       "size": 4087
-      },
-      {
-       "node": {
-        "color": "#012456",
-        "name": "PowerShell"
-       },
-       "size": 2366
-      },
-      {
-       "node": {
-        "color": "#89e051",
-        "name": "Shell"
-       },
-       "size": 1102
-      }
-     ]
-    },
-    "latestRelease": {
-     "publishedAt": "2026-10-11T22:50:38Z",
-     "tagName": "v1.1.0"
-    },
-    "name": "matlab-discord-rpc",
-    "pushedAt": "2026-10-11T22:50:38Z",
-    "stargazerCount": 2
    },
    {
     "defaultBranchRef": {
