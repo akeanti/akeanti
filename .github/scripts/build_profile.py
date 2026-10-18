@@ -1,22 +1,29 @@
 #!/usr/bin/env python3
-"""Build every SVG on the profile, and the pinned-projects block of README.md, from the GitHub API.
+"""Build every SVG on the profile, and the generated blocks of README.md, from the GitHub API and my other repos.
 
-Run by .github/workflows/profile.yml every six hours. Standard library only.
+Run by .github/workflows/profile.yml every three hours, on a push, and on demand. Standard library only.
 
-    GITHUB_TOKEN=... python .github/scripts/build_profile.py            # fetch, then build
-    python .github/scripts/build_profile.py --data snapshot.json        # build from a saved response
-    GITHUB_TOKEN=... python .github/scripts/build_profile.py --save snapshot.json
+    GITHUB_TOKEN=... python .github/scripts/build_profile.py             # fetch, build, check
+    python .github/scripts/build_profile.py --data .github/data/github.json --offline   # rebuild offline
+    python .github/scripts/build_profile.py --check                      # only check README.md and assets/
+    python .github/scripts/build_profile.py ... --preview preview/index.html --summary report.md
 
 Every graphic uses the logo's own palette (its charcoal, white, teal and sage) and the look of an
 engineering drawing sheet: hairlines, figure plates, serif for display, mono for data.
 
-Live:   header (now building, latest release), pin-N (one card per GitHub pin, in pin order, with
-        release, CI state, license or stars, and last push), stats (weekly activity, languages).
-Static: kpis, tipe, background, skills, section-*, btn-*, contact.
+Live:   header (now building, latest release), kpi-N (each number, with the CI state of the repos that
+        measure it), pin-N (one card per GitHub pin, in pin order, with release, CI state, license or
+        stars, and last push), live-race and live-spell (drawn from ariadne's and malfoid's own data),
+        stats (weekly activity, languages), and the KPIS, PINNED, LIVE and TEXT blocks of README.md.
+Static: tipe, background, skills, plan, contact, section-*, btn-*.
         Their facts come from my CV (cv/Elmehdi_Essamit_CV.pdf); keep the two in step.
 
-Outputs depend only on GitHub data, never on the wall clock, so the workflow commits only when
-something changed: a push, a release, a star, a new pin, or another day of contributions.
+Outputs depend only on the data, never on the wall clock, so the workflow commits only when something
+changed. The API response behind the committed graphics is kept in .github/data/github.json: a failed
+fetch rebuilds from it (and so changes nothing), and anyone can rebuild the profile offline from it.
+Data from other repos is cached next to it the same way. --check fails the run, before anything is
+published, on a missing image or alt text, a broken local link, an unused asset, or a row of images
+that would wrap on a phone.
 """
 import argparse
 import base64
@@ -25,6 +32,8 @@ import json
 import math
 import os
 import re
+import time
+import urllib.error
 import urllib.request
 from html import escape
 from xml.etree import ElementTree
@@ -33,6 +42,13 @@ USER = "akeanti"
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 ASSETS = os.path.join(ROOT, "assets")
 README = os.path.join(ROOT, "README.md")
+DATA = os.path.join(ROOT, ".github", "data")
+SNAPSHOT = os.path.join(DATA, "github.json")  # the API response behind the committed graphics; the fallback if a fetch fails
+RAW = "https://raw.githubusercontent.com/akeanti"
+FEEDS = {  # data from my other repos that the live cards draw, cached next to the snapshot
+    "race": f"{RAW}/ariadne/main/docs/assets/data/race.json",
+    "spellbook": f"{RAW}/malfoid/main/spells/spellbook.json",
+}
 SKIP = {"akeanti", "1969"}  # the profile repo and the Unix-epoch joke stay out of "now building"
 STAR_FLOOR = 10  # below this many stars, a card shows the repo's license instead of a count that undersells it
 
@@ -63,6 +79,7 @@ query($login: String!) {
       nodes {
         name description pushedAt stargazerCount isArchived
         latestRelease { tagName publishedAt }
+        defaultBranchRef { target { ... on Commit { statusCheckRollup { state } } } }
         languages(first: 8, orderBy: {field: SIZE, direction: DESC}) { edges { size node { name color } } }
       }
     }
@@ -87,8 +104,8 @@ PROJECTS = {
         stack="Python · NumPy · SciPy · mypy strict"),
     "nabd": dict(
         kind="Grid sensing hardware", stage="pre-release", art="scope",
-        pitch="Open network of GPS-synchronized ESP32-S3 nodes measuring grid frequency, ROCOF and "
-              "synchrophasors (IEEE C37.118), with a live map and open data.",
+        pitch="Open network of GPS-synchronized ESP32-S3 nodes for grid frequency, ROCOF and "
+              "synchrophasors (IEEE C37.118). Hardware and CI first; live map and open data next.",
         metrics=[("$59", "per node, bill of materials"), ("C37.118", "IEEE synchrophasor format")],
         stack="C · ESP-IDF · Python · TypeScript · KiCad"),
     "matlab-discord-rpc": dict(
@@ -110,6 +127,65 @@ PROJECTS = {
         metrics=[("99.6%", "top-1 accuracy on test casts"), ("~1 ms", "inference on the ESP32-S3")],
         stack="C++ · ESP32-S3 · MQTT · Web Serial"),
 }
+
+HEADLINE = "Power grids, energy and embedded systems."
+PITCH = "From the ESP32 sensor to the grid solver, every result checked against a reference."
+CV_URL = f"https://github.com/{USER}/{USER}/raw/main/cv/Elmehdi_Essamit_CV.pdf"
+
+# Facts from my CV, shared by the graphics and the plain-text version of the profile.
+CONTACT = [("WHEN", "Summer 2027", "1 to 2 months, dates on request"),
+           ("WHERE", "Morocco or abroad", "on-site, hybrid or remote"),
+           ("FIELDS", "Power and energy systems", "studies, operations, maintenance, automation"),
+           ("EMAIL", EMAIL, f"or {LINKEDIN}"),
+           ("WEB", SITE, "portfolio")]
+STATIONS = [("2024", "Sefrou", "Baccalauréat", "Sciences Maths B", "Mention Très Bien, Lycée Le Jasmin 2"),
+            ("2024 to 2026", "Meknès", "CPGE, MP track", "Lycée Omar Ibn Al Khattab", "then admitted to EHTP via the CNC"),
+            ("2026 to 2029", "Casablanca", "EHTP, Ingénieur d'État", "Electrical and Energy Engineering", "now in year 1 of 3"),
+            ("Next", "summer 2027", "Your team?", "this slot is open", "")]
+FEEDERS = [("Sept 2024 to June 2026", "Vice-president & trainer", "BeurdByte Builders club, CPGE",
+            "Trained students in C, Arduino, ESP and IoT, and coached them to a working prototype."),
+           ("Since Oct 2026", "Visits & Workshops unit", "Club Electro-Power, EHTP",
+            "Member, organizing industrial visits and microcontroller workshops.")]
+NOTES = [("CPGE", "two-year prep for the engineering schools"), ("CNC", "national entrance exam to those schools"),
+         ("EHTP", "École Hassania des Travaux Publics"), ("Bac", "Mention Très Bien is the top honours band")]
+SKILLS = [("A", "GRIDS & ENERGY", ["Power flow (Newton-Raphson)", "Three-phase", "P/Q/S", "Power factor", "Transformers",
+                                  "N-1 contingency", "DC-OPF and LMPs", "Synchrophasors", "IEEE C37.118", "MATPOWER cases"]),
+          ("B", "EMBEDDED & MEASUREMENT", ["ESP32 and ESP32-S3", "C and C++", "ESP-IDF", "FreeRTOS", "PlatformIO", "KiCad",
+                                          "MQTT", "Oscilloscope", "IMUs and sensors", "Arduino"]),
+          ("C", "SOFTWARE & TOOLS", ["Python", "MATLAB", "Simulink", "NumPy", "SciPy", "PyTorch", "XGBoost", "SHAP",
+                                    "pytest", "Docker", "GitHub Actions", "Git", "Linux", "LaTeX"])]
+CERTS = [("Electric Power Systems", "University at Buffalo, Coursera"),
+         ("Mobilités et véhicules électriques", "École des Ponts ParisTech, Coursera"),
+         ("MATLAB, Simulink and Simscape Onramp", "MathWorks")]
+LANGS = [("Arabic", "native", 5), ("French", "fluent", 4), ("English", "professional", 4)]
+# A first-year stage, planned: (first week, last week, phase, what I do, the milestone that closes it)
+PLAN = [(1, 1, "Induction", "HSE and site rules, the team, the tools, the procedures", "cleared for site"),
+        (2, 3, "Observe and measure", "Shadow operations and maintenance, read the single-line diagrams, take readings",
+         "topic agreed"),
+        (4, 6, "Deliver one useful thing", "A small study, a measurement campaign, or a Python or MATLAB tool your team keeps",
+         "deliverable works"),
+        (7, 8, "Hand over", "Rapport de stage, documented code and data, a 15-minute talk to the team", "handed over")]
+TIPE = ("Two coupled coils, first as a plain RL link, then as RLC circuits tuned to resonance. At 14 cm "
+        "the tuned link still delivers 13%, against 0.3% untuned. Next step: Litz wire.")
+
+# The proof row: each number, the repos whose CI re-checks it, and where a visitor can see it measured.
+KPIS = [
+    dict(num="10^{−13}", unit=" pu", label="match with the PYPOWER reference", src="swingbus", repos=["swingbus"],
+         proof="https://github.com/akeanti/swingbus/blob/main/docs/validation.md",
+         where="swingbus, docs/validation.md: every case against PYPOWER, re-run by tests/test_oracle.py"),
+    dict(num="8.3", unit=" ms", label="full N-1 screen of a 118-bus grid", src="swingbus", repos=["swingbus"],
+         proof="https://github.com/akeanti/swingbus#n-1-screening-of-the-ieee-118-bus-system",
+         where="swingbus README: N-1 screening of the IEEE 118-bus system, 186 outages"),
+    dict(num="2.4", unit="×", label="faster maze runs with clothoid turns", src="ariadne", repos=["ariadne"],
+         proof="https://github.com/akeanti/ariadne/blob/main/docs/results.md#reliability",
+         where="ariadne, docs/results.md: same physics model and control law, four mazes"),
+    dict(num="99.6", unit="%", label="top-1 gesture recognition on-device", src="malfoid", repos=["malfoid"],
+         proof="https://github.com/akeanti/malfoid#how-recognition-works",
+         where="malfoid README: thousands of synthetic sloppy casts; CI fails if the score drops"),
+    dict(num="230", unit="+", label="automated tests in CI across 4 repos", src="4 repos",
+         repos=["swingbus", "ariadne", "malfoid", "cascade-gnn"], proof="#proof",
+         where="the CI of swingbus, ariadne, malfoid and cascade-gnn"),
+]
 
 SANS = "Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif"
 SERIF = "'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif"
@@ -217,35 +293,96 @@ def star(x, y, r):
             f"L{x - r} {y}L{x - k} {y - k}Z")
 
 
-def write(name, content):
-    ElementTree.fromstring(content)  # a malformed SVG renders as a broken image, so fail the run instead
-    path = os.path.join(ASSETS, name)
-    old = open(path, encoding="utf8").read() if os.path.exists(path) else None
+CHANGED, WARNINGS = [], []
+
+
+def warn(msg):
+    WARNINGS.append(msg)
+    print(f"warning: {msg}")
+
+
+def read(path, binary=False):
+    with open(path, "rb") if binary else open(path, encoding="utf8") as fh:
+        return fh.read()
+
+
+def save(path, content):
+    """Write only what changed, so the workflow commits only real changes."""
+    old = read(path) if os.path.exists(path) else None
     if content != old:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w", encoding="utf8", newline="\n") as fh:
             fh.write(content)
-        print(f"updated assets/{name}")
+        CHANGED.append(os.path.relpath(path, ROOT))
+        print(f"updated {CHANGED[-1]}")
 
 
-def emit(name, draw, *args):
-    write(f"{name}.svg", draw(LOGO, *args))
+def write(name, content):
+    ElementTree.fromstring(content)  # a malformed SVG renders as a broken image, so fail the run instead
+    save(os.path.join(ASSETS, name), content)
 
 
 # ---------------------------------------------------------------- data
 
+def http(url, data=None, headers=None, tries=4):
+    """GET (or POST, with data), retrying network errors, rate limits and 5xx with backoff."""
+    for attempt in range(tries):
+        try:
+            req = urllib.request.Request(url, data=data, headers={"User-Agent": f"{USER}-profile", **(headers or {})})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return resp.read()
+        except urllib.error.HTTPError as err:
+            if (err.code < 500 and err.code != 429) or attempt == tries - 1:
+                raise
+            reason = f"HTTP {err.code}"
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as err:
+            if attempt == tries - 1:
+                raise
+            reason = err
+        print(f"{url}: {reason}, retrying in {2 ** (attempt + 1)} s")
+        time.sleep(2 ** (attempt + 1))
+
+
 def fetch():
     body = json.dumps({"query": QUERY, "variables": {"login": USER}}).encode()
-    req = urllib.request.Request("https://api.github.com/graphql", data=body, headers={
-        "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Content-Type": "application/json",
-        "User-Agent": f"{USER}-profile"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        data = json.load(resp)
+    data = json.loads(http("https://api.github.com/graphql", body, {
+        "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Content-Type": "application/json"}))
     user = (data.get("data") or {}).get("user")
     if not user:
-        raise SystemExit(f"GraphQL errors: {data.get('errors')}")
+        raise RuntimeError(f"GraphQL errors: {data.get('errors')}")
     if "errors" in data:  # e.g. a CI rollup the token may not read: build without it rather than not at all
-        print(f"warning: partial GraphQL response: {data['errors']}")
+        warn(f"partial GraphQL response: {data['errors']}")
     return user
+
+
+def github(args):
+    """The API response: from a file, or fetched, or, if the fetch fails, the snapshot behind the current graphics."""
+    if args.data:
+        return json.loads(read(args.data))
+    try:
+        user = fetch()
+    except Exception as err:  # noqa: BLE001, any failure here means "keep what is published"
+        if not os.path.exists(SNAPSHOT):
+            raise
+        warn(f"GitHub API unavailable ({err}); rebuilt from the last snapshot, so nothing should change")
+        return json.loads(read(SNAPSHOT))
+    if args.save:
+        with open(args.save, "w", encoding="utf8") as fh:
+            json.dump(user, fh, indent=1)
+    return user
+
+
+def feed(name, reduce, offline=False):
+    """Data from another repo, reduced to what a card draws; the cached copy if it cannot be fetched."""
+    path = os.path.join(DATA, f"{name}.json")
+    if not offline:
+        try:
+            data = reduce(json.loads(http(FEEDS[name])))
+            save(path, json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")
+            return data
+        except Exception as err:  # noqa: BLE001
+            warn(f"{name} feed unavailable ({err}); using the cached copy")
+    return json.loads(read(path))
 
 
 def digest(user):
@@ -266,8 +403,9 @@ def digest(user):
             continue
         for edge in r["languages"]["edges"]:
             langs[edge["node"]["name"]] = langs.get(edge["node"]["name"], 0) + edge["size"]
+    ci = {r["name"]: rollup(r) for r in repos + pins}
     return dict(
-        pins=pins, building=building, latest=latest, weeks=weeks,
+        pins=pins, building=building, latest=latest, weeks=weeks, ci=ci,
         revision=max(r["pushedAt"] for r in active)[:7].replace("-", "."),
         repos=user["repositories"]["totalCount"], followers=user["followers"]["totalCount"],
         stars=sum(r["stargazerCount"] for r in repos),
@@ -300,9 +438,8 @@ def header(t, d):
     nsize = 80 if tw(NAME, 80, serif=True) < 660 else 68
     o.append(f'<text x="56" y="82" font-size="17" class="serif it soft">Élève-ingénieur, first year · Electrical and energy engineering · EHTP</text>'
              f'<text x="52" y="164" font-size="{nsize}" class="serif" letter-spacing="-1.5">{e(first)} <tspan class="teal">{e(last)}</tspan></text>')
-    lede = "Power grids, energy and embedded systems."
+    lede, pitch = HEADLINE, PITCH
     size = 22 if tw(lede, 22) < 660 else 20
-    pitch = "From the ESP32 sensor to the grid solver, every result checked against a reference."
     psize = 16.5 if tw(pitch, 16.5) < 660 else 15.5
     o.append(f'<text x="56" y="212" font-size="{size}" class="body">{lede}</text>'
              f'<text x="56" y="244" font-size="{psize}" class="soft">{pitch}</text>')
@@ -314,8 +451,8 @@ def header(t, d):
     cx, cy, R, T, lam = 1030, 170, 108, 9, 150
     x0, xl = cx - R - 30, 742
     phases = [(90, t["ink"]), (-30, t["teal"]), (210, t["sage"])]
-    logo = base64.b64encode(open(os.path.join(ASSETS, "logo-mark.jpg"), "rb").read()).decode()
-    photo = base64.b64encode(open(os.path.join(ASSETS, "photo.jpg"), "rb").read()).decode()
+    logo = base64.b64encode(read(os.path.join(ASSETS, "logo-mark.jpg"), binary=True)).decode()
+    photo = base64.b64encode(read(os.path.join(ASSETS, "photo.jpg"), binary=True)).decode()
     pr = R - 12
     o.append(f'<path d="M{xl} {cy}H{cx - R - 14}M{cx + R + 14} {cy}H{cx + R + 26}" stroke="{t["frame"]}"/>'
              f'<path d="M{cx} {cy - R - 26}V{cy - R - 14}M{cx} {cy + R + 14}V{cy + R + 20}" stroke="{t["frame"]}"/>'
@@ -464,31 +601,48 @@ def art(t, kind):
     return ""
 
 
-def card(t, repo, idx, total):
-    W, H, band = 520, 354, 112
+def rollup(repo):
+    return (((repo.get("defaultBranchRef") or {}).get("target") or {}).get("statusCheckRollup") or {}).get("state")
+
+
+def lamp(t, state):
+    """Colour and words for a CI state, or None when the repo has no CI."""
+    if not state:
+        return None
+    return (t["sage"], "tests passing") if state == "SUCCESS" else (t["soft"], "tests running") \
+        if state in ("PENDING", "EXPECTED") else (t["teal"], "tests failing")
+
+
+def facts(repo):
+    """What a pinned repo says about itself, for its card and for the plain-text profile."""
     p = PROJECTS.get(repo["name"], {})
     lang = repo["primaryLanguage"] or {}
-    title = p.get("title", repo["name"])
-    kind = p.get("kind", lang.get("name") or "Project")
-    pitch = p.get("pitch") or clip(repo["description"], 150)
     rel = repo["latestRelease"]
-    ci = (((repo.get("defaultBranchRef") or {}).get("target") or {}).get("statusCheckRollup") or {}).get("state")
     stars, lic = repo["stargazerCount"], (repo.get("licenseInfo") or {}).get("spdxId")
-    badge = (f"{stars} star{'s' if stars != 1 else ''}" if stars >= STAR_FLOOR
-             else f"{lic} license" if lic and lic != "NOASSERTION" else "")
+    label, value = ("RELEASE", rel["tagName"]) if rel else ("STAGE", p.get("stage", "")) if p.get("stage") else ("", "")
+    return dict(
+        p=p, lang=lang, title=p.get("title", repo["name"]), kind=p.get("kind", lang.get("name") or "Project"),
+        pitch=p.get("pitch") or clip(repo["description"], 150), label=label, value=value, ci=rollup(repo), stars=stars,
+        badge=(f"{stars} star{'s' if stars != 1 else ''}" if stars >= STAR_FLOOR
+               else f"{lic} license" if lic and lic != "NOASSERTION" else ""))
+
+
+def card(t, repo, idx, total):
+    W, H, band = 520, 354, 112
+    f = facts(repo)
+    p, lang, title, kind, pitch, ci, stars, badge = (f[k] for k in ("p", "lang", "title", "kind", "pitch", "ci", "stars", "badge"))
 
     o = [f'<clipPath id="cc"><rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="3.5"/></clipPath>'
          f'<rect x="1" y="1" width="{W - 2}" height="{band - 1}" fill="url(#gp)" clip-path="url(#cc)"/>'
          f'<path d="M1 {band}H{W - 1}" stroke="{t["frame"]}"/>']
     o.append(f'<text x="22" y="32" font-size="11.5" class="mono"><tspan class="teal b">{idx:02d}</tspan><tspan class="soft"> / {total:02d}</tspan></text>')
-    label, value = ("RELEASE", rel["tagName"]) if rel else ("STAGE", p.get("stage", "")) if p.get("stage") else ("", "")
+    label, value = f["label"], f["value"]
     if value:
         o.append(f'<text x="22" y="62" font-size="9.5" class="mono soft" letter-spacing="1.4">{label}</text>'
                  f'<text x="22" y="79" font-size="13" class="mono b">{e(value)}</text>')
     word = ""
     if ci:
-        col, word = (t["sage"], "tests passing") if ci == "SUCCESS" else (t["soft"], "tests running") \
-            if ci in ("PENDING", "EXPECTED") else (t["teal"], "tests failing")
+        col, word = lamp(t, ci)
         o.append(f'<rect x="22" y="92" width="7" height="7" fill="{col}"/>'
                  f'<text x="35" y="99.5" font-size="10.5" class="mono soft">{word}</text>')
     if p.get("art"):
@@ -500,7 +654,7 @@ def card(t, repo, idx, total):
         o.append(f'<text x="{W - 22}" y="153" font-size="15" class="serif it soft" text-anchor="end">{e(kind)}</text>')
     lines = wrap(pitch, 15.5, W - 44)
     if len(lines) > 3:
-        print(f"warning: {repo['name']} pitch wraps to {len(lines)} lines")
+        warn(f"{repo['name']} pitch wraps to {len(lines)} lines")
     for i, line in enumerate(lines[:3]):
         o.append(f'<text x="22" y="{184 + i * 22}" font-size="15.5" class="body">{e(line)}</text>')
 
@@ -587,29 +741,35 @@ def stats(t, d):
 
 # ---------------------------------------------------------------- static pieces
 
-def kpis(t):
-    W, H = 1200, 200
-    tiles = [("10^{−13}", " pu", "match with the PYPOWER reference", "swingbus"),
-             ("8.3", " ms", "full N-1 screen of a 118-bus grid", "swingbus"),
-             ("2.4", "×", "faster maze runs with clothoid turns", "ariadne"),
-             ("99.6", "%", "top-1 gesture recognition on-device", "malfoid"),
-             ("230", "+", "automated tests in CI across 4 repos", "4 repos")]
-    cw = W / len(tiles)
-    o = []
-    for i, (num, unit, label, src) in enumerate(tiles):
-        x = i * cw + 30
-        if i:
-            o.append(f'<path d="M{i * cw:.0f} 30V170" stroke="{t["rule"]}"/>')
-        o.append(f'<text x="{x:.0f}" y="50" font-size="15" class="serif it soft"><tspan class="mono teal b" font-style="normal" font-size="11">{i + 1:02d}</tspan>  {e(src)}</text>'
-                 f'<text x="{x:.0f}" y="114" font-size="52" class="serif" letter-spacing="-1">{rich(num, 52)}'
-                 f'<tspan font-size="26" class="it teal">{e(unit)}</tspan></text>')
-        lines = wrap(label, 14.5, cw - 60)
-        if len(lines) > 2:
-            print(f"warning: kpi label wraps to {len(lines)} lines: {label}")
-        for j, line in enumerate(lines[:2]):
-            o.append(f'<text x="{x:.0f}" y="{146 + j * 20}" font-size="14.5" class="body">{e(line)}</text>')
-    desc = "Proof in numbers: " + "; ".join(f"{plain(n)}{u} {l} ({s})" for n, u, l, s in tiles) + "."
-    return svg(t, W, H, "Proof in numbers", desc, "\n".join(o))
+def kpi(t, i, k, states):
+    """One tile of the proof row. Each is its own image, so each links to where its number is measured."""
+    W, H, x = 240, 214, 30
+    # the five tiles join into one framed band: only the outer ends are closed and rounded
+    x0, x1 = (.5 if i == 0 else -6), (W - .5 if i == len(KPIS) - 1 else W + 6)
+    o = [f'<rect x="{x0}" y=".5" width="{x1 - x0}" height="{H - 1}" rx="4" fill="{t["paper"]}" stroke="{t["frame"]}"/>']
+    if i:
+        o.append(f'<path d="M.5 30V196" stroke="{t["rule"]}"/>')
+    o.append(f'<text x="{x}" y="50" font-size="15" class="serif it soft"><tspan class="mono teal b" font-style="normal" font-size="11">{i + 1:02d}</tspan>  {e(k["src"])}</text>'
+             f'<text x="{x}" y="114" font-size="52" class="serif" letter-spacing="-1">{rich(k["num"], 52)}'
+             f'<tspan font-size="26" class="it teal">{e(k["unit"])}</tspan></text>')
+    lines = wrap(k["label"], 14.5, W - 60)
+    if len(lines) > 2:
+        warn(f"kpi label wraps to {len(lines)} lines: {k['label']}")
+    for j, line in enumerate(lines[:2]):
+        o.append(f'<text x="{x}" y="{146 + j * 20}" font-size="14.5" class="body">{e(line)}</text>')
+    # the live CI state of the repos behind the number, and the invitation to check it
+    word, known = "", [s for s in states if s]
+    if known:
+        green = sum(s == "SUCCESS" for s in known)
+        col, word = lamp(t, "SUCCESS" if green == len(known) else next(s for s in known if s != "SUCCESS"))
+        if len(states) > 1:
+            word = f"CI {green}/{len(states)} green"
+        o.append(f'<rect x="{x}" y="191" width="7" height="7" fill="{col}"/>'
+                 f'<text x="{x + 13}" y="198.5" font-size="10.5" class="mono soft">{word}</text>')
+    o.append(f'<text x="{W - 18}" y="198.5" font-size="10.5" class="mono teal" text-anchor="end">verify ↗</text>')
+    desc = (f"{plain(k['num'])}{k['unit']} {k['label']} ({k['src']})." + (f" {word[0].upper()}{word[1:]}." if word else "")
+            + " Opens where this number is measured.")
+    return svg(t, W, H, f"{plain(k['num'])}{k['unit']} {k['label']}", desc, "\n".join(o), card=False), desc
 
 
 def section(t, num, title, note):
@@ -628,12 +788,7 @@ def section(t, num, title, note):
 
 def skills(t):
     W = 1200
-    cols = [("A", "GRIDS & ENERGY", ["Power flow (Newton-Raphson)", "Three-phase", "P/Q/S", "Power factor", "Transformers",
-                                    "N-1 contingency", "DC-OPF and LMPs", "Synchrophasors", "IEEE C37.118", "MATPOWER cases"]),
-            ("B", "EMBEDDED & MEASUREMENT", ["ESP32 and ESP32-S3", "C and C++", "ESP-IDF", "FreeRTOS", "PlatformIO", "KiCad",
-                                            "MQTT", "Oscilloscope", "IMUs and sensors", "Arduino"]),
-            ("C", "SOFTWARE & TOOLS", ["Python", "MATLAB", "Simulink", "NumPy", "SciPy", "PyTorch", "XGBoost", "SHAP",
-                                      "pytest", "Docker", "GitHub Actions", "Git", "Linux", "LaTeX"])]
+    cols = SKILLS
     cw, fs, lead = W / 3, 15.5, 27
     o, height = [], 0
     for i, (letter, title, items) in enumerate(cols):
@@ -657,10 +812,7 @@ def skills(t):
             o.append(f'<path d="M{i * cw:.0f} 28V{{H}}" stroke="{t["rule"]}"/>')
 
     # certifications under the first two columns, languages under the third
-    certs = [("Electric Power Systems", "University at Buffalo, Coursera"),
-             ("Mobilités et véhicules électriques", "École des Ponts ParisTech, Coursera"),
-             ("MATLAB, Simulink and Simscape Onramp", "MathWorks")]
-    langs = [("Arabic", "native", 5), ("French", "fluent", 4), ("English", "professional", 4)]
+    certs, langs = CERTS, LANGS
     top, step = height + 2, 30
     lx = 2 * cw + 32
     o.append(f'<path d="M32 {top}H{W - 32}" stroke="{t["rule"]}"/>'
@@ -687,8 +839,8 @@ def skills(t):
     return svg(t, W, H, "Toolkit, certifications and languages", desc, body)
 
 
-def button(t, label, mark, primary=False):
-    W, H = 224, 52
+def button(t, label, mark, primary=False, W=224):
+    H = 52
     if primary:
         body = (f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="3" fill="{t["teal"]}"/>'
                 f'<text x="{W / 2}" y="32.5" font-size="17" class="b" text-anchor="middle" style="fill:{t["paper"]}">{e(label)}  {mark}</text>')
@@ -701,13 +853,9 @@ def button(t, label, mark, primary=False):
 
 def contact(t):
     W, H = 1200, 320
-    rows = [("WHEN", "Summer 2027", "1 to 2 months, dates on request"),
-            ("WHERE", "Morocco or abroad", "on-site, hybrid or remote"),
-            ("FIELDS", "Power and energy systems", "studies, operations, maintenance, automation"),
-            ("EMAIL", EMAIL, f"or {LINKEDIN}"),
-            ("WEB", SITE, "portfolio")]
+    rows = CONTACT
     step = (H - 64) / len(rows)
-    o = [f'<text x="48" y="62" font-size="16" class="serif it soft"><tspan class="mono teal b" font-style="normal" font-size="12">04</tspan>  Get in touch</text>',
+    o = [f'<text x="48" y="62" font-size="16" class="serif it soft">Get in touch</text>',
          f'<text x="46" y="134" font-size="46" class="serif" letter-spacing="-.8">Hiring a first-year</text>',
          f'<text x="46" y="186" font-size="46" class="serif" letter-spacing="-.8">engineering intern?</text>',
          f'<text x="48" y="224" font-size="17" class="body">Stage d\'initiation. My CV has it all on one page, in French.</text>',
@@ -792,8 +940,7 @@ def tipe(t):
              f'<tspan class="soft">  ·  TIPE, CPGE RESEARCH PROJECT  ·  PHYSICAL BENCH</tspan></text>'
              f'<text x="{x0}" y="88" font-size="30" class="serif">Wireless power transfer</text>'
              f'<text x="{x1}" y="87" font-size="15" class="serif it soft" text-anchor="end">Resonant inductive coupling</text>')
-    pitch = ("Two coupled coils, first as a plain RL link, then as RLC circuits tuned to resonance. At 14 cm "
-             "the tuned link still delivers 13%, against 0.3% untuned. Next step: Litz wire.")
+    pitch = TIPE
     lines = wrap(pitch, 15.5, x1 - x0)
     for i, line in enumerate(lines[:3]):
         o.append(f'<text x="{x0}" y="{122 + i * 22}" font-size="15.5" class="body">{e(line)}</text>')
@@ -822,16 +969,9 @@ def background(t):
     W, H, y = 1200, 356, 168
     ink, teal, sage, paper = t["ink"], t["teal"], t["sage"], t["paper"]
     now = 2
-    stations = [(56, "2024", "Sefrou", "Baccalauréat", "Sciences Maths B", "Mention Très Bien, Lycée Le Jasmin 2"),
-                (361, "2024 to 2026", "Meknès", "CPGE, MP track", "Lycée Omar Ibn Al Khattab", "then admitted to EHTP via the CNC"),
-                (680, "2026 to 2029", "Casablanca", "EHTP, Ingénieur d'État", "Electrical and Energy Engineering", "now in year 1 of 3"),
-                (980, "Next", "summer 2027", "Your team?", "this slot is open", "")]
-    feeders = [(400, "Sept 2024 to June 2026", "Vice-president & trainer", "BeurdByte Builders club, CPGE",
-                "Trained students in C, Arduino, ESP and IoT, and coached them to a working prototype."),
-               (680, "Since Oct 2026", "Visits & Workshops unit", "Club Electro-Power, EHTP",
-                "Member, organizing industrial visits and microcontroller workshops.")]
-    notes = [("CPGE", "two-year prep for the engineering schools"), ("CNC", "national entrance exam to those schools"),
-             ("EHTP", "École Hassania des Travaux Publics"), ("Bac", "Mention Très Bien is the top honours band")]
+    stations = [(x, *s) for x, s in zip((56, 361, 680, 980), STATIONS)]
+    feeders = [(x, *f) for x, f in zip((400, 680), FEEDERS)]
+    notes = NOTES
 
     # the line: live up to the school I am at, dashed after it
     o = []
@@ -889,7 +1029,253 @@ def background(t):
     return svg(t, W, H, "Background", desc, "\n".join(o))
 
 
-# ---------------------------------------------------------------- README pinned block
+def plan(t):
+    """A first-year stage as a schedule: what a team gets, week by week, and the milestone that closes each phase."""
+    W, gx0, gx1, top, step = 1200, 520, 1152, 190, 62
+    ww = (gx1 - gx0) / 8
+    rows = len(PLAN) + 1
+    H = top + rows * step - 6
+    o = [f'<text x="48" y="56" font-size="11" class="mono" letter-spacing="1.4"><tspan class="teal b">A STAGE, PLANNED</tspan>'
+         f'<tspan class="soft">  ·  1 TO 2 MONTHS  ·  WEEK BY WEEK</tspan></text>',
+         f'<text x="46" y="98" font-size="30" class="serif">What your team gets</text>',
+         f'<text x="{W - 48}" y="97" font-size="15" class="serif it soft" text-anchor="end">On a 4-week stage, phases 2 and 3 halve</text>',
+         f'<path d="M48 124H{W - 48}" stroke="{t["rule"]}"/>']
+    for wk in range(8):
+        x = gx0 + wk * ww
+        o.append(f'<text x="{x + ww / 2:.1f}" y="152" font-size="10" class="mono soft" text-anchor="middle" letter-spacing="1">W{wk + 1}</text>'
+                 f'<path d="M{x:.1f} 162V{H - 20}" stroke="{t["rule"]}" stroke-dasharray="2 4"/>')
+    o.append(f'<path d="M{gx1} 162V{H - 20}" stroke="{t["rule"]}" stroke-dasharray="2 4"/>')
+    for i, (a, b, phase, what, mile) in enumerate(PLAN):
+        y = top + i * step
+        o.append(f'<text x="48" y="{y}" font-size="18" class="serif">{e(phase)}</text>')
+        lines = wrap(what, 12.5, gx0 - 84)
+        if len(lines) > 2:
+            warn(f"plan: {phase} wraps to {len(lines)} lines")
+        for j, line in enumerate(lines[:2]):
+            o.append(f'<text x="48" y="{y + 19 + j * 16}" font-size="12.5" class="soft">{e(line)}</text>')
+        x0, x1 = gx0 + (a - 1) * ww + 6, gx0 + b * ww - 6
+        key = i == 2
+        o.append(f'<rect x="{x0:.1f}" y="{y - 12}" width="{x1 - x0:.1f}" height="14" rx="2" fill="{t["teal"] if key else t["ink"]}" '
+                 f'fill-opacity="{1 if key else .8}" class="grow" style="animation-delay:{.15 * i:.2f}s"/>'
+                 f'<path d="M{x1:.1f} {y - 13}l8 8l-8 8l-8 -8Z" fill="{t["paper"]}" stroke="{t["sage"]}" stroke-width="1.6"/>')
+        if x1 + 16 + tw(mile, 11, mono=True) < W - 30:
+            o.append(f'<text x="{x1 + 16:.1f}" y="{y - 1}" font-size="11" class="mono sage">{e(mile)}</text>')
+        else:
+            o.append(f'<text x="{x1:.1f}" y="{y + 22}" font-size="11" class="mono sage" text-anchor="end">{e(mile)}</text>')
+    y = top + len(PLAN) * step
+    o.append(f'<text x="48" y="{y}" font-size="18" class="serif">Every Friday</text>'
+             f'<text x="48" y="{y + 19}" font-size="12.5" class="soft">A one-page note: done, next, blocked</text>')
+    for wk in range(8):
+        x = gx0 + (wk + 1) * ww - 6
+        o.append(f'<rect x="{x - 5:.1f}" y="{y - 10}" width="10" height="10" rx="1.5" fill="{t["sage"]}" class="blink" '
+                 f'style="animation-delay:{.3 * wk:.1f}s"/>')
+    desc = ("A first-year stage, planned week by week. " + " ".join(
+        f"Week{'s' if b > a else ''} {a}{f' to {b}' if b > a else ''}, {phase}: {what}; milestone: {mile}." for a, b, phase, what, mile in PLAN)
+        + " Every Friday, a one-page note: done, next, blocked. On a 4-week stage, phases 2 and 3 halve.")
+    return svg(t, W, H, "A stage, planned", desc, "\n".join(o))
+
+
+# ---------------------------------------------------------------- try it live: my demos, drawn from their own data
+
+def timeline(pairs):
+    """(fraction of the loop, value) pairs as SMIL keyTimes and values, padded to start at 0 and end at 1."""
+    out = []
+    for f, v in pairs:
+        f = round(min(max(f, 0.0), 1.0), 5)
+        if out and f <= out[-1][0]:  # the same instant: the later value wins
+            f = out.pop()[0]
+        out.append((f, v))
+    if out[0][0] > 0:
+        out.insert(0, (0.0, out[0][1]))
+    if out[-1][0] < 1:
+        out.append((1.0, out[-1][1]))
+    return ";".join(f"{f:g}" for f, _ in out), ";".join(str(v) for _, v in out)
+
+
+def anim(attr, pairs, dur, discrete=False, tag="animate", extra=""):
+    """A looping SMIL animation. SMIL rather than CSS, so every moving part of a card shares one clock."""
+    keys, values = timeline(pairs)
+    name = "" if tag == "animateMotion" else f'attributeName="{attr}" '
+    vals = f'keyPoints="{values}"' if attr == "keyPoints" else f'values="{values}"'
+    return (f'<{tag} {name}{vals} keyTimes="{keys}" dur="{dur:g}s" repeatCount="indefinite" '
+            f'calcMode="{"discrete" if discrete else "linear"}"{extra}/>')
+
+
+def window(a, b, dur):
+    """Show an element from fraction a to fraction b of the loop."""
+    return anim("opacity", [(0, 0), (a, 1), (b, 0)] if a > 0 else [(0, 1), (b, 0)], dur, discrete=True)
+
+
+def live_frame(t, label, title, kind, pitch, rows, cta, caption, fig):
+    """The shared layout of a live card: words and a button on the left, a moving figure on the right."""
+    W, H = 520, 354
+    o = [f'<text x="22" y="32" font-size="11" class="mono" letter-spacing="1.2"><tspan class="teal b">▶ LIVE</tspan>'
+         f'<tspan class="soft">  ·  {e(label)}</tspan></text>',
+         f'<text x="22" y="78" font-size="30" class="serif">{e(title)}</text>',
+         f'<text x="22" y="101" font-size="14.5" class="serif it soft">{e(kind)}</text>']
+    for i, line in enumerate(wrap(pitch, 13.5, 184)[:4]):
+        o.append(f'<text x="22" y="{134 + i * 19}" font-size="13.5" class="body">{e(line)}</text>')
+    o += rows
+    o.append(f'<rect x="22" y="290" width="184" height="40" rx="3" fill="{t["teal"]}"/>'
+             f'<text x="114" y="315" font-size="15" class="b" text-anchor="middle" style="fill:{t["paper"]}">{e(cta)}  ↗</text>')
+    o.append(f'<text x="498" y="318" font-size="9.5" class="mono faint" text-anchor="end">{e(caption)}</text>')
+    o.append(fig)
+    return W, H, o
+
+
+def reduce_race(raw):
+    """Keep the maze and each run every 0.1 s: enough for a smooth replay, a fifth of the size."""
+    runs = []
+    for r in raw["runs"]:
+        step = max(1, round(0.1 / (r["t"][1] - r["t"][0])))
+        keep = list(range(0, len(r["t"]), step))
+        if keep[-1] != len(r["t"]) - 1:
+            keep.append(len(r["t"]) - 1)
+        runs.append(dict(label=r["label"], time=r["time"], crashed=r["crashed"],
+                         **{k: [round(r[k][i], 3) for i in keep] for k in ("t", "x", "y", "th")}))
+    return dict(size=raw["size"], goals=raw["goals"], walls=raw["walls"], runs=runs)
+
+
+def race(t, data):
+    """ariadne's three planners on one maze: the simulator's own trajectories, replayed at 5x."""
+    n, c = data["size"][0], 17
+    mx, my = 498 - n * c, 22
+    X, Y = (lambda x: mx + x * c), (lambda y: my + (n - y) * c)
+    speed, hold = 5, 2.2
+    dur = round(max(r["t"][-1] for r in data["runs"]) / speed + hold, 2)
+    colors = [t["soft"], t["sage"], t["teal"]]
+    f = [f'<pattern id="posts" width="{c}" height="{c}" patternUnits="userSpaceOnUse" x="{mx - 1}" y="{my - 1}">'
+         f'<rect width="2" height="2" fill="{t["faint"]}"/></pattern>',
+         f'<rect x="{mx}" y="{my}" width="{n * c}" height="{n * c}" fill="{t["minor"]}"/>',
+         f'<rect x="{mx - 1}" y="{my - 1}" width="{n * c + 2}" height="{n * c + 2}" fill="url(#posts)"/>']
+    f += [f'<rect x="{X(gx) + 1}" y="{Y(gy + 1) + 1}" width="{c - 2}" height="{c - 2}" fill="{t["sage"]}" fill-opacity=".22"/>'
+          for gx, gy in data["goals"]]
+    f.append(f'<path d="{"".join(f"M{X(a)} {Y(b)}L{X(cc)} {Y(d)}" for a, b, cc, d in data["walls"])}" '
+             f'stroke="{t["ink"]}" stroke-width="1.6" stroke-linecap="square"/>')
+    rows = []
+    for k, (r, col) in enumerate(zip(data["runs"], colors)):
+        keys = [ti / speed / dur for ti in r["t"]]
+        pts = [(X(x), Y(y)) for x, y in zip(r["x"], r["y"])]
+        seg = [math.dist(pts[i], pts[i + 1]) for i in range(len(pts) - 1)]
+        total, run = sum(seg) or 1, [0.0]
+        for d in seg:
+            run.append(run[-1] + d)
+        heading, prev = [], None
+        for th in r["th"]:
+            a = -math.degrees(th)
+            if prev is not None:
+                a += 360 * round((prev - a) / 360)
+            heading.append(round(a, 1))
+            prev = a
+        trail = "M" + "L".join(f"{x:.1f} {y:.1f}" for x, y in pts)
+        f.append(f'<path d="{trail}" pathLength="1000" stroke="{col}" stroke-width="2" stroke-opacity=".8" '
+                 f'stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="1000">'
+                 + anim("stroke-dashoffset", [(kt, round(1000 * (1 - d / total), 1)) for kt, d in zip(keys, run)], dur)
+                 + '</path>')
+        L, B = .53 * c, .44 * c
+        f.append('<g>' + anim(None, [(kt, f"{x:.1f},{y:.1f}") for kt, (x, y) in zip(keys, pts)], dur, tag="animateMotion")
+                 + f'<g transform="rotate({heading[0]})">'
+                 + anim("transform", [(kt, a) for kt, a in zip(keys, heading)], dur, tag="animateTransform", extra=' type="rotate"')
+                 + f'<rect x="{-L / 2:.1f}" y="{-B / 2:.1f}" width="{L:.1f}" height="{B:.1f}" rx="1.5" fill="{col}" stroke="{t["paper"]}"/>'
+                 f'<path d="M{L / 2 - 3:.1f} -2.4L{L / 2 + .5:.1f} 0L{L / 2 - 3:.1f} 2.4Z" fill="{t["paper"]}"/></g></g>')
+        y = 222 + k * 22
+        name = r["label"].split(": ", 1)[-1]  # "v2: smooth turns": the version adds nothing here
+        if 46 + tw(name, 12.5) > 206 - tw(f"{r['time']:g} s", 11.5, mono=True):
+            warn(f"race legend: {name} runs into its time")
+        done = r["t"][-1] / speed / dur
+        rows.append(f'<path d="M22 {y - 4}H38" stroke="{col}" stroke-width="2.4"/>'
+                    f'<text x="46" y="{y}" font-size="12.5" class="body">{e(name)}</text>'
+                    f'<text x="206" y="{y}" font-size="11.5" class="mono b" text-anchor="end" style="fill:{col}">'
+                    f'{anim("opacity", [(0, 0), (done, 1)], dur, discrete=True)}{r["time"]:g} s</text>')
+    best, worst = min(r["time"] for r in data["runs"]), max(r["time"] for r in data["runs"])
+    W, H, o = live_frame(t, "REPLAY AT 5×", "ariadne", "Robotics and control",
+                         "One maze, one physics model, the real firmware control law. Three planners race to the centre.",
+                         rows, "Race them live", "sim/studies.py trajectories", "\n".join(f))
+    desc = (f"ariadne, live replay: three micromouse planners race through the same 16 by 16 maze in the simulator, at 5x speed. "
+            + "; ".join(f"{r['label']}: {r['time']:g} s" for r in data["runs"])
+            + f". The best plan is {worst / best:.1f} times faster than pivot turns. Opens the live race on the ariadne website.")
+    return svg(t, W, H, "ariadne, live race", desc, "\n".join(o), defs=graph_paper(t)), desc
+
+
+def reduce_spellbook(raw):
+    return [{k: s[k] for k in ("id", "name", "gesture", "effect", "path", "shape") if k in s} for s in raw["spells"]]
+
+
+def stroke(spell):
+    """A spell's template as a dense polyline, y up: circles traced, curvy paths smoothed (Catmull-Rom)."""
+    if "shape" in spell:
+        sign = -1 if spell["shape"].get("circle") == "cw" else 1
+        return [(math.cos(math.radians(90 + sign * 7.5 * k)), math.sin(math.radians(90 + sign * 7.5 * k))) for k in range(49)]
+    pts = [tuple(p) for p in spell["path"]]
+    if len(pts) < 6:
+        return pts
+    out = []
+    for i in range(len(pts) - 1):
+        p0, p1, p2, p3 = pts[max(i - 1, 0)], pts[i], pts[i + 1], pts[min(i + 2, len(pts) - 1)]
+        for k in range(8):
+            u = k / 8
+            out.append(tuple(.5 * (2 * p1[j] + (-p0[j] + p2[j]) * u + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * u * u
+                                   + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * u ** 3) for j in (0, 1)))
+    return out + [pts[-1]]
+
+
+def resample(pts, n=32):
+    seg = [math.dist(pts[i], pts[i + 1]) for i in range(len(pts) - 1)]
+    total, out = sum(seg), []
+    for k in range(n):
+        s, i = total * k / (n - 1), 0
+        while i < len(seg) - 1 and s > seg[i]:
+            s -= seg[i]
+            i += 1
+        f = min(s / seg[i], 1) if seg[i] else 0
+        out.append((pts[i][0] + f * (pts[i + 1][0] - pts[i][0]), pts[i][1] + f * (pts[i + 1][1] - pts[i][1])))
+    return out
+
+
+SASS = {"malfoid": "My name, in your hand. Charming.", "fulgur": "Flawless. Obviously.",
+        "serpens": "Platinum-grade casting, darling.", "circulus": "Exquisite. I'd expect nothing less."}
+
+
+def spell(t, book):
+    """malfoid's spellbook, cast one spell after another: the stroke, the 32 points the recognizer sees, the verdict."""
+    spells = [s for k in SASS for s in book if s["id"] == k] or book[:4]
+    slot, (fx, fy, fs) = 3.4, (226, 22, 272)
+    dur = slot * len(spells)
+    cx, cy, box = fx + fs / 2, fy + 106, 150
+    f = [f'<rect x="{fx}" y="{fy}" width="{fs}" height="{fs}" fill="url(#gp)" stroke="{t["frame"]}"/>']
+    for i, sp in enumerate(spells):
+        pts = stroke(sp)
+        xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+        scale = box / max(max(xs) - min(xs), max(ys) - min(ys), 1e-9)
+        ox, oy = (max(xs) + min(xs)) / 2, (max(ys) + min(ys)) / 2
+        P = [(cx + (x - ox) * scale, cy - (y - oy) * scale) for x, y in pts]
+        d = "M" + "L".join(f"{x:.1f} {y:.1f}" for x, y in P)
+        a, b = i / len(spells), (i + 1) / len(spells)
+        drawn, w = a + .42 / len(spells), 1 / len(spells)
+        dots = "".join(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.9" fill="{t["ink"]}"/>' for x, y in resample(P))
+        f.append(f'<g opacity="{1 if i == 0 else 0}">{window(a, b - .04 * w, dur)}'
+                 f'<path d="{d}" pathLength="1000" stroke="{t["teal"]}" stroke-width="3" stroke-linecap="round" '
+                 f'stroke-linejoin="round" stroke-dasharray="1000" stroke-opacity=".9">'
+                 + anim("stroke-dashoffset", [(a, 1000), (drawn, 0)], dur) + '</path>'
+                 f'<g opacity="0">{window(drawn, b - .04 * w, dur)}{dots}'
+                 f'<text x="{fx + 16}" y="{fy + 254}" font-size="24" class="serif it teal">{e(sp["name"])}</text>'
+                 f'<text x="{fx + fs - 16}" y="{fy + 253}" font-size="12" class="soft" text-anchor="end">{e(sp["effect"].split(" - ")[0])}</text>'
+                 f'<text x="{fx + 16}" y="{fy + 26}" font-size="12.5" class="serif it soft">"{e(SASS.get(sp["id"], ""))}"</text></g>'
+                 '<g>' + anim("keyPoints", [(a, 0), (drawn, 1)], dur, tag="animateMotion", extra=f' path="{d}"')
+                 + f'<circle r="6" fill="{t["sage"]}" fill-opacity=".3"/><circle r="2.8" fill="{t["sage"]}"/></g></g>')
+    rows = [f'<text x="22" y="222" font-size="12.5" class="body">{len(book)} spells, each a 32-point template</text>',
+            '<text x="22" y="244" font-size="12.5" class="body">DTW match, on the ESP32-S3</text>',
+            '<text x="22" y="266" font-size="12.5" class="body"><tspan class="teal b">99.6%</tspan> top-1 on test casts</text>']
+    W, H, o = live_frame(t, "SPELLBOOK", "malfoid", "Embedded systems",
+                         "Draw a spell with your mouse or finger. The recognizer that runs on the wand judges it.",
+                         rows, "Cast a spell", "spells/spellbook.json templates", "\n".join(f))
+    desc = ("malfoid, live spellbook: spells drawn one after another, each resampled to the 32 points the on-wand recognizer "
+            "compares with dynamic time warping, then named: " + ", ".join(f"{s['name']} ({s['gesture'].lower()}, {s['effect'].split(' - ')[0].lower()})" for s in spells)
+            + ". Opens the website, where you can draw a spell yourself.")
+    return svg(t, W, H, "malfoid, live spellbook", desc, "\n".join(o), defs=graph_paper(t)), desc
+
+
+# ---------------------------------------------------------------- README: generated blocks
 
 def themed(name, alt, width):
     return f'<img src="./assets/{name}.svg" width="{width}" alt="{e(alt)}">'
@@ -904,56 +1290,242 @@ def readme_block(alts, pins):
     return "\n\n".join(rows)
 
 
-def update_readme(block):
-    text = open(README, encoding="utf8").read()
-    new = re.sub(r"(<!-- PINNED:START[^>]*-->\n).*?(<!-- PINNED:END -->)", lambda m: m.group(1) + block + "\n" + m.group(2),
-                 text, flags=re.S)
-    if new != text:
-        with open(README, "w", encoding="utf8", newline="\n") as fh:
-            fh.write(new)
-        print("updated README.md")
+def ci_words(states):
+    return " · ".join(f'<a href="https://github.com/{USER}/{r}/actions">{r}</a> {(lamp(LOGO, s) or (0, "no CI"))[1]}'
+                      for r, s in states)
+
+
+def kpi_block(alts, d):
+    """The proof row, each tile a link to its source, with no whitespace between them so five fit any width,
+    then the same claims as a table with the live CI of every repo behind them."""
+    tiles = "<!--\n  -->".join(f'<a href="{k["proof"]}">{themed(f"kpi-{i + 1}", alt, "19.9%")}</a>'
+                                for i, (k, alt) in enumerate(zip(KPIS, alts)))
+    rows = "\n".join(f'<tr><td>{claim(k)}</td><td>{source(k)}</td>'
+                     f'<td>{ci_words([(r, d["ci"].get(r)) for r in k["repos"]])}</td></tr>' for k in KPIS)
+    return (f'<p align="center">\n  {tiles}\n</p>\n\n<a name="proof"></a>\n<details>\n'
+            '<summary><sub><b>Where each number comes from</b>, with the CI state of every repo behind it, live</sub></summary>\n<br>\n\n'
+            f'<table>\n<tr><th>Claim</th><th>Measured in</th><th>CI now</th></tr>\n{rows}\n</table>\n</details>')
+
+
+def source(k):
+    return e(k["where"]) if k["proof"].startswith("#") else f'<a href="{k["proof"]}">{e(k["where"])}</a>'
+
+
+def claim(k):
+    return e(f"{plain(k['num'])}{k['unit']} {k['label']}")
+
+
+def live_block(alts):
+    links = ["https://akeanti.xyz/ariadne/#race", "https://akeanti.xyz/malfoid/#spellbook"]
+    cells = [f'  <a href="{u}">{themed(n, a, "49%")}</a>' for u, n, a in zip(links, ("live-race", "live-spell"), alts)]
+    return '<p align="center">\n' + "\n".join(cells) + "\n</p>"
+
+
+def text_block(d):
+    """The whole profile as text, folded away: for Ctrl+F, screen readers, applicant-tracking systems and copy-paste."""
+    li = lambda items: "<ul>\n" + "\n".join(f"<li>{x}</li>" for x in items) + "\n</ul>"  # noqa: E731
+    work = []
+    for repo in d["pins"]:
+        f = facts(repo)
+        nums = "; ".join(f"{plain(v)} {c}" for v, c in f["p"].get("metrics", []))
+        state = ", ".join(x for x in (f"{f['label'].lower()} {f['value']}" if f["value"] else "", (lamp(LOGO, f["ci"]) or (0, ""))[1]) if x)
+        work.append(f'<a href="{repo["url"]}"><b>{e(f["title"])}</b></a>, {e(f["kind"].lower())}. {e(f["pitch"])}'
+                    + (f" Key numbers: {e(nums)}." if nums else "") + (f" <i>{e(state)}</i>." if state else ""))
+    work.append("<b>Wireless power transfer</b>, TIPE research project in CPGE, on a physical bench: efficiency 23% at 34 kHz, "
+                f"up from 7.4%; model R² = 0.992, k = 0.044, Q ≈ 16.9. {e(TIPE)}")
+    when, where, fields = CONTACT[0], CONTACT[1], CONTACT[2]
+    return "\n".join([
+        "<details>",
+        "<summary><b>Read this profile as plain text</b> · for search, screen readers and copy-paste</summary>",
+        "<br>",
+        "",
+        f"<p><b>{NAME}</b> (akeanti) · élève-ingénieur, first year, Electrical and Energy Engineering, EHTP · Casablanca, Morocco<br>",
+        f"{e(HEADLINE)} {e(PITCH)}</p>",
+        f"<p><b>Looking for</b> a stage d'initiation (first-year internship): {e(when[1].lower())}, {e(when[2])}; "
+        f"{e(where[1])}, {e(where[2])}. Fields: {e(fields[1].lower())}; {e(fields[2])}.<br>",
+        f'<b>Contact</b> {EMAIL} · <a href="https://{SITE}">{SITE}</a> · <a href="https://www.{LINKEDIN}">{LINKEDIN}</a> · '
+        f'<a href="{CV_URL}">CV (PDF, in French)</a></p>',
+        "<p><b>Selected work</b></p>", li(work),
+        "<p><b>Education</b></p>", li(f"{e(w)}, {e(p)}: {e(ti)}, {e(su)}{', ' + e(de) if de else ''}." for w, p, ti, su, de in STATIONS[:-1]),
+        "<p><b>Roles</b></p>", li(f"{e(w)}: {e(r)}, {e(g)}. {e(x)}" for w, r, g, x in FEEDERS),
+        "<p><b>Toolkit</b></p>", li(f"{e(title.capitalize())}: {e(', '.join(items))}." for _, title, items in SKILLS),
+        "<p><b>Certifications</b>: " + "; ".join(f"{e(c)} ({e(i)})" for c, i in CERTS) + ".<br>",
+        "<b>Languages</b>: " + ", ".join(f"{e(n)} ({e(lv)})" for n, lv, _ in LANGS) + ".</p>",
+        "<p><b>A stage with me, week by week</b></p>",
+        li(f"Week{'s' if b > a else ''} {a}{f' to {b}' if b > a else ''}, {e(phase.lower())}: {e(what[0].lower() + what[1:])}. "
+           f"Milestone: {e(mile)}."
+           for a, b, phase, what, mile in PLAN),
+        "</details>"])
+
+
+def splice(text, name, block):
+    pattern = rf"(<!-- {name}:START[^>]*-->\n).*?(<!-- {name}:END -->)"
+    if not re.search(pattern, text, flags=re.S):
+        raise RuntimeError(f"README.md has no {name}:START / {name}:END markers")
+    return re.sub(pattern, lambda m: m.group(1) + block + "\n" + m.group(2), text, flags=re.S)
+
+
+# ---------------------------------------------------------------- checks, preview and report
+
+def check():
+    """What a visitor would notice: missing images or alt text, broken local links, rows that wrap on a phone, orphans."""
+    errors = []
+    text = read(README)
+    used = set()
+    for tag in re.findall(r"<img\b[^>]*>", text):
+        src, alt = re.search(r'src="([^"]+)"', tag), re.search(r'alt="([^"]*)"', tag)
+        if not alt or not alt.group(1).strip():
+            errors.append(f"README.md: an image has no alt text: {tag[:90]}")
+        if not src or re.match(r"https?:", src.group(1)):
+            continue
+        path = os.path.normpath(os.path.join(ROOT, src.group(1)))
+        used.add(path)
+        if not os.path.exists(path):
+            errors.append(f"README.md: missing image {src.group(1)}")
+        elif path.endswith(".svg"):
+            try:
+                ElementTree.parse(path)
+            except ElementTree.ParseError as err:
+                errors.append(f"{src.group(1)}: not valid XML ({err})")
+            if os.path.getsize(path) > 1_000_000:
+                errors.append(f"{src.group(1)}: {os.path.getsize(path) // 1000} kB, over the 1 MB budget")
+    for href in re.findall(r'href="([^"#:]+)"', text):
+        if not os.path.exists(os.path.join(ROOT, href)):
+            errors.append(f"README.md: broken link {href}")
+    for anchor in re.findall(r'href="#([^"]+)"', text):
+        if f'name="{anchor}"' not in text:
+            errors.append(f"README.md: no anchor named {anchor}")
+    # inline images wrap once their widths, plus about 1.5% of a phone-width column per space between them, pass 100%
+    for row in re.findall(r"<p[^>]*>(.*?)</p>", text, flags=re.S):
+        widths = [float(w) for w in re.findall(r'<img[^>]*width="([\d.]+)%"', row)]
+        gaps = len(re.findall(r"</a>\s+<a", row))
+        if len(widths) > 1 and sum(widths) + 1.5 * gaps > 100:
+            errors.append(f"README.md: a row of {len(widths)} images ({sum(widths):g}% plus {gaps} spaces) wraps on a phone")
+    for name in sorted(os.listdir(ASSETS)):
+        if name.endswith(".svg") and os.path.join(ASSETS, name) not in used:
+            errors.append(f"assets/{name} is not used by README.md")
+    return errors
+
+
+def preview(path):
+    """README.md as pages styled like GitHub, for the workflow's screenshots: the page itself, and phone.html beside it,
+    whose column is pinned to a phone's 390 px (a headless browser window cannot be made that narrow)."""
+    folder = os.path.dirname(os.path.abspath(path))
+    base = os.path.relpath(ROOT, folder).replace(os.sep, "/") + "/"
+    body = re.sub(r"<!--.*?-->", "", read(README), flags=re.S)
+    style = ('body{margin:0;background:#fff;color:#1f2328;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif}'
+             '.md{margin:16px;padding:24px;border:1px solid #d1d9e0;border-radius:6px}.md img{max-width:100%;box-sizing:content-box}'
+             'p,details,table{margin:0 0 16px}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #d1d9e0;padding:6px 13px}'
+             'code{background:#eff1f3;border-radius:6px;padding:.2em .4em;font-size:85%}a{color:#0969da}summary{cursor:pointer}')
+    os.makedirs(folder, exist_ok=True)
+    for name, extra in ((os.path.basename(path), ""), ("phone.html", "body{width:390px}.md{padding:16px}")):
+        with open(os.path.join(folder, name), "w", encoding="utf8") as fh:
+            fh.write(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><base href="{base}"><title>Profile preview</title>'
+                     f'<style>{style}{extra}</style></head><body><article class="md">{body}</article></body></html>\n')
+
+
+def report(path, d, errors):
+    """A run summary for the Actions page: the live data, what changed, and anything to look at."""
+    b, lr = d["building"], d["latest"]
+    pins = [(r["name"], rollup(r)) for r in d["pins"]]
+    green = sum(s == "SUCCESS" for _, s in pins)
+    lines = ["## Live profile", "",
+             f"Now building **{b['name']}** (last push {day(b['pushedAt'])})"
+             + (f" · latest release **{lr[1]} {lr[2]}** ({day(lr[0])})" if lr else "")
+             + f" · pinned CI **{green}/{len(pins)}** green", "",
+             "| Pinned repo | CI |", "| --- | --- |"]
+    lines += [f"| [{n}](https://github.com/{USER}/{n}) | {(lamp(LOGO, s) or (0, 'no CI'))[1]} |" for n, s in pins]
+    lines += ["", "### Changes", ""] + ([f"- `{c}`" for c in CHANGED] or ["Nothing changed, so nothing is committed."])
+    if WARNINGS:
+        lines += ["", "### Warnings", ""] + [f"- {w}" for w in WARNINGS]
+    if errors:
+        lines += ["", "### Check failed, nothing is published", ""] + [f"- {x}" for x in errors]
+    with open(path, "a", encoding="utf8") as fh:
+        fh.write("\n".join(lines) + "\n")
+
+
+# ---------------------------------------------------------------- build
+
+def build(user, offline=False):
+    """Every graphic, the generated README blocks, and the snapshot behind them."""
+    d = digest(user)
+    made = set()
+
+    def out(name, content):
+        write(f"{name}.svg", content)
+        made.add(f"{name}.svg")
+
+    out("header", header(LOGO, d))
+    out("stats", stats(LOGO, d))
+    pin_alts = []
+    for i, repo in enumerate(d["pins"], 1):
+        content, alt = card(LOGO, repo, i, len(d["pins"]))
+        out(f"pin-{i}", content)
+        pin_alts.append(alt)
+    kpi_alts = []
+    for i, k in enumerate(KPIS):
+        content, alt = kpi(LOGO, i, k, [d["ci"].get(r) for r in k["repos"]])
+        out(f"kpi-{i + 1}", content)
+        kpi_alts.append(alt)
+    live_alts = []
+    for name, draw, data in (("live-race", race, feed("race", reduce_race, offline)),
+                             ("live-spell", spell, feed("spellbook", reduce_spellbook, offline))):
+        content, alt = draw(LOGO, data)
+        out(name, content)
+        live_alts.append(alt)
+
+    out("tipe", tipe(LOGO))
+    out("background", background(LOGO))
+    out("skills", skills(LOGO))
+    out("plan", plan(LOGO))
+    out("contact", contact(LOGO))
+    for name, num, title, note in (("work", "01", "Selected work", "Synced with my GitHub pins"),
+                                   ("live", "02", "Try it live", "Real data from my repos, playable in your browser"),
+                                   ("background", "03", "Background", "School and clubs, as a one-line diagram"),
+                                   ("toolkit", "04", "Toolkit and activity", "What I work with"),
+                                   ("together", "05", "Working together", "A stage, planned week by week")):
+        out(f"section-{name}", section(LOGO, num, title, note))
+    for name, args in (("btn-cv", ("Download CV (FR)", "↓", True)), ("btn-email", ("Email me", "↗")),
+                       ("btn-site", (SITE, "↗")), ("btn-linkedin", ("LinkedIn", "↗")), ("btn-work", ("See projects", "↓")),
+                       ("btn-propose", ("Propose an internship", "↗", True, 360)),
+                       ("btn-call", ("Book a 15-minute call", "↗", False, 360)),
+                       ("btn-ask", ("Ask about a project", "↗", False, 360))):
+        out(name, button(LOGO, *args))
+
+    for name in sorted(os.listdir(ASSETS)):  # every SVG here is generated, so one this run did not make is stale
+        if name.endswith(".svg") and name not in made:
+            os.remove(os.path.join(ASSETS, name))
+            CHANGED.append(f"assets/{name} (removed)")
+            print(f"removed assets/{name}")
+
+    text = read(README)
+    for name, block in (("KPIS", kpi_block(kpi_alts, d)), ("PINNED", readme_block(pin_alts, d["pins"])),
+                        ("LIVE", live_block(live_alts)), ("TEXT", text_block(d))):
+        text = splice(text, name, block)
+    save(README, text)
+    if CHANGED:  # keep the data behind the published graphics, to rebuild them offline or fall back on
+        save(SNAPSHOT, json.dumps(user, indent=1, sort_keys=True, ensure_ascii=False) + "\n")
+    return d
 
 
 def main():
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(description="Build the profile's graphics and README blocks from the GitHub API.")
     ap.add_argument("--data", help="build from a saved API response instead of fetching")
-    ap.add_argument("--save", help="also save the API response here")
+    ap.add_argument("--save", help="also save the fetched API response here")
+    ap.add_argument("--offline", action="store_true", help="use the cached data from my other repos, fetch nothing else")
+    ap.add_argument("--check", action="store_true", help="only check README.md and assets/, and fail on problems")
+    ap.add_argument("--preview", metavar="HTML", help="also write README.md as a GitHub-like page, for screenshots")
+    ap.add_argument("--summary", metavar="MD", help="append a run report here (the workflow passes $GITHUB_STEP_SUMMARY)")
     args = ap.parse_args()
-    if args.data:
-        user = json.load(open(args.data, encoding="utf8"))
-    else:
-        user = fetch()
-        if args.save:
-            json.dump(user, open(args.save, "w", encoding="utf8"), indent=1)
-    d = digest(user)
-
-    emit("header", header, d)
-    emit("stats", stats, d)
-    alts, n = [], len(d["pins"])
-    for i, repo in enumerate(d["pins"], 1):
-        content, alt = card(LOGO, repo, i, n)
-        write(f"pin-{i}.svg", content)
-        alts.append(alt)
-    for i in range(n + 1, 7):
-        path = os.path.join(ASSETS, f"pin-{i}.svg")
-        if os.path.exists(path):
-            os.remove(path)
-            print(f"removed assets/pin-{i}.svg")
-    update_readme(readme_block(alts, d["pins"]))
-
-    emit("kpis", kpis)
-    emit("tipe", tipe)
-    emit("background", background)
-    emit("skills", skills)
-    emit("section-work", section, "01", "Selected work", "Synced with my GitHub pins")
-    emit("section-background", section, "02", "Background", "School and clubs, as a one-line diagram")
-    emit("section-toolkit", section, "03", "Toolkit and activity", "What I work with")
-    emit("contact", contact)
-    emit("btn-cv", button, "Download CV (FR)", "↓", True)
-    emit("btn-email", button, "Email me", "↗")
-    emit("btn-site", button, SITE, "↗")
-    emit("btn-linkedin", button, "LinkedIn", "↗")
-    emit("btn-work", button, "See projects", "↓")
+    d = None if args.check else build(github(args), offline=args.offline)
+    errors = check()
+    if args.preview:
+        preview(args.preview)
+    if args.summary and d:
+        report(args.summary, d, errors)
+    for err in errors:
+        print(f"error: {err}")
+    raise SystemExit(1 if errors else 0)
 
 
 if __name__ == "__main__":

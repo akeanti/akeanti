@@ -13,7 +13,7 @@ text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Ne
 .twinkle{animation:twinkle 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.5)}50%{opacity:1;transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
 </style></defs><rect x=".5" y=".5" width="1199" height="319" rx="4" fill="#1A1C1B" stroke="#323634"/>
-<text x="48" y="62" font-size="16" class="serif it soft"><tspan class="mono teal b" font-style="normal" font-size="12">04</tspan>  Get in touch</text>
+<text x="48" y="62" font-size="16" class="serif it soft">Get in touch</text>
 <text x="46" y="134" font-size="46" class="serif" letter-spacing="-.8">Hiring a first-year</text>
 <text x="46" y="186" font-size="46" class="serif" letter-spacing="-.8">engineering intern?</text>
 <text x="48" y="224" font-size="17" class="body">Stage d'initiation. My CV has it all on one page, in French.</text>
