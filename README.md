@@ -48,7 +48,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/akeanti/nabd"><img src="./assets/pin-3.svg" width="49%" alt="nabd, grid sensing hardware. Open network of GPS-synchronized ESP32-S3 nodes for grid frequency, ROCOF and synchrophasors (IEEE C37.118). Hardware and CI first; live map and open data next. Key numbers: $59 per node, bill of materials; C37.118 IEEE synchrophasor format. Stage: pre-release. Tests passing. MIT license, updated 14 Oct 2026."></a>
+  <a href="https://github.com/akeanti/nabd"><img src="./assets/pin-3.svg" width="49%" alt="nabd, grid sensing hardware. Open network of GPS-synchronized ESP32-S3 nodes for grid frequency, ROCOF and synchrophasors (IEEE C37.118). Hardware and CI first; live map and open data next. Key numbers: $59 per node, bill of materials; C37.118 IEEE synchrophasor format. Stage: pre-release. Tests passing. MIT license, updated 20 Oct 2026."></a>
   <a href="https://github.com/akeanti/matlab-discord-rpc"><img src="./assets/pin-4.svg" width="49%" alt="drpc, developer tools. Discord Rich Presence for MATLAB and Simulink: shows what you are editing, running, debugging or simulating. Runs inside MATLAB, no Python or Node. Key numbers: 9 activity states detected; 1 line install from MATLAB. Release: v1.2.0. Tests passing. MIT license, updated 18 Oct 2026."></a>
 </p>
 
