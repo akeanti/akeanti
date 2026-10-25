@@ -19,39 +19,39 @@ text{font-family:Inter,'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Ne
 <text x="32" y="192" font-size="44" class="serif">75</text><text x="32" y="214" font-size="13.5" class="body">stars</text><text x="32" y="231" font-size="12" class="soft">across my repos</text>
 <text x="182" y="192" font-size="44" class="serif">21</text><text x="182" y="214" font-size="13.5" class="body">followers</text><text x="182" y="231" font-size="12" class="soft">and counting</text>
 <path d="M332 30V220M842 30V220" stroke="#2A2E2C"/><text x="360" y="46" font-size="10" class="mono soft" letter-spacing="1.6">WEEKLY CONTRIBUTIONS · 26 WEEKS</text><path d="M360 192H812" stroke="#323634"/>
-<rect x="364.2" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<text x="364.2" y="210" font-size="10" class="mono soft">Apr</text>
-<rect x="381.6" y="168.8" width="9" height="23.2" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.025s"/>
+<rect x="364.2" y="168.8" width="9" height="23.2" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.000s"/>
+<text x="364.2" y="210" font-size="10" class="mono soft">May</text>
+<rect x="381.6" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="399.0" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="416.3" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="433.7" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="451.1" y="190.5" width="9" height="1.5" fill="#5C635F"/>
+<text x="451.1" y="210" font-size="10" class="mono soft">Jun</text>
 <rect x="468.5" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<text x="468.5" y="210" font-size="10" class="mono soft">Jun</text>
-<rect x="485.9" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<rect x="503.3" y="188.1" width="9" height="3.9" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.200s"/>
-<rect x="520.7" y="180.4" width="9" height="11.6" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.225s"/>
+<rect x="485.9" y="188.1" width="9" height="3.9" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.175s"/>
+<rect x="503.3" y="180.4" width="9" height="11.6" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.200s"/>
+<rect x="520.7" y="190.5" width="9" height="1.5" fill="#5C635F"/>
+<text x="520.7" y="210" font-size="10" class="mono soft">Jul</text>
 <rect x="538.0" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<text x="538.0" y="210" font-size="10" class="mono soft">Jul</text>
 <rect x="555.4" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="572.8" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="590.2" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<rect x="607.6" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<text x="607.6" y="210" font-size="10" class="mono soft">Aug</text>
-<rect x="625.0" y="153.3" width="9" height="38.7" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.375s"/>
-<rect x="642.3" y="126.3" width="9" height="65.7" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.400s"/>
+<text x="590.2" y="210" font-size="10" class="mono soft">Aug</text>
+<rect x="607.6" y="153.3" width="9" height="38.7" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.350s"/>
+<rect x="625.0" y="126.3" width="9" height="65.7" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.375s"/>
+<rect x="642.3" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="659.7" y="190.5" width="9" height="1.5" fill="#5C635F"/>
 <rect x="677.1" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<rect x="694.5" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<text x="694.5" y="210" font-size="10" class="mono soft">Sep</text>
-<rect x="711.9" y="114.7" width="9" height="77.3" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.500s"/>
-<rect x="729.3" y="190.5" width="9" height="1.5" fill="#5C635F"/>
-<rect x="746.7" y="184.3" width="9" height="7.7" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.550s"/>
-<rect x="764.0" y="79.9" width="9" height="112.1" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.575s"/>
-<text x="764.0" y="210" font-size="10" class="mono soft">Oct</text>
-<rect x="781.4" y="76.0" width="9" height="116.0" fill="#42BBC4" fill-opacity="1" class="bar" style="animation-delay:0.600s"/>
-<rect x="798.8" y="141.7" width="9" height="50.3" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.625s"/>
-<text x="785.9" y="68" font-size="10" class="mono teal" text-anchor="middle">30</text>
+<text x="677.1" y="210" font-size="10" class="mono soft">Sep</text>
+<rect x="694.5" y="114.7" width="9" height="77.3" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.475s"/>
+<rect x="711.9" y="190.5" width="9" height="1.5" fill="#5C635F"/>
+<rect x="729.3" y="184.3" width="9" height="7.7" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.525s"/>
+<rect x="746.7" y="79.9" width="9" height="112.1" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.550s"/>
+<text x="746.7" y="210" font-size="10" class="mono soft">Oct</text>
+<rect x="764.0" y="76.0" width="9" height="116.0" fill="#42BBC4" fill-opacity="1" class="bar" style="animation-delay:0.575s"/>
+<rect x="781.4" y="141.7" width="9" height="50.3" fill="#F6F6F4" fill-opacity="0.82" class="bar" style="animation-delay:0.600s"/>
+<rect x="798.8" y="190.5" width="9" height="1.5" fill="#5C635F"/>
+<text x="768.5" y="68" font-size="10" class="mono teal" text-anchor="middle">30</text>
 <text x="872" y="46" font-size="10" class="mono soft" letter-spacing="1.6">LANGUAGES · 12 MONTHS</text>
 <text x="872" y="82" font-size="14.5">Python</text><text x="1168" y="82" font-size="12" class="mono soft" text-anchor="end">61.4%</text><rect x="872" y="89" width="296" height="2" fill="#2A2E2C"/><rect x="872" y="89" width="296.0" height="2" fill="#42BBC4" class="grow" style="animation-delay:0.0s"/>
 <text x="872" y="112" font-size="14.5">C++</text><text x="1168" y="112" font-size="12" class="mono soft" text-anchor="end">18.8%</text><rect x="872" y="119" width="296" height="2" fill="#2A2E2C"/><rect x="872" y="119" width="90.9" height="2" fill="#F6F6F4" class="grow" style="animation-delay:0.1s"/>
