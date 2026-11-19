@@ -53,7 +53,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/akeanti/ariadne"><img src="./assets/pin-5.svg" width="49%" alt="ariadne, robotics and control. Simulation-first ESP32 micromouse: clothoid turn synthesis, time-optimal planning and a 10 kHz physics model running the real firmware control law. Key numbers: 2.4× faster than stop-and-pivot; 115 automated tests in CI. Release: v3.0.0. Tests passing. 11 stars, updated 13 Oct 2026."></a>
+  <a href="https://github.com/akeanti/ariadne"><img src="./assets/pin-5.svg" width="49%" alt="ariadne, robotics and control. Simulation-first ESP32 micromouse: clothoid turn synthesis, time-optimal planning and a 10 kHz physics model running the real firmware control law. Key numbers: 2.4× faster than stop-and-pivot; 115 automated tests in CI. Release: v3.0.0. Tests passing. 12 stars, updated 13 Oct 2026."></a>
   <a href="https://github.com/akeanti/malfoid"><img src="./assets/pin-6.svg" width="49%" alt="malfoid, embedded systems. ESP32-S3 gesture wand: on-device spell recognition from a 6-axis IMU, haptics, and smart-home control through Home Assistant and MQTT. Key numbers: 99.6% top-1 accuracy on test casts; ~1 ms inference on the ESP32-S3. Stage: active build. Tests passing. MIT license, updated 14 Oct 2026."></a>
 </p>
 <!-- PINNED:END -->
